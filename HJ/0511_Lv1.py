@@ -1,12 +1,5 @@
-#!/usr/bin/env python
-# coding: utf-8
+# 약수의 합
 
-# In[1]:
+# 짝수와 홀수
 
-
-# Lv.0 답
-
-# Lv.1 답
-
-# Lv.2 답
-
+# 자릿수 더하기
