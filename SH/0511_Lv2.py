@@ -1,13 +1,5 @@
-#!/usr/bin/env python
-# coding: utf-8
+# 최댓값과 최솟값
 
-# In[1]:
+# JadenCase 문자열 만들기
 
-
-# Lv.0 답
-블라블라
-
-# Lv.1 답
-
-# Lv.2 답
-
+# 최솟값 만들기
