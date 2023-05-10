@@ -1,13 +1,19 @@
-#!/usr/bin/env python
-# coding: utf-8
+# 두 수의 곱
+def solution(num1, num2):
+    return num1 * num2
 
-# In[1]:
+# 몫 구하기 
+def solution(num1, num2):
+    return num1%num2
 
+# 두 수의 차
+def solution(num1, num2):
+    return num1-num2
 
-# Lv.0 답
-블라블라
+# 나머지 구하기
+def solution(num1, num2):
+    return num1//num2
 
-# Lv.1 답
-
-# Lv.2 답
-
+# 나이 출력
+def solution(age):
+    return (2022 - age)+1
