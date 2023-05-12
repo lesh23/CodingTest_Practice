@@ -38,3 +38,16 @@ def solution(s):
 
 
 # 숫자의 표현
+def solution(n):
+    answer = 0
+    # 연속하는 수 방정식 계산하는 방법으로 생각
+    # x+(x+1)+(x+2) = 15 를 예로 들면 3x + (1+2) = 15가 됨
+    # 3x = 15 - (1+2)가 됨으로 for문을 이용해서 ix + (i-1)i/2 = n 이라는 방정식을 해결한다고 생각하고 접근
+    for i in range(1,n+1):
+        if n-(i-1)*i/2 > 0 :
+            if (n-(i-1)*i/2) % i == 0:
+                answer += 1
+        else :
+            break
+        
+    return answer
