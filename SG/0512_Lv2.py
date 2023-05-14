@@ -37,4 +37,4 @@ def solution(n):
         for j in range(i,n+1):
             if (j-i+1)*(i+j)/2 ==n:
                 answer += 1
-    return answer                   # 효율성 0점짜리 풀이 ㅠ^ㅠ 아닐 때 다시 생각해서 풀기  
+    return answer                   # 효율성 0점짜리 풀이; 다시
