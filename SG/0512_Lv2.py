@@ -37,4 +37,6 @@ def solution(n):
         for j in range(i,n+1):
             if (j-i+1)*(i+j)/2 ==n:
                 answer += 1
-    return answer                   
+            if (j-i+1)*(i+j)/2 > n:
+                break
+    return answer
