@@ -12,12 +12,12 @@ def solution(n):
     if n == 1 or n ==2 :
         return 1
     for i in range(1,n) : 
-        a , b = b , b+a
+        a , b = b , b+a                 # 바뀐 값을 사용하기 때문에 동시 작업 필요
     return a % 1234567
 
 # 짝지어 제거하기
 def solution(s):
-    stack = []
+    stack = []                          # 스택 활용
     for i in s:
         if stack ==[]:
             stack.append(i)
