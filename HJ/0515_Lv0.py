@@ -6,7 +6,7 @@ def solution(n, k):
 
 # n의 배수
 def solution(num, n):
-    answer = lambda x, y: 1 if num%n==0 else 0
+    answer = lambda x, y: 1 if x%y==0 else 0
     return answer(num,n) 
 
 # 정수 부분
