@@ -21,8 +21,9 @@ def solution(s):
     larz = 0 # length after removing zero
     while larz != 1:
         ztr += s.count("0") # 지운 0 누적
-        s = s.replace("0", "") # 0을 뺀 문자열 갱신
-        larz = len(s) # 0을 뺀 새로운 문자열 길이
+        # s = s.replace("0", "") # 0을 뺀 문자열 갱신
+        # larz = len(s) # 0을 뺀 새로운 문자열 길이
+        larz = s.count("1")
         count +=1 # 한 번의 회차가 끝났다는 것
         s = bin(larz)[2:] # 길이를 이진법으로 다시 표현
         # 1이 될 때까지 while문에서 반복
@@ -31,3 +32,21 @@ def solution(s):
     return answer
 
 # 숫자의 표현
+def solution(n):
+    answer = 0
+    numbers = [x for x in range(n+1)]
+    for i in numbers:
+        sum = 0
+        rnd = numbers[i+1:]
+        for x in rnd:
+            if sum<15:
+                if len(rnd)==1: 
+                    answer+=1
+                else:
+                    sum+=x
+            elif sum>15:
+                break
+            elif sum==15:
+                answer+=1
+                break
+    return answer
