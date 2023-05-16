@@ -15,5 +15,20 @@ def solution(n):
         
 
 # 피보나치 수
+def solution(n):
+    num = fib(n)
+    if num!=0:
+        answer = num%1234567
+    return answer
+
+def fib(x):
+    if x<2: return x
+    elif x<0: return 0
+    else:
+        return (fib(x-1)+(fib(x-2)))
+    
+# def solution(n):
+#     for i in reversed(range(n+1)):
+#         print(i)
 
 # 짝지어 제거하기

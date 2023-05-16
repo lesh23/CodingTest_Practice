@@ -32,21 +32,21 @@ def solution(s):
     return answer
 
 # 숫자의 표현
-def solution(n):
-    answer = 0
-    numbers = [x for x in range(n+1)]
-    for i in numbers:
-        sum = 0
-        rnd = numbers[i+1:]
-        for x in rnd:
-            if sum<15:
-                if len(rnd)==1: 
-                    answer+=1
-                else:
-                    sum+=x
-            elif sum>15:
-                break
-            elif sum==15:
-                answer+=1
-                break
-    return answer
+# def solution(n):
+#     answer = 0
+#     numbers = [x for x in range(n+1)]
+#     for i in numbers:
+#         sum = 0
+#         rnd = numbers[i+1:]
+#         for x in rnd:
+#             if sum<15:
+#                 if len(rnd)==1: 
+#                     answer+=1
+#                 else:
+#                     sum+=x
+#             elif sum>15:
+#                 break
+#             elif sum==15:
+#                 answer+=1
+#                 break
+#     return answer

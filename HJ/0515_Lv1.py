@@ -5,6 +5,9 @@ def solution(s):
     if a==b: return True
     else: return False
 
+    # return len() == len()
+    # return s.count() == s.count()
+
 # 자연수 뒤집어 배열로 만들기
 def solution(n):
     answer = [int(x) for x in reversed(str(n))]
