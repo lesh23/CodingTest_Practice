@@ -32,17 +32,3 @@ def fib(x):
 #         print(i)
 
 # 짝지어 제거하기
-def solution(s):
-    tmp=[]
-    
-    for i in s: 
-        if len(tmp)==0:
-            tmp.append(i)
-        else:
-            if i == tmp[-1]:
-                tmp.pop()
-            else:
-                tmp.append(i)
-                
-    if len(tmp)==0: return 1
-    else: return 0
