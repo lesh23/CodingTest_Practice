@@ -41,3 +41,16 @@ def solution(arr):
         answer *= i    
     
     return answer
+
+# 파이썬에서는 돌아가는데 프로그래머스에서는 작동 안함
+import math
+
+arr=[2,6,8,14]	
+arr.sort()
+answer = arr[0]
+
+for i in range(1,len(arr)):
+    
+    answer = math.lcm(answer, arr[i])
+
+answer
