@@ -14,5 +14,15 @@ def solution(n,a,b):
     return answer
 
 # 점프와 순간 이동
+def solution(n):
+    return bin(n).count('1')
 
 # N개의 최소공배수
+def solution(arr):
+    def lcm(a, b):
+        for i in range(max(a, b), (a * b) + 1):
+            if i % a == 0 and i % b == 0:
+                return i
+    for j in range(0,len(arr)-1):              # 앞에서 두 개씩 최소공배수 구하기
+        arr[j+1] = lcm(arr[j],arr[j+1])
+    return(arr[-1])
