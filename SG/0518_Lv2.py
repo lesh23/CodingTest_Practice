@@ -13,7 +13,18 @@ def solution(n,a,b):
         answer += 1
     return answer
 
-# 점프와 순간 이동
+# 점프와 순간 이동 - while문
+def solution(n):
+    cnt = 0
+    while n != 0:
+        if n%2==0:
+            n = n/2
+        else:
+            n -= 1
+            cnt += 1
+    return cnt
+
+# 점프와 순간 이동 - while문의 원리가 2진수 바꾸는 법
 def solution(n):
     return bin(n).count('1')
 
