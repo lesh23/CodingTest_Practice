@@ -1,6 +1,13 @@
 # 영어 끝말잇기
 
 # 카펫
+def solution(brown, yellow):
+    
+    l = sorted([x for x in range(1,brown+yellow+1) if (brown+yellow) % x == 0 ], reverse = True)
+
+    for i in l:
+        if yellow % (i-2) == 0:
+            return [i,(brown+yellow) // i]
 
 # 구명보트
 def solution(people, limit):
