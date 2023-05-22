@@ -1,4 +1,42 @@
 # H-Index
+def solution(citations):
+    citations.sort()
+    h = min(citations[len(citations) // 2], sum(citations)//len(citations))
+    answer = 0
+
+    for i in citations:
+        if i >= h:
+            answer += 1
+
+    if h <= answer:
+        h += 1
+        answer = 0
+        
+        while True:
+            for i in citations:
+                if i >= h:
+                    answer += 1
+
+            if h <= answer:
+                h += 1
+                answer = 0
+            else :
+                return h-1
+    else:
+        h -= 1
+        answer = 0
+        
+        while True:
+            for i in citations:
+                if i >= h:
+                    answer += 1
+
+            if h > answer:
+                h -= 1
+                answer = 0
+            else :
+                return h
+        
 
 # 연속 부분 수열 합의 개수
 def solution(elements):
