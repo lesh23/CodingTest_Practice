@@ -25,6 +25,19 @@ def solution(n,a,b):
 
 
 # N개의 최소공배수
+def solution(arr):
+    arr.sort()
+    answer = arr[0]
+    
+    for i in range(1,len(arr)):
+        for j in range(answer,arr[i]*answer + 1) :
+            if j % answer == 0 and j % arr[i] == 0:
+                answer = j 
+                break
+                
+    return answer
+
+
 # 틀림
 def solution(arr):
     arr.sort()
