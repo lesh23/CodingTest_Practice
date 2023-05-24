@@ -187,8 +187,26 @@ def solution(s):
 
 # 5월 24일
 # 수박수박수박수박수박수?
+def solution(n):
+    answer = ''
+    if n%2==0:
+        answer = "수박"*(n/2)
+    else:
+        answer = "수박"*(n/2)+"수"
+    return answer
+
 # 내적
+def solution(a, b):
+    answer = []
+    n = 0
+    while n!= len(a) :
+        answer.append(a[n]*b[n])
+        n += 1
+    return sum(answer)
+
 # 문자열 내림차순으로 배치하기
+def solution(s):
+    return ''.join(sorted(s, reverse = True))
 
 # 5월 25일 
 # 약수의 개수와 덧셈
