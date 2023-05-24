@@ -245,13 +245,80 @@ def solution(numbers, n):
 
 # 5월 24일
 # 중앙값 구하기
+def solution(array):
+    answer = 0
+    array.sort()
+    return array[len(array)//2]
+
 # 순서쌍의 개수
+def solution(n):
+    answer = 0
+    for i in range(1,n+1):
+        if n%i==0:
+            answer += 1
+    return answer
+
 # 머쓱이보다 키 큰 사람
+def solution(array, height):
+    answer = 0
+    for i in array:
+        if i> height:
+            answer += 1 
+    return answer
+
 # 중복된 숫자 개수
+def solution(array, n):
+    answer = 0
+    for i in array:
+        if i == n:
+            answer += 1
+    return answer
+
 # 최댓값 만들기(1)
+def solution(numbers):
+    answer = 0
+    new = []
+    for i in range(1,len(numbers)):
+        new.append(numbers[i-1]*numbers[i])   
+    return max(new)
 
 # 문자열의 앞의 n글자
+def solution(my_string, n):
+    return my_string[:n]  # 리스트로 바꿀 필요 없음
+
 # 삼각형의 완성조건 (1)
+def solution(sides):
+    answer = 0
+    sides.sort()
+    if sides[0] + sides[1] > sides[2]:
+        answer = 1
+    else:
+        answer = 2       
+    return answer
+
 # 문자열 뒤집기
+def solution(my_string):
+    return my_string[::-1]
+
 # 짝수 홀수 개수
+def solution(num_list):
+    answer = []
+    a=0 
+    b=0
+    for i in num_list:
+        if i%2==0:
+            a+=1
+        else:
+            b+=1
+    answer = [a,b]        
+    return answer
+
 # 길이에 따른 연산
+def solution(num_list):
+    answer = 1
+    if len(num_list) > 10 :
+        answer = sum(num_list)
+    else : 
+        for i in num_list:
+            answer *= i
+    return answer
