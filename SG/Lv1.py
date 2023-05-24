@@ -133,6 +133,8 @@ def solution(seoul):
     for i in range(0,len(seoul)) :
         if seoul[i] == 'Kim':
             return '김서방은 ' + str(i) + '에 있다'
+
+
 # 5월 19일
 # 나누어 떨어지는 숫자 배열
 def solution(arr, divisor):
@@ -160,6 +162,8 @@ def solution(absolutes, signs):
         else:
             answer.append(-absolutes[i])
     return sum(answer)
+
+
 # 5월 22일
 # 없는 숫자 더하기
 def solution(numbers):
