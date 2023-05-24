@@ -190,17 +190,74 @@ def solution(s):
 
 ### 5월 24일
 # 수박수박수박수박수박수?
+def solution(n):
+    a = '수'
+    b = '수박'
+    if n %2 == 0:
+        return b*(n//2)
+    else:
+        return b*(n//2)+a
+    
 # 내적
+def solution(a, b):
+    return sum([a[i]*b[i] for i in range(len(a))])
+
 # 문자열 내림차순으로 배치하기
+def solution(s):
+    answer = ''.join(sorted(s))
+    return answer[::-1]
+
+
 
 # 5월 25일 
 # 약수의 개수와 덧셈
+def solution(left, right):
+    answer = 0
+    cnt = 0
+    for i in range(left, right+1):
+        for j in range(1,i+1):
+            if i%j==0:
+                cnt += 1
+                
+        if cnt % 2== 0:
+            answer += i
+        else:
+            answer -= i
+        
+        cnt =0
+    return answer
+# 다른 사람 풀이 - 제곱수는 약수의 개수가 홀수
+
 # 부족한 금액 계산하기
+def solution(price, money, count):
+    if price * sum([x for x in range(count+1)]) - money >=0 :
+        return price * sum([x for x in range(count+1)]) - money
+    else :
+        return 0
+    
 # 문자열 다루기 기본
+def solution(s):
+    if len(s)== 4 or len(s)== 6:
+        return s.isdigit()
+    return False
+
+
 
 # 5월 26일
 # 행렬의 덧셈
+def solution(arr1, arr2):
+    answer = []
+    arr = []
+    for i in range(len(arr1)):
+        for j in range(len(arr1[i])):
+            arr.append(arr1[i][j]+arr2[i][j])
+        answer.append(arr)
+        arr=[]
+    return answer
+# 다른 사람 풀이 - zip / 코드 더 간결하게 하는 방법
+
 # 직사각형 별찍기
+
 # 최대공약수와 최소공배수
 
 # 5월 29일
