@@ -179,8 +179,24 @@ def solution(s):
     
 '''0524'''
 # 수박수박수박수박수박수?
+def solution(n):
+    answer = ''
+    for i in range(1,n+1):
+        if i%2==0:
+            answer += '박'
+        else:
+            answer += '수'
+    return answer
+
 # 내적
+def solution(a, b):
+    answer = sum([a[i]*b[i] for i,_ in enumerate(a)])
+    return answer
+
 # 문자열 내림차순으로 배치하기
+def solution(s):
+    answer = ''.join(sorted(s))[::-1]
+    return answer
 
 '''0525'''
 # 약수의 개수와 덧셈
