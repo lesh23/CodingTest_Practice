@@ -257,13 +257,64 @@ def solution(arr1, arr2):
 # 다른 사람 풀이 - zip / 코드 더 간결하게 하는 방법
 
 # 직사각형 별찍기
+a, b = map(int, input().strip().split(' '))
+
+s = '*'*a
+for j in range(b):
+    print(s)
 
 # 최대공약수와 최소공배수
+import math
+def solution(n, m):
+    return [math.gcd(n,m), n*m/math.gcd(n,m)]
+
+
 
 # 5월 29일
 # 같은 숫자는 싫어
+def solution(arr):
+    answer = []
+    answer.append(arr[0])
+    
+    for i in range(1,(len(arr))):
+        
+        if arr[i] == arr[i-1]:
+            continue
+        else :
+            answer.append(arr[i])
+
+    return answer
+
 # 3진법 뒤집기
+def solution(n):
+    arr = []
+    while n > 2:
+        arr.append(n % 3)
+        n = n//3
+
+    arr.append(n)
+
+    for i in range(len(arr)) :
+        arr[i] = arr[i]*(3**(len(arr)-i-1))
+    return sum(arr)
+
 # 이상한 문자 만들기
+def solution(s):
+    l = s.split(' ')
+
+    for j in range(len(l)):
+        a = list(l[j])
+        for i in range(len(a)):
+            if i%2 ==0:
+                a[i] =a[i].upper()
+            else :
+                a[i] =a[i].lower()
+
+        l[j] = ''.join(a)
+        
+    return ' '.join(l)
+
+
 
 # 5월 31일
 # 예산

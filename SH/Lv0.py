@@ -503,6 +503,14 @@ def solution(num_list):
 
 ### 5/30
 # 배열에서 문자열 대소문자 변환하기
+def solution(strArr):
+    for i in range(len(strArr)):
+        if i%2==0:
+            strArr[i] = strArr[i].lower()
+        else :
+            strArr[i] = strArr[i].upper()
+    return strArr
+
 # 문자열안에 문자열
 # 제곱수 판별하기
 # 이어 붙인 수
@@ -510,6 +518,19 @@ def solution(num_list):
 # 개미 군단
 # 문자열 바꿔서 찾기
 # 접두사인지 확인하기
+def solution(my_string, is_prefix):
+    if is_prefix not in my_string:
+        return 0
+    
+    if my_string[:len(is_prefix)] == is_prefix :
+        return 1
+        
+    return 0
+
+# 내장함수 이용
+def solution(my_string, is_prefix):
+    return int(my_string.startswith(is_prefix))
+
 # 더 크게 합치기
 # 마지막 두 원소
 def solution(num_list):
