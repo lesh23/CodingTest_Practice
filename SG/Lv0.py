@@ -1,4 +1,4 @@
-# 5월 11일
+### 5월 11일 ###
 # 두 수의 곱
 def solution(num1, num2):
     answer = num1*num2
@@ -24,7 +24,9 @@ def solution(age):
     answer = 2022 - age +1
     return answer
 
-# 5월 12일
+
+
+### 5월 12일 ###
 # 두 수의 합
 def solution(num1, num2):
     answer = num1 + num2
@@ -63,7 +65,9 @@ def solution(numbers):
         answer+=i       
     return answer/len(numbers)
 
-#5월 15일
+
+
+### 5월 15일 ###
 # 양꼬치
 def solution(n, k):
     answer = (n*12000)+(k*2000)-(n//10)*2000
@@ -97,7 +101,9 @@ def solution(n):
     answer = str(n)
     return answer
 
-# 5월 17일 
+
+
+### 5월 17일 ###
 # 숫자 비교하기
 def solution(num1, num2):
     answer = 0
@@ -129,7 +135,9 @@ def solution(number, n, m):
     else:
         return 0
     
-# 5월 18일
+
+
+### 5월 18일 ###
 # flag에 따라 다른 값 반환하기
 def solution(a, b, flag):
     if flag == True:
@@ -166,7 +174,8 @@ def solution(my_string, k):
     return (my_string)*k
 
 
-# 5월 19일
+
+### 5월 19일 ###
 # 문자열의 뒤의 n글자
 def solution(my_string, n):
     l=list(my_string)
@@ -203,7 +212,8 @@ def solution(message):
     return answer
 
 
-# 5월 22일 
+
+### 5월 22일 ###
 # 배열 원소의 길이
 def solution(strlist):
     answer = []
@@ -243,7 +253,8 @@ def solution(numbers, n):
     return answer
 
 
-# 5월 24일
+
+### 5월 24일 ###
 # 중앙값 구하기
 def solution(array):
     answer = 0
@@ -322,3 +333,228 @@ def solution(num_list):
         for i in num_list:
             answer *= i
     return answer
+
+
+
+### 5/25 ###
+# 옷가게 할인 받기
+def solution(price):
+    answer = 0
+    if price < 100000 : 
+        answer = int(price)
+    if 300000 > price >= 100000 : 
+        answer = int(price * 0.95)
+    if 500000 > price >= 300000 :
+        answer = int(price * 0.9)
+    if price >= 500000:
+        answer = int(price * 0.8)
+    return answer
+
+# 아이스 아메리카노
+def solution(money):
+    return [money//5500, money%5500]
+
+# 첫 번째로 나오는 음수
+def solution(num_list):
+    for i in range(0,len(num_list)):
+        if num_list[i]<0:
+            return i
+    return -1
+
+# 모음 제거
+def solution(my_string):
+    for i in ["a","e","i","o","u"]:
+        if i in my_string:
+            my_string=my_string.replace(i,"")
+    return my_string    
+
+# 원소들의 곱과 합
+# 으엥???????
+
+# 정수 찾기
+def solution(num_list, n):
+    if n in num_list:
+        return 1
+    return 0
+
+# 주사위 게임 1
+def solution(a, b):
+    answer = 0
+    if a%2==1 and b%2==1:
+        answer = (a**2)+(b**2)
+    elif a%2==1 or b%2==1:
+        answer = 2*(a+b)
+    elif a%2==0 and b%2==0:
+        answer = abs(a-b)
+    return answer
+
+# n 번째 원소까지
+def solution(num_list, n):
+    return num_list[:n]
+
+# 뒤에서 5등 위로
+def solution(num_list):
+    answer = []
+    l = sorted(num_list)
+    return l[5:]
+
+# 공백으로 구분하기 1
+def solution(my_string):
+    return my_string.split()
+
+
+
+### 5월 26일 ### 
+# rny_string
+def solution(rny_string):
+    return rny_string.replace("m","rn")
+
+# 배열의 유사도
+def solution(s1, s2):
+    answer = 0
+    for i in s1:
+        for j in s2:
+            if i==j:
+                answer +=1
+    return answer
+
+# 문자 반복 출력하기
+def solution(my_string, n):
+    answer = ''
+    for i in my_string:
+        answer += i*n
+    return answer
+
+# 자릿수 더하기 ver.1
+def solution(n):
+    answer = 0
+    for i in str(n):
+        answer+= int(i)
+    return answer
+
+# 자릿수 더하기 ver.2 - while문 사용
+def solution(n):
+    answer = 0
+    while n:
+        answer += n%10
+        n = n//10
+    return answer
+        
+# n 번째 원소부터
+def solution(num_list, n):
+    return num_list[n-1:]
+
+# 짝수는 싫어요
+def solution(n):
+    answer = []
+    for i in range(1,n+1):
+        if i%2 == 1:
+            answer.append(i)
+    return answer
+
+# 카운트 업
+def solution(start, end):
+    answer = []
+    for i in range(start,end+1):
+        answer.append(i)
+    return answer
+
+# 부분 문자열인지 확인하기
+def solution(my_string, target):
+    if target in my_string:
+        return 1
+    return 0
+
+# 카운트 다운
+def solution(start, end):
+    answer = []
+    for i in range(end,start+1):
+        answer.append(i)
+    return answer[::-1]
+
+# n개 간격의 원소들
+def solution(num_list, n):
+    answer = []
+    for i in range(0,len(num_list)):
+        if i%n==0:
+            answer.append(num_list[i])
+    return answer
+
+### 5월 29일 ###
+# 문자열 정수의 합
+def solution(num_str):
+    answer = 0
+    for i in str(num_str):
+        answer += int(i)
+    return answer
+
+# 숨어있는 숫자의 덧셈 (1)
+def solution(my_string):
+    answer = 0
+    for i in my_string:
+        if i in ['1','2','3','4','5','6','7','8','9','0']:
+            answer+=int(i)
+    return answer
+
+#문자열 붙여서 출력하기
+a = input()
+print(a.replace(" ",""))
+
+# 글자 이어 붙여 문자열 만들기
+def solution(my_string, index_list):
+    answer = []
+    l = list(my_string)
+    for i in index_list:
+        answer.append(l[i])
+    return ''.join(answer)
+
+# 원하는 문자열 찾기
+def solution(myString, pat):
+    if pat.upper() in myString.upper() :
+        return 1
+    return 0
+
+# 배열 만들기 1
+def solution(n, k):
+    answer = []
+    for i in range(1,n+1):
+        if i%k==0:
+            answer.append(i)
+    return answer
+
+# 홀짝 구분하기
+a = int(input())
+if a%2 == 0:
+    print("%a is even" %a)
+else :
+    print("%a is odd" %a)
+
+# 조건에 맞게 수열 변환하기 1
+def solution(arr):
+    answer = []
+    for i in arr:
+        if i>=50 and i%2==0:
+            answer.append(i/2)
+        elif i<50 and i%2==1:
+            answer.append(i*2)
+        else:
+            answer.append(i)
+    return answer
+
+# 수 조작하기 1
+def solution(n, control):
+    answer = n
+    for i in control:
+        if i == "w":
+            answer += 1
+        elif i == "s":
+            answer -= 1
+        elif i == "d":
+            answer += 10
+        elif i == "a":
+            answer -= 10
+    return answer
+
+# 뒤에서 5등까지
+def solution(num_list):    
+    return sorted(num_list)[0:5]
