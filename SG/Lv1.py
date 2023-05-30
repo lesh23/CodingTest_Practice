@@ -214,6 +214,21 @@ def solution(s):
 
 # 5월 25일 
 # 약수의 개수와 덧셈
+def solution(left, right):
+    def gcm(i):        
+        b = 0
+        for j in range(1, i+1):
+            if i % j == 0:
+                b+=1
+        return b
+    answer = 0
+    l = list(range(left,right+1))
+    for i in l:
+        if gcm(i)%2==0:
+            answer += i
+        else:
+            answer -= i
+    return answer
 
 # 부족한 금액 계산하기
 def solution(price, money, count):
@@ -244,7 +259,17 @@ def solution(arr1, arr2):
     return answer
 
 # 직사각형 별찍기
+a, b = map(int, raw_input().strip().split(' '))
+for i in range(b):
+    print('*'*a)
+
 # 최대공약수와 최소공배수
+def solution(n, m):
+    for i in range(1,min(n,m)+1):
+        if n%i==0 and m%i==0:
+            a = i
+            b = (n*m)/i
+    return [a,b]
 
 # 5월 29일
 # 같은 숫자는 싫어
@@ -256,4 +281,30 @@ def solution(arr):
     return answer
 
 # 3진법 뒤집기
+def solution(n):
+    answer = 0
+    l=[]
+    while n:
+        l.append(n%3)
+        n = n//3
+    for i in range(len(l)):
+        answer*=3
+        answer+=l[i]
+    return answer
+
 # 이상한 문자 만들기
+def solution(s):
+    answer = ''
+    l = s.split(' ')
+    for i in range(0,len(l)):
+        for j in range(0,len(l[i])):
+            if j%2==0:
+                s1 = l[i][j]            # 이 과정 생략하고 l[i][j].upper() 하면 왜 자꾸 오류가 나는 것일까 !!
+                s2 = s1.upper()
+                answer += s2
+            else:
+                s3 = l[i][j]
+                s4 = s3.lower()
+                answer += s4
+        answer += ' '
+    return answer[0:-1]
