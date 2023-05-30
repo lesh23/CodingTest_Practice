@@ -214,5 +214,46 @@ def solution(s):
 
 # 5월 25일 
 # 약수의 개수와 덧셈
+
 # 부족한 금액 계산하기
+def solution(price, money, count):
+    s = 0
+    for i in range(1,count+1):
+        s += price*i
+    if s>money:
+        return s-money
+    if s<=money:
+        return 0
+    
 # 문자열 다루기 기본
+def solution(s):
+    if (len(s) == 4 or len(s) == 6) and s.isdigit() == True:
+        return True
+    else:
+        return False
+
+# 5월 26일
+# 행렬의 덧셈
+def solution(arr1, arr2):
+    answer = []
+    for i in range(0,len(arr1)):
+        s = []
+        for j in range(0,len(arr1[0])):
+            s.append(arr1[i][j] + arr2[i][j])
+        answer.append(s)        
+    return answer
+
+# 직사각형 별찍기
+# 최대공약수와 최소공배수
+
+# 5월 29일
+# 같은 숫자는 싫어
+def solution(arr):
+    answer = [arr[0]]
+    for i in range(1,len(arr)):
+        if arr[i] != arr[i-1]:
+            answer.append(arr[i])
+    return answer
+
+# 3진법 뒤집기
+# 이상한 문자 만들기
