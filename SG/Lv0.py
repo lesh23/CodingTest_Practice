@@ -26,6 +26,8 @@ def solution(age):
 
 
 
+
+
 ### 5월 12일 ###
 # 두 수의 합
 def solution(num1, num2):
@@ -67,6 +69,8 @@ def solution(numbers):
 
 
 
+
+
 ### 5월 15일 ###
 # 양꼬치
 def solution(n, k):
@@ -100,6 +104,8 @@ def solution(n):
     answer = ''
     answer = str(n)
     return answer
+
+
 
 
 
@@ -137,6 +143,8 @@ def solution(number, n, m):
     
 
 
+
+
 ### 5월 18일 ###
 # flag에 따라 다른 값 반환하기
 def solution(a, b, flag):
@@ -172,6 +180,8 @@ def solution(numbers):
 # 문자열 곱하기
 def solution(my_string, k):
     return (my_string)*k
+
+
 
 
 
@@ -213,6 +223,8 @@ def solution(message):
 
 
 
+
+
 ### 5월 22일 ###
 # 배열 원소의 길이
 def solution(strlist):
@@ -251,6 +263,8 @@ def solution(numbers, n):
         if answer >n:
             break
     return answer
+
+
 
 
 
@@ -336,6 +350,8 @@ def solution(num_list):
 
 
 
+
+
 ### 5/25 ###
 # 옷가게 할인 받기
 def solution(price):
@@ -369,7 +385,16 @@ def solution(my_string):
     return my_string    
 
 # 원소들의 곱과 합
-# 으엥???????
+def solution(num_list):
+    a = 1
+    b = 0
+    for i in num_list:
+        a *= i
+        b += i
+    if a < b**2:
+        return 1
+    else:
+        return 0
 
 # 정수 찾기
 def solution(num_list, n):
@@ -401,6 +426,8 @@ def solution(num_list):
 # 공백으로 구분하기 1
 def solution(my_string):
     return my_string.split()
+
+
 
 
 
@@ -479,6 +506,10 @@ def solution(num_list, n):
         if i%n==0:
             answer.append(num_list[i])
     return answer
+
+
+
+
 
 ### 5월 29일 ###
 # 문자열 정수의 합

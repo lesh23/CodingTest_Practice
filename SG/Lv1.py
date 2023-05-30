@@ -1,4 +1,4 @@
-# 5월 11일
+### 5월 11일 ###
 # 약수의 합
 def solution(n):
     answer = 0
@@ -23,7 +23,11 @@ def solution(n):
         answer+=int(i)
     return answer
 
-# 5월 12일 
+
+
+
+
+### 5월 12일 ###
 # 나머지가 1이 되는 수 찾기
 def solution(n):
     answer = 0
@@ -46,7 +50,10 @@ def solution(x, n):
     return answer
 
 
-# 5월 15일
+
+
+
+### 5월 15일 ###
 # 문자열 내 p와 y의 개수
 def solution(s):
     cnt_p = 0
@@ -78,7 +85,11 @@ def solution(n):
         answer = -1
     return answer 
 
-# 5월 17일
+
+
+
+
+### 5월 17일 ###
 # 문자열을 정수로 바꾸기
 def solution(s):
     return int(s)
@@ -100,8 +111,12 @@ def solution(x):
         return True
     else:
         return False
-    
-# 5월 18일
+
+
+
+
+
+### 5월 18일 ###
 # 두 정수 사이의 합
 def solution(a, b):
     answer = 0
@@ -135,7 +150,10 @@ def solution(seoul):
             return '김서방은 ' + str(i) + '에 있다'
 
 
-# 5월 19일
+
+
+
+### 5월 19일 ###
 # 나누어 떨어지는 숫자 배열
 def solution(arr, divisor):
     answer = []
@@ -164,7 +182,10 @@ def solution(absolutes, signs):
     return sum(answer)
 
 
-# 5월 22일
+
+
+
+### 5월 22일 ###
 # 없는 숫자 더하기
 def solution(numbers):
     arr = [0,1,2,3,4,5,6,7,8,9]    
@@ -189,7 +210,10 @@ def solution(s):
     return answer
 
 
-# 5월 24일
+
+
+
+### 5월 24일 ###
 # 수박수박수박수박수박수?
 def solution(n):
     answer = ''
@@ -212,7 +236,11 @@ def solution(a, b):
 def solution(s):
     return ''.join(sorted(s, reverse = True))
 
-# 5월 25일 
+
+
+
+
+### 5월 25일 ###
 # 약수의 개수와 덧셈
 def solution(left, right):
     def gcm(i):        
@@ -247,7 +275,11 @@ def solution(s):
     else:
         return False
 
-# 5월 26일
+
+
+
+
+### 5월 26일 ###
 # 행렬의 덧셈
 def solution(arr1, arr2):
     answer = []
@@ -271,7 +303,11 @@ def solution(n, m):
             b = (n*m)/i
     return [a,b]
 
-# 5월 29일
+
+
+
+
+### 5월 29일 ###
 # 같은 숫자는 싫어
 def solution(arr):
     answer = [arr[0]]
