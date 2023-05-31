@@ -344,3 +344,55 @@ def solution(s):
                 answer += s4
         answer += ' '
     return answer[0:-1]
+
+
+
+
+
+### 5월 31일 ###
+# 예산
+def solution(d, budget):
+    answer = 0
+    d.sort()
+    for i in d:
+        budget -= i 
+        if budget < 0:
+            break   
+        answer += 1                 
+    return answer
+
+# 시저 암호
+def solution(s, n):
+    answer = ''
+    import string
+    l_s = list(string.ascii_lowercase)+list(string.ascii_lowercase)
+    u_s = list(string.ascii_uppercase)+list(string.ascii_uppercase)
+    for i in s:
+        for j in range(0,int(len(l_s)/2)):
+            if i in l_s[j]:
+                answer += l_s[j+n]
+            if i in u_s[j]:
+                answer += u_s[j+n]
+        if i == ' ':
+            answer += ' '
+    return answer
+
+# 삼총사 ver.1 for문 사용
+def solution(number):
+    answer = 0
+    for i in range(0,len(number)-2):            # 범위 주의
+        for j in range(i+1,len(number)-1):
+            for k in range(j+1, len(number)):
+                if number[i] + number[j] + number[k] == 0:
+                    answer += 1
+    return answer
+
+# 삼총사 ver.2 라이브러리 이용
+def solution(number):
+    answer = 0
+    from itertools import combinations
+    l = list(combinations(number, 3))
+    for i in l:
+        if sum(i)==0:
+            answer += 1
+    return answer

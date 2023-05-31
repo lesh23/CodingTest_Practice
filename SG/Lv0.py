@@ -636,7 +636,19 @@ def solution(num_list):
             b += i
     return int(a)+int(b)
 
-# 문자열 바꿔서 찾기
+# 문자열 바꿔서 찾기 (어려움,,ㅠㅜ)
+def solution(myString, pat):
+    answer = []
+    l = list(myString)
+    for i in l:
+        if i == "A":
+            answer.append("B")
+        else:
+            answer.append("A")
+    result = ''.join(map(str, answer))
+    if pat in result:
+        return 1
+    return 0
 
 # 개미 군단
 def solution(hp):
@@ -647,7 +659,7 @@ def solution(hp):
     answer += hp
     return answer
 
-# 문자열 바꿔서 찾기
+# 문자열 바꿔서 찾기(중복)
 
 # 접두사인지 확인하기
 def solution(my_string, is_prefix):
