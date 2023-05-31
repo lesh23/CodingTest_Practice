@@ -589,3 +589,84 @@ def solution(n, control):
 # 뒤에서 5등까지
 def solution(num_list):    
     return sorted(num_list)[0:5]
+
+
+
+
+
+### 5월 31일 ###
+# 배열에서 문자열 대소문자 변환하기
+def solution(strArr):
+    answer = []
+    for i in range(0,len(strArr)):
+        if i%2==0:
+            answer.append(strArr[i].lower())
+        else:
+            answer.append(strArr[i].upper())       
+    return answer
+
+# 문자열안에 문자열
+def solution(str1, str2):
+    answer = 0
+    if str2 in str1:
+        answer = 1
+    else:
+        answer = 2
+    return answer
+
+# 제곱수 판별하기
+def solution(n):
+    answer = 0
+    for i in range(0,n-1):
+        if (n **(0.5)).is_integer():
+            answer = 1
+        else:
+            answer = 2
+    return answer
+
+# 이어 붙인 수
+def solution(num_list):
+    l = list(map(str,num_list))
+    a = ''
+    b = ''
+    for i in l:
+        if int(i)%2==1:
+            a += i
+        else:
+            b += i
+    return int(a)+int(b)
+
+# 문자열 바꿔서 찾기
+
+# 개미 군단
+def solution(hp):
+    answer = hp // 5
+    hp = hp % 5
+    answer += hp // 3
+    hp = hp % 3
+    answer += hp
+    return answer
+
+# 문자열 바꿔서 찾기
+
+# 접두사인지 확인하기
+def solution(my_string, is_prefix):
+    answer = []
+    for i in range(1,len(my_string)-1):
+        answer.append(my_string[:i])
+    if is_prefix in answer:
+        return 1
+    return 0
+
+# 더 크게 합치기
+def solution(a, b):
+    answer = [str(a)+str(b),str(b)+str(a)]
+    return int(max(answer))
+
+# 마지막 두 원소
+def solution(num_list):
+    if num_list[-1]>num_list[-2]:
+        num_list.append(num_list[-1]-num_list[-2])
+    else:
+        num_list.append(2*(num_list[-1]))
+    return num_list
