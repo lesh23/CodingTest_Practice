@@ -750,8 +750,21 @@ def solution(box, n):
     return answer
 
 # 공백으로 구분하기 2
+def solution(my_string):
+    answer = []
+    l = my_string.split(' ')
+    for i in l:
+        if i != "":
+            answer.append(i)
+    return answer
+
 # 덧셈식 출력하기
 a, b = map(int, input().strip().split(' '))
 print(a,"+",b,"=",a+b)
 
 # 배열의 원소만큼 추가하기
+def solution(arr):
+    answer = []
+    for j in arr:
+        answer += [j]*j
+    return answer
