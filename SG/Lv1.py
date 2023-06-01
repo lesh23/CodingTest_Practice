@@ -389,6 +389,20 @@ def solution(sizes):
     return max(long)*max(short)
 
 # [1차] 비밀지도
+def solution(n, arr1, arr2):
+    answer = []
+    a = ''
+    for i in range(0,n):
+        answer.append(bin(arr1[i]|arr2[i])[2:])
+    for k in range(0,n):
+        if len(answer[k])<n:
+            answer[k] = '0'*(n-len(answer[k]))+answer[k]
+            print(answer)
+    for j in range(0,n):
+        answer[j] = answer[j].replace('1','#')
+        answer[j] = answer[j].replace('0',' ')
+    return answer
+    
 # 크기가 작은 부분 문자열
 def solution(t, p):
     answer = 0 
