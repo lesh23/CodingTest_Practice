@@ -403,5 +403,21 @@ def solution(number):
 
 # 6월 1일
 # 최소직사각형
+def solution(sizes):
+    answer = 0
+    long = []
+    short = []
+    for i in sizes:
+        long.append(max(i))
+        short.append(min(i))
+    return max(long)*max(short)
+
 # [1차] 비밀지도
 # 크기가 작은 부분 문자열
+def solution(t, p):
+    answer = 0 
+    n = len(p)
+    for i in range(0,len(t)-n+1):
+        if t[i:i+len(p)] <= p:
+            answer += 1
+    return answer
