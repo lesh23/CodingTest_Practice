@@ -25,8 +25,6 @@ def solution(n):
 
 
 
-
-
 ### 5월 12일 ###
 # 나머지가 1이 되는 수 찾기
 def solution(n):
@@ -48,8 +46,6 @@ def solution(x, n):
     for i in range (1,n+1):
         answer.append (x*i)
     return answer
-
-
 
 
 
@@ -87,8 +83,6 @@ def solution(n):
 
 
 
-
-
 ### 5월 17일 ###
 # 문자열을 정수로 바꾸기
 def solution(s):
@@ -111,8 +105,6 @@ def solution(x):
         return True
     else:
         return False
-
-
 
 
 
@@ -151,8 +143,6 @@ def solution(seoul):
 
 
 
-
-
 ### 5월 19일 ###
 # 나누어 떨어지는 숫자 배열
 def solution(arr, divisor):
@@ -183,8 +173,6 @@ def solution(absolutes, signs):
 
 
 
-
-
 ### 5월 22일 ###
 # 없는 숫자 더하기
 def solution(numbers):
@@ -211,8 +199,6 @@ def solution(s):
 
 
 
-
-
 ### 5월 24일 ###
 # 수박수박수박수박수박수?
 def solution(n):
@@ -235,8 +221,6 @@ def solution(a, b):
 # 문자열 내림차순으로 배치하기
 def solution(s):
     return ''.join(sorted(s, reverse = True))
-
-
 
 
 
@@ -277,8 +261,6 @@ def solution(s):
 
 
 
-
-
 ### 5월 26일 ###
 # 행렬의 덧셈
 def solution(arr1, arr2):
@@ -302,8 +284,6 @@ def solution(n, m):
             a = i
             b = (n*m)/i
     return [a,b]
-
-
 
 
 
@@ -344,8 +324,6 @@ def solution(s):
                 answer += s4
         answer += ' '
     return answer[0:-1]
-
-
 
 
 
@@ -396,8 +374,6 @@ def solution(number):
         if sum(i)==0:
             answer += 1
     return answer
-
-
 
 
 
