@@ -682,3 +682,76 @@ def solution(num_list):
     else:
         num_list.append(2*(num_list[-1]))
     return num_list
+
+
+
+
+
+### 6월 1일 ###
+# 꼬리 문자열
+def solution(str_list, ex):
+    answer = ''
+    for i in str_list:
+        if ex not in i:
+            answer += i
+    return answer
+
+# 암호 해독
+def solution(cipher, code):
+    answer = ''
+    l = list(cipher)
+    for i in range(0,len(l)):
+        if (i+1)%code==0:
+            answer += l[i]
+    return answer
+
+# 가위 바위 보
+def solution(rsp):
+    answer = ''
+    for i in rsp:
+        if i == "2":
+            answer += "0"
+        if i=="0":
+            answer += "5"
+        if i=="5":
+            answer += "2"
+    return answer
+
+# 세균 증식
+def solution(n, t):
+    return n*(2**t)
+
+# 홀짝에 따라 다른 값 반환하기
+def solution(n):
+    answer = 0
+    if n%2==1:
+        for i in range(0,int(n/2)+1):
+            answer += 2*i+1
+    if n%2==0:
+        for j in range(0,int(n/2)+1):
+            answer += (j*2)**2            
+    return answer
+
+# 대문자와 소문자
+def solution(my_string):
+    answer = ''
+    for i in my_string:
+        if i.isupper() == True:
+            answer += i.lower()
+        else:
+            answer += i.upper()
+    return answer
+
+# 주사위의 개수
+def solution(box, n):
+    answer = 1
+    for i in box:
+        answer *= int(i/n)
+    return answer
+
+# 공백으로 구분하기 2
+# 덧셈식 출력하기
+a, b = map(int, input().strip().split(' '))
+print(a,"+",b,"=",a+b)
+
+# 배열의 원소만큼 추가하기

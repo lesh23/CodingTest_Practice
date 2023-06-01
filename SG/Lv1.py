@@ -396,3 +396,12 @@ def solution(number):
         if sum(i)==0:
             answer += 1
     return answer
+
+
+
+
+
+# 6월 1일
+# 최소직사각형
+# [1차] 비밀지도
+# 크기가 작은 부분 문자열
