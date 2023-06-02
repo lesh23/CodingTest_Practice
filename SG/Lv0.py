@@ -775,6 +775,12 @@ def solution(arr):
 
 ### 6월 2일 ###
 # 부분 문자열 이어 붙여 문자열 만들기
+def solution(my_strings, parts):
+    answer = ''
+    for i in range(0,len(my_strings)):
+        answer += my_strings[i][parts[i][0]:parts[i][1]+1]
+    return answer
+
 # 직각삼각형 출력하기
 n = int(input())
 for i in range(1,n+1):
@@ -791,10 +797,69 @@ def solution(my_string):
     return answer
 
 # 최댓값 만들기 (2)
+def solution(numbers):
+    new = []
+    for i in range(0,len(numbers)-1):
+        for j in range(i+1,len(numbers)):            
+            new.append(numbers[i]*numbers[j])
+    return max(new)
+
 # 홀수 vs 짝수
+def solution(num_list):
+    odd = 0
+    even = 0
+    for i in range(0,len(num_list)):
+        if i%2==0:
+            odd += num_list[i]
+        else:
+            even += num_list[i]
+    return max(odd,even)
 
 # n의 배수 고르기
+def solution(n, numlist):
+    answer = []
+    for i in numlist:
+        if i%n == 0:
+            answer.append(i)
+    return answer
+
 # 배열의 길이에 따라 다른 연산하기
+def solution(arr, n):
+    answer = []
+    if len(arr)%2==1:
+        for i in range(0,int((len(arr)-1)/2)+1):
+            arr[2*i] += n
+    if len(arr)%2==0:
+        for i in range(0,int(len(arr)/2)):
+            arr[2*i+1] += n
+    return arr
+
 # 접미사인지 확인하기
+def solution(my_string, is_suffix):
+    answer = []
+    for i in range(0,len(my_string)):
+        answer.append(my_string[i:])
+    if is_suffix in answer:
+        return 1
+    else:
+        return 0
+    
 # A 강조하기
+def solution(myString):
+    answer = ''
+    for i in range(0,len(myString)):
+        if myString[i] == 'a' or myString[i] == 'A':
+            answer += 'A'
+        else:
+            answer += myString[i].lower()
+    return answer
+
 # 배열 회전시키기
+def solution(numbers, direction):
+    answer = []
+    two = numbers+numbers
+    if direction == "right":
+        answer = [numbers[-1]]+numbers[0:len(numbers)-1]
+    if direction == "left":
+        answer = numbers[1:len(numbers)]+[numbers[0]]
+    return answer
