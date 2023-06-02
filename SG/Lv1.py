@@ -411,3 +411,11 @@ def solution(t, p):
         if t[i:i+len(p)] <= p:
             answer += 1
     return answer
+
+
+
+### 6월 2일 ###
+# 숫자 문자열과 영단어	
+# 문자열 내 마음대로 정렬하기
+# K번째수
+

@@ -768,3 +768,33 @@ def solution(arr):
     for j in arr:
         answer += [j]*j
     return answer
+
+
+
+
+
+### 6월 2일 ###
+# 부분 문자열 이어 붙여 문자열 만들기
+# 직각삼각형 출력하기
+n = int(input())
+for i in range(1,n+1):
+    print ("*"*i, end = "\n")
+
+# 문자열 정렬하기 (1)
+def solution(my_string):
+    answer = []
+    num = [0,1,2,3,4,5,6,7,8,9]
+    for i in my_string:
+        if i.isalpha() == False:
+            answer.append(int(i))
+    answer.sort()
+    return answer
+
+# 최댓값 만들기 (2)
+# 홀수 vs 짝수
+
+# n의 배수 고르기
+# 배열의 길이에 따라 다른 연산하기
+# 접미사인지 확인하기
+# A 강조하기
+# 배열 회전시키기
