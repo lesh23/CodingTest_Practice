@@ -512,11 +512,61 @@ def solution(strArr):
     return strArr
 
 # 문자열안에 문자열
+def solution(str1, str2):
+    answer = lambda x,y : 1 if str2 in str1 else 2
+    return answer(str1,str2)
+
 # 제곱수 판별하기
+from math import sqrt
+def solution(n):
+    if n % int(sqrt(n)) == 0:
+        return 1
+    else: 
+        return 2
+
+    # 다른 풀이
+    def solution(n):
+        return 1 if (n ** 0.5).is_integer() else 2
+
 # 이어 붙인 수
+def solution(num_list):
+    e =''
+    o = ''
+    for i in num_list:
+        if i % 2 ==0:
+            e += str(i)
+        else :
+            o += str(i)
+    return int(e)+int(o)
+
 # 문자열 바꿔서 찾기
+def solution(myString, pat):
+    myString = myString.replace('A','C')
+    myString = myString.replace('B','D')
+    
+    pat = pat.replace('A','D')
+    pat = pat.replace('B','C')
+
+    if pat in myString:
+        return 1
+    else:
+        return 0
+    
 # 개미 군단
+
 # 문자열 바꿔서 찾기
+def solution(myString, pat):
+    myString = myString.replace('A','C')
+    myString = myString.replace('B','D')
+    
+    pat = pat.replace('A','D')
+    pat = pat.replace('B','C')
+
+    if pat in myString:
+        return 1
+    else:
+        return 0
+    
 # 접두사인지 확인하기
 def solution(my_string, is_prefix):
     if is_prefix not in my_string:
@@ -532,6 +582,7 @@ def solution(my_string, is_prefix):
     return int(my_string.startswith(is_prefix))
 
 # 더 크게 합치기
+
 # 마지막 두 원소
 def solution(num_list):
     if num_list[-1] > num_list[-2]:
