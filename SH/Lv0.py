@@ -553,6 +553,19 @@ def solution(myString, pat):
         return 0
     
 # 개미 군단
+def solution(hp):
+    result = 0
+    while hp >0:
+        if hp // 5 >= 1:
+            result += hp//5
+            hp =  hp% 5
+        elif hp // 3 >= 1:
+            result += hp //3
+            hp = hp % 3
+        else :
+            result += hp
+            hp = 0
+    return result
 
 # 문자열 바꿔서 찾기
 def solution(myString, pat):
@@ -582,6 +595,8 @@ def solution(my_string, is_prefix):
     return int(my_string.startswith(is_prefix))
 
 # 더 크게 합치기
+def solution(a, b):
+    return max(int(str(a)+str(b)),int(str(b)+str(a)))
 
 # 마지막 두 원소
 def solution(num_list):
@@ -595,43 +610,222 @@ def solution(num_list):
 
 ### 5/31
 # 꼬리 문자열
+def solution(str_list, ex):
+    answer = []
+    for i in str_list:
+        if ex not in i :
+            answer.append(i)
+    return ''.join(answer)
+
 # 암호 해독
+def solution(cipher, code):
+    answer = [cipher[i] for i in range(code-1, len(cipher),code)]
+    return ''.join(answer)
+
 # 가위 바위 보
+def solution(rsp):
+    rsp = list(rsp)
+    for i in range(len(rsp)) :
+        if rsp[i] =='2' :
+            rsp[i] = '0'
+        elif rsp[i] =='0':
+            rsp[i] = '5'
+        else : 
+            rsp[i]='2'
+    return ''.join(rsp)
+
+    # dic 쓰는거 확인
+
 # 세균 증식
+def solution(n, t):
+    return n * (2**t)
+
 # 홀짝에 따라 다른 값 반환하기
+def solution(n):
+    if n % 2 ==1 :
+        return sum([x for x in range(1,n+1,2)])
+    else:
+        return sum([x**2 for x in range(0,n+1,2)])
+    
 # 대문자와 소문자
+def solution(my_string):
+    my_string = list(my_string)
+    for i in range(len(my_string)):
+        if my_string[i].isupper() == True:
+            my_string[i] = my_string[i].lower()
+        else :
+            my_string[i] = my_string[i].upper()
+    return ''.join(my_string)
+
+    # 내장함수
+    def solution(my_string):
+        return my_string.swapcase()
+
 # 주사위의 개수
+def solution(box, n):
+    answer = 1
+    for i in box:
+        answer *= i//n
+    return answer
+
+    # 따로따로 변수 선언
+    def solution(box, n):
+        x, y, z = box
+        return (x // n) * (y // n) * (z // n )
+
 # 공백으로 구분하기 2
+def solution(my_string):
+    my_string = my_string.split(' ')
+
+    while '' in my_string:
+        my_string.remove('')
+    return my_string
+
 # 덧셈식 출력하기
+a, b = map(int, input().strip().split(' '))
+print(str(a)+ ' + '+str(b) +' = ' +str(a+b))
+
 # 배열의 원소만큼 추가하기
+def solution(arr):
+    answer = []
+
+    for i in arr :
+        j=i
+        while j >0:
+            answer.append(i)
+            j -= 1
+    return answer
+
 
 
 
 ### 6/1 
 # 부분 문자열 이어 붙여 문자열 만들기
+def solution(my_strings, parts):
+    answer = ''
+    for i in range(len(my_strings)):
+        answer += my_strings[i][parts[i][0]:parts[i][1]+1]
+    return answer
+
+    # enumerate 이용해보기
+
 # 직각삼각형 출력하기
+n = int(input())
+for i in range(1,n+1):
+    print('*'*i)
+
 # 문자열 정렬하기 (1)
+def solution(my_string):
+    answer = [int(x) for x in my_string if x.isdigit()==True]
+    return sorted(answer)
+
 # 최댓값 만들기 (2)
+def solution(numbers):
+    numbers.sort()
+    return max(numbers[0]*numbers[1],numbers[-1]*numbers[-2])
+
 # 홀수 vs 짝수
+def solution(num_list):
+    return max(sum(x for x in num_list[::2]), sum(x for x in num_list[1::2]))
+
 # n의 배수 고르기
+def solution(n, numlist):
+    return [x for x in numlist if x % n ==0]
+
 # 배열의 길이에 따라 다른 연산하기
+def solution(arr, n):
+    if len(arr) % 2 == 0:
+        for i in range(1,len(arr),2):
+            arr[i] += n
+    else :
+        for i in range(0,len(arr),2):
+            arr[i] += n
+    return arr
+
 # 접미사인지 확인하기
+def solution(my_string, is_suffix):
+    if my_string[-len(is_suffix):] == is_suffix :
+        return 1
+    return 0
+
 # A 강조하기
+def solution(myString):
+    myString = myString.lower()
+    myString = myString.replace('a',"A")
+    return myString
+
 # 배열 회전시키기
+def solution(numbers, direction):
+    if direction == 'right':
+        return [numbers[-1]]+numbers[:-1]
+    return numbers[1:]+[numbers[0]]
 
 
 
 ### 6/2
 # 인덱스 바꾸기
+def solution(my_string, num1, num2):
+    my_string = list(my_string)
+    my_string[num1], my_string[num2] = my_string[num2], my_string[num1]
+    return ''.join(my_string)
+
 # 외계행성의 나이
+def solution(age):
+    return ''.join([chr(int(x)+97) for x in str(age)])
+
 # 가장 큰 수 찾기
+def solution(array):
+    return [max(array),array.index(max(array))]
+
 # 접미사 배열
+def solution(my_string):
+    return sorted([my_string[i:] for i in range(len(my_string))])
+
 # 피자 나눠 먹기 (2)
+import math
+def solution(n):
+    return n/math.gcd(n,6)
+
 # 0 떼기
+def solution(n_str):
+    n_str = list(n_str)
+    while True:
+        if n_str[0] != '0':
+            break
+        else:
+            n_str.remove('0')
+    return ''.join(n_str)
+
 # 문자열 섞기
+def solution(str1, str2):
+    answer = ''
+    for i in range(len(str1)):
+        answer += str1[i]
+        answer += str2[i]
+    return answer
+
 # 369게임
+def solution(order):
+    answer = 0
+    for i in str(order):
+        if int(i) % 3 ==0 and int(i) != 0:
+            answer += 1
+    return answer
+
 # 5명씩
+def solution(names):
+    return [x for x in names[::5]]
+
 # l로 만들기
+def solution(myString):
+    myString = list(myString)
+    for i in range(len(myString)):
+        if ord(myString[i]) < ord('l'):
+            myString[i] = 'l'
+    return ''.join(myString)
+
+
+
 
 
 
@@ -639,11 +833,25 @@ def solution(num_list):
 # 약수 구하기
 # 문자열 돌리기
 # 배열 비교하기
+def solution(arr1, arr2):
+    if len(arr1) != len(arr2):
+        return 1 if len(arr1) > len(arr2) else -1
+    else:
+        if sum(arr1) > sum(arr2):
+            return 1
+        elif sum(arr1) < sum(arr2):
+            return -1
+        else :
+            return 0
+        
 # 숫자 찾기
 # ad 제거하기
 
 
 # 할 일 목록
+def solution(todo_list, finished):
+    return [todo_list[i] for i in range(len(todo_list)) if finished[i] == False]
+
 # 간단한 식 계산하기
 # 콜라츠 수열 만들기
 # 배열의 원소 삭제하기
