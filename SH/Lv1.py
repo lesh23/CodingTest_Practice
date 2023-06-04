@@ -318,18 +318,124 @@ def solution(s):
 
 # 5월 31일
 # 예산
+def solution(d, budget):
+    d.sort()
+    for i in range(1,len(d)+1):
+        # 앞에서부터 부서별 예산 더해서 예산 뛰어넘는 순간 그 전 i 반환
+        if sum(d[:i])>budget:
+            return i-1
+        # 같은 경우는 i반환
+        elif sum(d[:i]) == budget:
+            return i
+    # d 전체 더했는데도 예산보다 작으면 d길이 반환
+    return len(d)
+
 # 시저 암호
+def solution(s, n):
+    s=list(s)
+    for i in range(len(s)):
+        # 공백은 공백으로
+        if s[i] == ' ':
+            continue
+
+        # 소문자일 때 밀기
+        if ord(s[i]) >= ord('a') and ord(s[i]) <= ord('z'):
+            if ord(s[i]) + n > ord('z') :
+                s[i] = chr((ord(s[i]) + n)-26)
+            else :
+                s[i] = chr(ord(s[i]) + n)
+
+        # 대문자
+        if ord(s[i]) >= ord('A') and ord(s[i]) <= ord('Z'):
+            if ord(s[i]) + n > ord('Z') :
+                s[i] = chr((ord(s[i]) + n)-26)
+            else :
+                s[i] = chr(ord(s[i]) + n)
+    
+    return ''.join(s)
+
 # 삼총사
+from itertools import combinations
+
+def solution(number):
+    l = list(combinations(number,3))
+    
+    answer = 0
+    for j in l:
+        if sum(j) == 0 :
+            answer += 1
+    return answer
 
 # 6월 1일
 # 최소직사각형
-# [1차] 비밀지도
-# 크기가 작은 부분 문자열
+def solution(sizes):
+    for i in range(len(sizes)):
+        sizes[i] = [min(sizes[i]),max(sizes[i])]
+    
+    return max(sizes[i][0] for i in range(len(sizes)))*max(sizes[i][1] for i in range(len(sizes)))
 
-# 6월 5일
+# [1차] 비밀지도
+def solution(n, arr1, arr2):
+    zero = '0'*n
+    answer = []
+
+    for i in range(n):
+        # arr1과 arr2의 각 원소들을 이진수로 바꾸고 앞자리 0으로 메꾸기
+        a1 = zero[0:n-len(bin(arr1[i])[2:])] + bin(arr1[i])[2:]
+        a2 = zero[0:n-len(bin(arr2[i])[2:])] + bin(arr2[i])[2:]
+        a = ''
+        # 원소 비교해서 # 또는 공백으로 처리
+        for i in range(n):
+            if a1[i] == a2[i] and a1[i] == '0':
+                a += ' '
+            else:
+                a += '#'
+        # 결과 answer에 append
+        answer.append(a)
+        
+    return answer
+
+# 크기가 작은 부분 문자열
+def solution(t, p):
+    answer = 0
+    for i in range(len(t)-len(p)+1):
+        if int(t[i:i+len(p)]) <= int(p):
+            answer += 1
+    return answer
+
+
+
+# 6월 2일
 # 숫자 문자열과 영단어	
+def solution(s):
+    s = s.replace('zero','0')
+    s = s.replace('one','1')
+    s = s.replace('two','2')
+    s = s.replace('three','3')
+    s = s.replace('four','4')
+    s = s.replace('five','5')
+    s = s.replace('six','6')
+    s = s.replace('seven','7')
+    s = s.replace('eight','8')
+    s = s.replace('nine','9')
+    return int(s)
+
+    # dic, enumerate 이용하는거 확인
+
 # 문자열 내 마음대로 정렬하기
+def solution(strings, n):
+    # case2 처리해주기 위해서 우선 사전순 배열
+    strings.sort()
+    return sorted(strings, key=lambda x : x[n])
+
 # K번째수
+def solution(array, commands):
+    answer = []
+    for i in commands :
+        answer.append(sorted(array[i[0]-1:i[1]])[i[2]-1])
+    return answer
+
+
 
 # 6월 7일
 # 두 개 뽑아서 더하기

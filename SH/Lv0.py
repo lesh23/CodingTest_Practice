@@ -635,6 +635,9 @@ def solution(rsp):
     return ''.join(rsp)
 
     # dic 쓰는거 확인
+    def solution(rsp):
+        d = {'0':'5','2':'0','5':'2'}
+        return ''.join(d[i] for i in rsp)
 
 # 세균 증식
 def solution(n, t):
