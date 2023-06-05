@@ -684,6 +684,9 @@ def solution(my_string):
         my_string.remove('')
     return my_string
 
+    # 그냥 split()으로 해도됨
+    # my_string.split() 하면 알아서 공백 다 제거하고 return 
+
 # 덧셈식 출력하기
 a, b = map(int, input().strip().split(' '))
 print(str(a)+ ' + '+str(b) +' = ' +str(a+b))
