@@ -834,12 +834,16 @@ def solution(myString):
 
 
 
-
-
-
-
+### 6/7
 # 약수 구하기
+def solution(n):
+    return [i for i in range(1,n+1) if n % i ==0]
+
 # 문자열 돌리기
+str = input()
+for i in range(len(str)):
+    print(str[i])
+
 # 배열 비교하기
 def solution(arr1, arr2):
     if len(arr1) != len(arr2):
@@ -853,24 +857,75 @@ def solution(arr1, arr2):
             return 0
         
 # 숫자 찾기
-# ad 제거하기
+def solution(num, k):
+    return str(num).index(str(k))+1 if str(k) in str(num) else -1
 
+# ad 제거하기
+def solution(strArr):
+    answer = []
+    for i in strArr:
+        if 'ad' not in i:
+            answer.append(i)
+    return answer
 
 # 할 일 목록
 def solution(todo_list, finished):
     return [todo_list[i] for i in range(len(todo_list)) if finished[i] == False]
 
 # 간단한 식 계산하기
+def solution(binomial):
+    if binomial.split()[1] == '+':
+        return int(binomial.split()[0]) + int(binomial.split()[2])
+    elif binomial.split()[1] == '-':
+        return int(binomial.split()[0]) - int(binomial.split()[2])
+    else:
+        return int(binomial.split()[0]) * int(binomial.split()[2])
+ 
+    # 내장함수 : eval
+    # def solution(binomial):
+    #     return eval(binomial)
+
 # 콜라츠 수열 만들기
+def solution(n):
+    result = [n]
+    while n != 1:
+        if n %2 ==0:
+            result.append(n//2)
+            n = n//2
+        else :
+            result.append(3*n+1)
+            n = 3*n+1
+    return result
+
 # 배열의 원소 삭제하기
+def solution(arr, delete_list):
+    for i in delete_list:
+        if i in arr :
+            arr.remove(i)
+    return arr
+
 # 문자열 정렬하기 (2)
+def solution(my_string):
+    return ''.join(sorted(my_string.lower()))
 
 
+
+### 6/8
 # 합성수 찾기
 # 가까운 1 찾기
 # 주사위 게임 2
+def solution(a, b, c):
+    if len(set([a,b,c])) == 3:
+        return a+b+c
+    elif len(set([a,b,c])) == 1:
+        return (a+b+c)*(a**2+b**2+c**2)*(a**3+b**3+c**3)
+    else:
+        return (a+b+c)*(a**2+b**2+c**2)
+    
 # 특별한 이차원 배열 2
 # 순서 바꾸기
+def solution(num_list, n):
+    return num_list[n:] + num_list[:n]
 
 
 # 9로 나눈 나머지
