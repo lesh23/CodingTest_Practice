@@ -417,6 +417,14 @@ def solution(t, p):
 ### 6월 2일 ###
 # 숫자 문자열과 영단어	
 # 문자열 내 마음대로 정렬하기
+def solution(strings, n):
+    answer = []
+    new = []
+    for i in range(0,len(strings)):
+        strings[i] = strings[i][n]+strings[i]
+    for i in range(0,len(strings)):
+        answer.append(sorted(strings)[i][1:])
+    return answer
 
 # K번째수
 def solution(array, commands):
