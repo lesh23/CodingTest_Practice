@@ -802,6 +802,8 @@ def solution(n_str):
             n_str.remove('0')
     return ''.join(n_str)
 
+    # answer = str(int(n_str))
+
 # 문자열 섞기
 def solution(str1, str2):
     answer = ''
