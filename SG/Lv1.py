@@ -435,3 +435,46 @@ def solution(array, commands):
         answer.append(new[(commands[i][2])-1])
     return answer
 
+
+
+### 6월 7일 ###
+# 두 개 뽑아서 더하기
+def solution(numbers):
+    answer = []
+    for i in range(0,len(numbers)):
+        for j in range(i+1,len(numbers)):
+            answer.append(numbers[i]+numbers[j])
+    return sorted(list(set(answer)))
+
+# 콜라 문제
+# 푸드 파이트 대회
+
+
+
+### 6월 8일 ###
+# 가장 가까운 같은 글자
+# 2016년
+# 추억 점수
+
+
+
+### 6월 9일 ###
+# 폰켓몬
+def solution(nums):
+    N=len(nums)
+    answer=0
+    if len(set(nums))<=N/2:
+        answer=len(set(nums))
+    else : 
+        answer=N/2
+    return answer
+
+# 모의고사
+# 명예의 전당 (1)
+
+
+
+### 6월 12일 ###
+# 소수 만들기
+# 소수 찾기
+# 과일 장수

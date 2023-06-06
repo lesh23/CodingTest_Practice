@@ -884,15 +884,58 @@ def solution(my_string, num1, num2):
     return ''.join(answer)
 
 # 외계행성의 나이
+def solution(age):
+    answer = []
+    for i in str(age):
+        answer.append(int(i))
+    for j in range(0,len(answer)):
+        answer[j] = chr(answer[j]+97)
+    return ''.join(answer)
+
 # 가장 큰 수 찾기
+def solution(array):
+    return [max(array),array.index(max(array))]
+
 # 접미사 배열
+def solution(my_string):
+    answer = []
+    for i in range(0,len(my_string)):
+        answer.append(my_string[i:])
+    return sorted(answer)
+
 # 피자 나눠 먹기 (2)
+def solution(n):
+    import math
+    return n/math.gcd(n,6)
 
 # 0 떼기
+def solution(n_str):
+    return str(int(n_str))
+
 # 문자열 섞기
 # 369게임
+def solution(order):
+    answer = 0
+    for i in str(order):
+        if i == '3' or i=='6' or i=='9':
+            answer +=1
+    return answer
+
 # 5명씩
+def solution(names):
+    answer = []
+    for i in range(0,len(names)):
+        if i%5==0:
+            answer.append(names[i])
+    return answer
+
 #l로 만들기
+def solution(myString):
+    answer = list(myString)
+    for i in range(0,len(answer)):
+        if ord(answer[i]) < ord('l'):
+            answer[i] = 'l'
+    return ''.join(answer)
 
 
 
@@ -900,17 +943,85 @@ def solution(my_string, num1, num2):
 
 ### 6월 7일 ###
 # 약수 구하기
+def solution(n):
+    answer = []
+    for i in range(1,n+1):
+        if n%i==0:
+            answer.append(i)
+    return answer
+
 # 문자열 돌리기
+str = input()
+for i in str:
+    print(i)
+
 # 배열 비교하기
+def solution(arr1, arr2):
+    answer = 0
+    if len(arr1) > len(arr2):
+        answer = 1
+    elif len(arr1) < len(arr2):
+        answer = -1
+    else:
+        if sum(arr1) > sum(arr2):
+            answer = 1
+        elif sum(arr1) < sum(arr2):
+            answer = -1    
+    return answer
+
 # 숫자 찾기
 # ad 제거하기
-
+def solution(strArr):
+    answer = []
+    for i in range(0,len(strArr)):
+        if "ad" not in strArr[i]:
+            answer.append(strArr[i])
+    return answer
 
 # 할 일 목록
+def solution(todo_list, finished):
+    answer = []
+    for i in range(0,len(todo_list)):
+        if finished[i] == False:
+            answer.append(todo_list[i])
+    return answer
+
 # 간단한 식 계산하기
+def solution(binomial):
+    [num1,c,num2] = binomial.split()
+    if c == '+':
+        return int(num1)+int(num2)
+    elif c== '-':
+        return int(num1)-int(num2)
+    elif c== '*':
+        return int(num1)*int(num2)
+    
 # 콜라츠 수열 만들기
+def solution(n):
+    answer = [n]
+    while n != 1:
+        if n%2==0:
+            n = n/2
+            answer.append(n)
+        else:
+            n = 3*n+1
+            answer.append(n)
+    return answer
+
 # 배열의 원소 삭제하기
+def solution(arr, delete_list):
+    answer = []
+    for i in arr:
+        if i not in delete_list:
+            answer.append(i)
+    return answer
+
 # 문자열 정렬하기 (2)
+def solution(my_string):
+    answer = ''
+    l = list(my_string.lower())
+    l.sort()
+    return ''.join(l)
 
 
 
