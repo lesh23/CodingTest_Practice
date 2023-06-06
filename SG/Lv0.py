@@ -594,7 +594,7 @@ def solution(num_list):
 
 
 
-### 5월 31일 ###
+### 5월 30일 ###
 # 배열에서 문자열 대소문자 변환하기
 def solution(strArr):
     answer = []
@@ -687,7 +687,7 @@ def solution(num_list):
 
 
 
-### 6월 1일 ###
+### 5월 31일 ###
 # 꼬리 문자열
 def solution(str_list, ex):
     answer = ''
@@ -742,6 +742,10 @@ def solution(my_string):
             answer += i.upper()
     return answer
 
+# 대문자와 소문자 ver.2
+def solution(my_string):
+    return my_string.swapcase()
+
 # 주사위의 개수
 def solution(box, n):
     answer = 1
@@ -758,6 +762,10 @@ def solution(my_string):
             answer.append(i)
     return answer
 
+# 공백으로 구분하기 2 ver.2
+def solution(my_string):
+    return my_String.split() # 공백을 무시하는 것
+
 # 덧셈식 출력하기
 a, b = map(int, input().strip().split(' '))
 print(a,"+",b,"=",a+b)
@@ -773,7 +781,7 @@ def solution(arr):
 
 
 
-### 6월 2일 ###
+### 6월 1일 ###
 # 부분 문자열 이어 붙여 문자열 만들기
 def solution(my_strings, parts):
     answer = ''
@@ -863,3 +871,96 @@ def solution(numbers, direction):
     if direction == "left":
         answer = numbers[1:len(numbers)]+[numbers[0]]
     return answer
+
+
+
+
+
+### 6월 2일 ###
+# 인덱스 바꾸기
+def solution(my_string, num1, num2):
+    answer = list(my_string)
+    answer[num1],answer[num2] = answer[num2],answer[num1]
+    return ''.join(answer)
+
+# 외계행성의 나이
+# 가장 큰 수 찾기
+# 접미사 배열
+# 피자 나눠 먹기 (2)
+
+# 0 떼기
+# 문자열 섞기
+# 369게임
+# 5명씩
+#l로 만들기
+
+
+
+
+
+### 6월 7일 ###
+# 약수 구하기
+# 문자열 돌리기
+# 배열 비교하기
+# 숫자 찾기
+# ad 제거하기
+
+
+# 할 일 목록
+# 간단한 식 계산하기
+# 콜라츠 수열 만들기
+# 배열의 원소 삭제하기
+# 문자열 정렬하기 (2)
+
+
+
+
+
+### 6월 8일 ###
+# 합성수 찾기
+# 가까운 1 찾기
+# 주사위 게임 2
+# 특별한 이차원 배열 2
+# 순서 바꾸기
+
+
+# 9로 나눈 나머지
+# 중복된 문자 제거
+# 모스부호 (1)
+# x 사이의 개수
+# 배열 만들기 3
+
+
+
+
+
+### 6월 9일 ###
+# 팩토리얼
+# A로 B 만들기
+# 2차원으로 만들기
+# 등차수열의 특정한 항만 더하기
+# 가까운 수
+
+# 두 수의 연산값 비교하기
+# k의 개수
+# 진료순서 정하기
+# 문자열 잘라서 정렬하기
+# 문자열 반복해서 출력하기
+
+
+
+
+
+### 6월 12일 ###
+# 특별한 이차원 배열 1
+# 숨어있는 숫자의 덧셈 (2)
+# 한 번만 등장한 문자
+# 수 조작하기 2
+# 간단한 논리 연산
+
+
+# 배열 만들기 5
+# 수열과 구간 쿼리 3
+# 문자열 뒤집기
+# 이진수 더하기
+# 1로 만들기

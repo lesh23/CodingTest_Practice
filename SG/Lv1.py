@@ -327,7 +327,7 @@ def solution(s):
 
 
 
-### 5월 31일 ###
+### 5월 30일 ###
 # 예산
 def solution(d, budget):
     answer = 0
@@ -377,7 +377,7 @@ def solution(number):
 
 
 
-# 6월 1일
+# 5월 31일
 # 최소직사각형
 def solution(sizes):
     answer = 0
@@ -414,7 +414,7 @@ def solution(t, p):
 
 
 
-### 6월 2일 ###
+### 6월 1일 ###
 # 숫자 문자열과 영단어	
 # 문자열 내 마음대로 정렬하기
 def solution(strings, n):
