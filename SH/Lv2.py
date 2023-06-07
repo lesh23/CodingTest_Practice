@@ -369,9 +369,6 @@ def solution(k, tangerine):
             answer += 1 
 
 
-# 괄호 회전하기
-
-
 
 ### 5/22
 # H-Index
@@ -455,6 +452,46 @@ def solution(elements):
     
     return len(l)
 
+
+
+### 6/7
+# 괄호 회전하기
+def solution(s):
+    cnt=0
+    
+    # 문자열 회전하는 for문
+    for _ in range(len(s)):
+        stack = []
+        num = 0
+        # 문자열 안에 원소 하나씩 확인
+        for i in s:
+            if i == '[' or i == '{' or i == '(' :
+                stack.append(i)
+                num += 1
+            else : 
+                if stack == [] :
+                    break
+                elif i == ']' and '[' in stack :
+                    stack.pop()
+                    num += 1
+                elif i == '}' and '{' in stack :
+                    stack.pop()
+                    num += 1
+                elif i == ')' and '(' in stack :
+                    stack.pop()
+                    num += 1
+        
+        # for문이 몇번 돌아갔는지 세서 길이랑 비교 & 13번 케이스 걸러내가 위한 조건 추가
+        if num == len(s) and stack == []:
+            cnt += 1
+
+        s= s[1:]+s[0]
+        
+    return cnt
+
+
+
+### 6/8
 # [1차] 캐시
 
 
