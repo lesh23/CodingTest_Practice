@@ -439,6 +439,13 @@ def solution(array, commands):
 
 # 6월 7일
 # 두 개 뽑아서 더하기
+from itertools import combinations
+
+def solution(numbers):
+    arr = list(combinations(numbers,2))
+    answer = set([sum(j) for j in arr])
+    return sorted(answer)
+
 # 콜라 문제
 # 푸드 파이트 대회
 
