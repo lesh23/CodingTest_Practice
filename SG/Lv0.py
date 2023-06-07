@@ -970,6 +970,14 @@ def solution(arr1, arr2):
     return answer
 
 # 숫자 찾기
+def solution(num, k):
+    answer = 0
+    l = list(str(num))
+    for m,n in enumerate(l):
+        if n == str(k):
+            return m+1
+    return -1
+
 # ad 제거하기
 def solution(strArr):
     answer = []

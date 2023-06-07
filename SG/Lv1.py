@@ -447,7 +447,23 @@ def solution(numbers):
     return sorted(list(set(answer)))
 
 # 콜라 문제
+def solution(a,b,n):
+    answer = 0
+    s = 0
+    while n>=a:
+        s = int(n//a)
+        n = n-(s*a)+s*b
+        answer +=s*b
+    return answer
+
 # 푸드 파이트 대회
+def solution(food):
+    answer = []
+    result = ''
+    for i in range(1,len(food)):
+        answer += int(food[i]//2)*[i]
+        arr = answer + [0] + answer[::-1]
+    return ''.join(list(map(str,arr)))
 
 
 
