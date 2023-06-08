@@ -415,22 +415,10 @@ def solution(arr):
 # 수 조작하기 1
 ''' 아니 이 왜 안 되는거?? 내 이해 못함???? '''
 def solution(n, control):
-    # w=control.count('w')*1
-    # s=control.count('s')*1
-    # d=control.count('d')*10
-    # a=control.count('a')*10
+    answer =  n + (control.count('w')*1) - (control.count('s')*1) + (control.count('d')*10) - (control.count('a')*10) 
     
-    # answer = (control.count('w')*1) - (control.count('s')*1) + (control.count('d')*10) - (control.count('a')*10) 
-    # print(w,s,d,a)
-    n= 0
-    for c in control:
-        if c=='w': n+=1
-        elif c=='s': n-=1
-        elif c=='d': n+=10
-        elif c=='a': n-=10
-        # print(control, c, answer)
-    
-    return n
+    return answer
+
 # 뒤에서 5등까지
 def solution(num_list):
     answer = sorted(num_list)[:5]
@@ -708,6 +696,8 @@ def solution(age):
     x ={0: 'a', 1:'b', 2:'c', 3:'d', 4:'e', 5:'f', 6:'g', 7:'h', 8:'i', 9:'j'}
     for n in str(age):
         answer+=x[int(n)]
+        # x[1] -> 'b'
+        # x[2] -> 'c'
     return answer
 
 # 가장 큰 수 찾기
@@ -738,6 +728,7 @@ def solution(n):
 # 0 떼기
 def solution(n_str):
     answer = str(int(n_str))
+    # '00000001' -> 1
     return answer
 
 # 문자열 섞기
@@ -771,8 +762,8 @@ def solution(myString):
             answer+=s
     return answer
 
-
-'''0603'''
+'''
+#0603
 # 약수 구하기
 def solution(n):
     answer = []
@@ -860,7 +851,7 @@ def solution(my_string):
     return ''.join(sorted(my_string.lower()))
 
 
-'''0604'''
+#0604
 # 합성수 찾기
 def solution(n):
     answer = 0
@@ -958,6 +949,6 @@ def solution(arr, intervals):
     answer = [x for x in a for x in x]
     return answer
 
-'''# 문자열을 정수로 변환하기
+# 문자열을 정수로 변환하기
 def solution(n_str):
     return int(n_str)'''

@@ -200,25 +200,186 @@ def solution(s):
 
 '''0525'''
 # 약수의 개수와 덧셈
+def solution(left, right):
+    answer = 0
+    for i in range(left, right+1):
+        tmp = yaksu(i)
+        if len(tmp)%2==0:
+            answer+=i
+        else:
+            answer-=i
+    return answer
+
+def yaksu(n):
+    answer = []
+    for i in range(1, int(n/2)+1):
+        if n % i == 0:
+            answer.append(i)
+    answer.append(n)
+    return answer
+
 # 부족한 금액 계산하기
+def solution(price, money, count):
+    total=sum([price*n for n in range(1,count+1)])
+    if not total>money:
+        return 0
+    else:
+        return abs(total-money)
+    
 # 문자열 다루기 기본
+def solution(s):
+    if (len(s)==4 or len(s)==6) and s.isdigit()==True:
+        return True
+    else: return False
 
 '''0526'''
 # 행렬의 덧셈
+def solution(arr1, arr2):
+    answer = [[arr1[i][j] + arr2[i][j]  for j in range
+(len(arr1[0]))] for i in range(len(arr1))]
+    return answer
+
 # 직사각형 별찍기
+a, b = map(int, input().strip().split(' '))
+for i in range(b):
+    print('*'*a)
+
 # 최대공약수와 최소공배수
+
+def solution(n, m):
+    return [gcd(n,m), lcm(n,m)]
+
+
+def gcd(x, y):
+    if x > y:
+        smaller = y
+    else:
+        smaller = x
+    for i in range(1, smaller + 1):
+        if((x % i == 0) and (y % i == 0)):
+            gcd = i
+    return gcd
+
+
+def lcm(x, y):
+    if x > y:
+        greater = x
+    else:       
+        greater = y
+    while(True):
+        if((greater % x == 0) and (greater % y == 0)):
+            lcm = greater
+            break
+        greater += 1
+    return lcm
+
 
 '''0529'''
 # 같은 숫자는 싫어
-# 3진법 뒤집기
-# 이상한 문자 만들기
+def solution(arr):
+    answer = []
+    tmp=-1
+    for a in arr:
+        if a==tmp:
+            pass
+        else:
+            tmp = a
+            answer.append(a)
+    return answer
+
+# 3진법 뒤집기 응 꺼져
+
+# 이상한 문자 만들기 ㅈ같네 진짜
+def solution(s):
+    answer = ''
+    s=s.split(' ')
+    for a in s:
+        word=''
+        for i, b in enumerate(a):
+            if i%2==0:
+                word+=b.upper()
+            else:
+                word+=b.lower()
+        
+        answer +=''.join(word)
+        answer+=' '
+    if answer[-1]==' ':
+        answer = answer[:-1]
+    return answer
 
 '''0530'''
-# 예산
+# 예산  #error
+def solution(d, budget):
+    answer = 0
+    d=sorted(d)[::-1]
+    while budget>0:
+        if budget>=d[-1]:
+            budget-=d[-1]
+            d.pop()
+            answer+=1
+        else:
+            break
+    return answer
 # 시저 암호
+def solution(s, n):
+    answer = ''
+    for i in s:
+        x = ord(i)
+        if x>=65 and x<=90:
+            if x+n>90:
+                answer += chr((x+n)-26)
+            else:
+                answer += chr(x+n)
+        elif x>=97 and x<=122:
+            if x+n>122:
+                answer += chr((x+n)-26)
+            else:
+                answer += chr(x+n)
+        elif x==32:
+            answer += ' '
+    return answer
+
 # 삼총사
 
 '''0531'''
 # 최소직사각형
 # [1차] 비밀지도
 # 크기가 작은 부분 문자열
+
+
+'''0601'''
+# 숫자 문자열과 영단어
+def solution(s):
+    answer = ''
+    print(s)
+    dic = {'ze': [0,4],'on': [1,3],'tw': [2,3],'th': [3,5],'fo': [4,4],'fi': [5,4],'si': [6,3],'se': [7,5],'ei': [8,5],'ni': [9,4]}
+    if s.isdigit():
+        return int(s)
+    else:
+        #"23four5six7"
+        for i, x in enumerate(s):
+            if x.isdigit():
+                answer+=x
+            else:
+                if i<len(s)-1:
+                    tmp = s[i]+s[i+1]
+                    if tmp in dic:
+                        answer+=str(dic[tmp][0])
+    return int(answer)
+
+# 문자열 내 마음대로 정렬하기
+# K번째수
+
+'''0602'''
+# 두 개 뽑아서 더하기
+# 콜라 문제
+# 푸드 파이트 대회
+
+
+
+
+
+
+members = [['a','-'],['b','a'],['c','b'],['d','b'],['e','-'],['f','d']]
+answer = [['b',200],['a',125],['c',100],['f',0]]
+dic = {'ze': [0,],'on': [1,],'tw': [2,],'th': [3,],'fo': [4,],'fi': [5,],'si': [6,],'se': [7,],'ei': [8,],'ni': [9,]}
