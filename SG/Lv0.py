@@ -1093,8 +1093,30 @@ def solution(my_string):
     return ''.join(answer)
 
 # 모스부호 (1)
+def solution(letter):
+    answer = ''
+    morse = { 
+    '.-':'a','-...':'b','-.-.':'c','-..':'d','.':'e','..-.':'f',
+    '--.':'g','....':'h','..':'i','.---':'j','-.-':'k','.-..':'l',
+    '--':'m','-.':'n','---':'o','.--.':'p','--.-':'q','.-.':'r',
+    '...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x',
+    '-.--':'y','--..':'z'
+}
+    for i in letter.split():
+        answer += morse[i]
+    return answer
+
 # x 사이의 개수
+def solution(myString):
+    answer = []
+    s = myString.split("x")
+    for i in s:
+        answer.append(len(i))
+    return answer
+
 # 배열 만들기 3
+def solution(arr, intervals):
+    return arr[intervals[0][0]:intervals[0][1]+1] + arr[intervals[1][0]:intervals[1][1]+1]
 
 
 
