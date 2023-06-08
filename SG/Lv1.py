@@ -470,7 +470,24 @@ def solution(food):
 ### 6월 8일 ###
 # 가장 가까운 같은 글자
 # 2016년
+def solution(a, b):
+    day = [31,29,31,30,31,30,31,31,30,31,30,31]
+    days = ['THU','FRI','SAT','SUN','MON','TUE','WED']
+    return days[(sum(day[0:a-1])+b)%7]
+
 # 추억 점수
+def solution(name, yearning, photo):
+    dic={}
+    answer = []   
+    for i in range(len(name)):
+        dic[name[i]] = yearning[i]
+    for j in range(len(photo)):
+        result = 0
+        for k in range(len(photo[j])):
+            if photo[j][k] in dic:
+                result += dic.get(photo[j][k])
+        answer.append(result)
+    return answer
 
 
 
