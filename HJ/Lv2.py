@@ -242,6 +242,61 @@ def solution(k, tangerine):
     return answer
 
 # 괄호 회전하기
+def solution(s):
+    answer = len(s)
+    match={'(':')', '[':']', '{':'}' }
+    for i in range(len(s)):
+        tmp=[]
+        # print(s)
+        for i, p in enumerate(s):
+            # 첫 괄호가 닫힘 괄호면 break
+            if i==0 and p in match.values():
+                # print('First is closing p', p, answer)
+                answer-=1
+                break
+                
+            # 다음 읽는 괄호가 닫힘 괄호가 아니면, tmp에 넣자
+            elif p in match.keys():
+                # print('Appending open p', p)
+                tmp.append(p)
+                # print('tmp is ', tmp)
+                
+            # 다음 읽는 괄호가 닫힘 괄호면, tmp마지막에 들어간거랑 짝이면 pop
+            elif p in match.values():
+                # print('p is closing', p)
+                # if tmp is already empty, but a new closing is read
+                if len(tmp)==0:
+                    # print('there are no existing open p to pair with', answer)
+                    answer-=1
+                    break
+                # if p not in tmp? break
+                elif p not in [match[t] for t in tmp]:
+                    # print('p pair doesn\'t exist in tmp', answer)
+                    answer-=1
+                    break
+                elif p==match[tmp[-1]]:
+                    # print('closing matching last open in tmp! popping', tmp[-1],'!')
+                    # print(p, tmp, match[tmp[-1]])
+                    tmp.pop()
+                else:
+                    answer-=1
+                    break
+                    
+            # 마지막 까지 읽었는데 tmp가 아직 풀일 때
+            if i==len(s)-1 and len(tmp)!=0:
+                # print('tmp is still not empty!')
+                answer-=1
+                break
+        # if len(tmp)==0:   #### problem: the tmp list starts empty. if nothing happens, it'll still go to this checkpoint making answer++
+#         answer+=1
+        
+        # print('!!!!!!!!!Next string!!!!!!!!!!!')
+        s+=s[0]
+        s=s[1:]
+                
+                
+            
+    return answer
 
 '''0522'''
 # H-Index
@@ -264,6 +319,26 @@ def solution(citations):
 # 연속 부분 수열 합의 개수
 
 # [1차] 캐시
+def solution(cacheSize, cities):
+    answer = 0
+    # cities = [x.lower() for x in cities]
+    store = []
+    for x in [x.lower() for x in cities]:
+        if x not in store:
+            if len(store)<cacheSize:
+                store.append(x)
+                answer+=5
+            elif cacheSize==0:
+                answer+=5
+            else:
+                store=store[1:]
+                store.append(x)
+                answer+=5
+        elif x in store:
+            store.pop(store.index(x))
+            store.append(x)
+            answer+=1
+    return answer
 
 '''0524'''
 # 행렬의 곱셈
