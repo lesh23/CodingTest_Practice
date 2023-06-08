@@ -1037,6 +1037,13 @@ def solution(my_string):
 
 ### 6월 8일 ###
 # 합성수 찾기
+def solution(n):
+    answer = 0
+    for i in range(2,n+1):
+        if len([j for j in range(1, i+1) if i%j==0]) != 2:
+            answer += 1
+    return answer
+
 # 가까운 1 찾기
 def solution(arr, idx):
     answer = []
@@ -1058,6 +1065,14 @@ def solution(a, b, c):
     return answer
 
 # 특별한 이차원 배열 2
+def solution(arr):
+    answer = []
+    for i in range(len(arr)):
+        for j in range(len(arr)):
+            if arr[i][j] != arr[j][i]:
+                return 0
+    return 1
+
 # 순서 바꾸기
 def solution(num_list, n):
     answer = []
@@ -1065,7 +1080,18 @@ def solution(num_list, n):
 
 
 # 9로 나눈 나머지
+def solution(number):
+    return sum(list(map(int,number)))%9
+
 # 중복된 문자 제거
+def solution(my_string):
+    answer = []
+    l = list(map(str,my_string))
+    for i in l:
+        if i not in answer:
+            answer.append(i)
+    return ''.join(answer)
+
 # 모스부호 (1)
 # x 사이의 개수
 # 배열 만들기 3
