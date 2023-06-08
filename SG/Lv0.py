@@ -1038,9 +1038,30 @@ def solution(my_string):
 ### 6월 8일 ###
 # 합성수 찾기
 # 가까운 1 찾기
+def solution(arr, idx):
+    answer = []
+    for i in range(0,len(arr)):
+        if arr[i] ==1 and i>= idx:
+            return i
+    else:
+        return -1
+    
 # 주사위 게임 2
+def solution(a, b, c):
+    answer = 0
+    if a==b==c:
+        answer = (a+b+c)*((a**2)+(b**2)+(c**2))*((a**3)+(b**3)+(c**3))
+    elif a==b or a==c or b==c:
+        answer = (a+b+c)*((a**2)+(b**2)+(c**2))
+    else:
+        answer = a+b+c
+    return answer
+
 # 특별한 이차원 배열 2
 # 순서 바꾸기
+def solution(num_list, n):
+    answer = []
+    return num_list[n:]+num_list[:n]
 
 
 # 9로 나눈 나머지
