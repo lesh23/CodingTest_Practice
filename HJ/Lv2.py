@@ -342,6 +342,20 @@ def solution(cacheSize, cities):
 
 '''0524'''
 # 행렬의 곱셈
+def solution(arr1, arr2):
+    answer = []
+    
+    n = len(arr1)
+    m = len(arr2[0])
+
+    for i in range(n):
+        answer.append([0]*m)
+        
+    for i in range(n):
+        for j in range(m):
+            for k in range(len(arr2)):
+                answer[i][j] += arr1[i][k] * arr2[k][j] 
+    return answer
 
 '''0525'''
 # n^2 배열 자르기
