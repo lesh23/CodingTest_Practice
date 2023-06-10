@@ -1124,16 +1124,71 @@ def solution(arr, intervals):
 
 ### 6월 9일 ###
 # 팩토리얼
+def solution(n):
+    answer = 1
+    for i in range(2,11):
+        answer *= i
+        if answer > n:
+            return i-1
+        elif answer == n:
+            return i
+
 # A로 B 만들기
+def solution(before, after):
+    answer = 0
+    if sorted(list(before)) == sorted(list(after)) :
+        return 1
+    return 0
+
 # 2차원으로 만들기
 # 등차수열의 특정한 항만 더하기
+def solution(a, d, included):
+    answer = 0
+    for i in range(len(included)):
+        if included[i] == True:
+            answer += a + i*d
+    return answer
+
 # 가까운 수
+def solution(array, n):
+    answer = []
+    lis = []
+    for i in array:
+        lis.append(abs(i-n))
+    for j in range(len(lis)):
+        if lis[j] == min(lis):
+            answer.append(array[j])
+    return min(answer)
 
 # 두 수의 연산값 비교하기
+def solution(a, b):
+    return max(int(str(a)+str(b)),2*a*b)
+
 # k의 개수
+def solution(i, j, k):
+    s = ''
+    for i in range(i,j+1):
+        s += str(i)
+    lis = list(s)
+    return lis.count(str(k))
+
 # 진료순서 정하기
+def solution(emergency):
+    answer = []
+    lis = sorted(emergency,reverse=True)
+    for i in emergency:
+        answer.append(lis.index(i)+1)        
+    return answer
+
 # 문자열 잘라서 정렬하기
+def solution(myString):
+    return sorted(' '.join(myString.split('x')).split())
+
 # 문자열 반복해서 출력하기
+a, b = input().strip().split(' ')
+b = int(b)
+print(a*b)
+
 
 
 
