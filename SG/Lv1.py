@@ -503,11 +503,59 @@ def solution(nums):
     return answer
 
 # 모의고사
+def solution(answers):
+    answer = []
+    stu1 = [1,2,3,4,5] * len(answers)
+    stu2 = [2,1,2,3,2,4,2,5] * len(answers)
+    stu3 = [3,3,1,1,2,2,4,4,5,5] * len(answers)
+    s = [0,0,0]
+    for i in range(len(answers)):
+        if answers[i] == stu1[i]:
+            s[0] += 1
+        if answers[i] == stu2[i]:
+            s[1] += 1
+        if answers[i] == stu3[i]:
+            s[2] += 1
+    for j in range(len(s)):
+        if s[j] == max(s):
+            answer.append(j+1)
+    return answer
+
 # 명예의 전당 (1)
+def solution(k, score):
+    answer = []
+    stack = []
+    for i in score:
+        if len(stack)<k:
+            stack.append(i)
+        else:
+            if min(stack)<i: 
+                stack.remove(min(stack))
+                stack.append(i)
+        answer.append(min(stack))      
+    return answer
 
 
 
 ### 6월 12일 ###
 # 소수 만들기
+def solution(nums):
+    answer = 0
+    from itertools import combinations
+    l = list(combinations(nums,3))
+    for i in l:
+        if len([j for j in range(1,sum(i)+1) if sum(i)%j==0]) ==2:
+            answer +=1
+    return answer
+
 # 소수 찾기
 # 과일 장수
+def solution(k, m, score):
+    answer = 0
+    lis = sorted(score,reverse=True)
+    result = []
+    for i in range(int(len(lis)/m)):
+        result.append(lis[m*i:m*i+m])
+    for j in result:
+        answer += min(j)*m
+    return answer

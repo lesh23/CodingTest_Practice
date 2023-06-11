@@ -205,13 +205,13 @@ def solution(elements):
 
 # [1차] 캐시
 
-# 행렬의 곱셈    # 다시 
+# 행렬의 곱셈    
 def solution(arr1, arr2):
-    answer = [[0]*len(arr2)]*len(arr1)
-    for i in range(len(answer)):
-        for j in range(0,len(answer[0])):
-            for k in range(0,len(arr1[0])):
-                answer[i][j] += (arr1[i][k] * arr2[k][j])
+    answer = [[0]*len(arr2[0]) for m in range(len(arr1))]
+    for i in range(len(arr1)): 
+        for j in range(len(arr2[0])): 
+            for k in range(len(arr1[0])): 
+                answer[i][j] += arr1[i][k] * arr2[k][j]
     return answer
 
 # n^2 배열 자르기
