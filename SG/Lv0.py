@@ -1196,14 +1196,60 @@ print(a*b)
 
 ### 6월 12일 ###
 # 특별한 이차원 배열 1
-# 숨어있는 숫자의 덧셈 (2)
-# 한 번만 등장한 문자
-# 수 조작하기 2
-# 간단한 논리 연산
+def solution(n):
+    answer = [[0 for i in range(n)] for j in range(n)] 
+    for i in range(len(answer)):
+            answer[i][i] = 1
+    return answer
 
+# 숨어있는 숫자의 덧셈 (2)
+
+# 한 번만 등장한 문자
+def solution(s):
+    answer = ''
+    for i in s:
+        if s.count(i) ==1:
+            answer += i
+    return ''.join(sorted(answer))
+
+# 수 조작하기 2
+
+# 간단한 논리 연산
+def solution(x1, x2, x3, x4):
+    return (x1|x2)&(x3|x4)
 
 # 배열 만들기 5
+def solution(intStrs, k, s, l):
+    answer = []
+    ret = []
+    for i in intStrs:
+        ret.append(i[s:s+l])
+    for j in ret:
+        if int(j)>k:
+            answer.append(int(j))
+    return answer
+
 # 수열과 구간 쿼리 3
+
 # 문자열 뒤집기
+def solution(my_string, s, e):
+    lis = list(my_string)[:s] + list(my_string)[s:e+1][::-1] + list(my_string)[e+1:]
+    return ''.join(lis)
+
 # 이진수 더하기
+def solution(bin1, bin2):
+    return bin(int(bin1,2) + int(bin2,2))[2:]
+
 # 1로 만들기
+def solution(num_list):
+    answer = 0
+    for i in num_list:
+        cnt = 0
+        while i != 1:
+            if i%2==0:
+                i = i/2
+            else:
+                i = (i-1)/2
+            cnt += 1
+        answer += cnt
+    return answer
