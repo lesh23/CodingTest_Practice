@@ -1219,6 +1219,21 @@ def solution(s):
     return ''.join(sorted(answer))
 
 # 수 조작하기 2
+def solution(numLog):
+    answer = ''
+    result = []
+    for i in range(len(numLog)-1):
+        result.append(numLog[i+1]-numLog[i])
+    for j in result:
+        if j==1:
+            answer +='w'
+        elif j==-1:
+            answer +='s'
+        elif j== 10:
+            answer +='d'
+        elif j== -10:
+            answer +='a'
+    return answer
 
 # 간단한 논리 연산
 def solution(x1, x2, x3, x4):
@@ -1236,6 +1251,11 @@ def solution(intStrs, k, s, l):
     return answer
 
 # 수열과 구간 쿼리 3
+def solution(arr, queries):
+    for a,b in queries:
+        arr[a],arr[b]=arr[b],arr[a]
+    return arr
+
 
 # 문자열 뒤집기
 def solution(my_string, s, e):

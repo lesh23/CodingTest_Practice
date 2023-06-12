@@ -416,6 +416,12 @@ def solution(t, p):
 
 ### 6월 1일 ###
 # 숫자 문자열과 영단어	
+def solution(s):
+    words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+    for i in range(len(words)):
+        s = s.replace(words[i], str(i))
+    return int(s)
+
 # 문자열 내 마음대로 정렬하기
 def solution(strings, n):
     answer = []
@@ -469,6 +475,17 @@ def solution(food):
 
 ### 6월 8일 ###
 # 가장 가까운 같은 글자
+def solution(s):
+    answer = []
+    dic = dict()
+    for i in range(len(s)):
+        if s[i] not in dic:
+            answer.append(-1)
+        else:
+            answer.append(i - dic[s[i]])
+        dic[s[i]] = i
+    return answer
+
 # 2016년
 def solution(a, b):
     day = [31,29,31,30,31,30,31,31,30,31,30,31]
@@ -548,7 +565,9 @@ def solution(nums):
             answer +=1
     return answer
 
-# 소수 찾기
+# 소수 찾기 #시간 초과
+
+
 # 과일 장수
 def solution(k, m, score):
     answer = 0
@@ -559,3 +578,59 @@ def solution(k, m, score):
     for j in result:
         answer += min(j)*m
     return answer
+
+
+
+### 6월 13일 ###
+# 실패율
+# 카드 뭉치
+# [1차] 다트 게임
+
+
+
+### 6월 14일 ###
+# 덧칠하기
+# 기사단원의 무기
+# 로또의 최고 순위와 최저 순위
+
+
+
+### 6월 15일 ###
+# 숫자 짝꿍
+# 체육복
+# 옹알이 (2)
+
+
+
+### 6월 16일 ###
+# 완주하지 못한 선수
+# 문자열 나누기
+# 크레인 인형뽑기 게임
+
+
+
+### 6월 19일 ###
+# 키패드 누르기
+# 신규 아이디 추천
+# 둘만의 암호
+
+
+
+### 6월 21일 ### 
+# 대충 만든 자판
+# 햄버거 만들기
+# 성격 유형 검사하기
+
+
+
+### 6월 22일 ###
+# 달리기 경주
+# 개인정보 수집 유효기간
+# 바탕화면 정리
+
+
+
+### 6월 23일 ###
+# 신고 결과 받기
+# 공원 산책
+
