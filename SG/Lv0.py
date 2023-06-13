@@ -1286,16 +1286,85 @@ def solution(num_list):
 
 ### 6월 13일 ###
 # 수열과 구간 쿼리 1
+def solution(arr, queries):
+    for i in queries:
+        for j in range(i[0],i[1]+1):
+            arr[j] +=1
+    return arr
+
 # 세로 읽기
+def solution(my_string, m, c):
+    answer = ''
+    lis = list(my_string)
+    for i in range(len(lis)):
+        if i%m== c-1:
+            answer += lis[i]
+    return answer
+
 # 컨트롤 제트
+def solution(s):
+    answer = 0
+    lis = s.split(' ')
+    stack = []
+    for i in lis:
+        if i != 'Z':
+            stack.append(int(i))
+        else:
+            stack.pop()
+    return sum(stack)
+
 # 특정 문자열로 끝나는 가장 긴 부분 문자열 찾기
+def solution(myString, pat):
+    answer = []
+    lis = []
+    for i in range(len(myString)):
+        lis.append(myString[0:i+1])
+    for j in lis:
+        if pat in j and j[-1] == pat[-1]:
+            answer.append(j)
+    return answer[-1]
+
 # 소인수분해
+def solution(n):
+    answer = []
+    result = []
+    for i in range(1,n+1):
+        if n%i==0:
+            result.append(i)
+    for j in result:
+        if len([y for y in range(1,j+1) if j%y==0]) == 2:
+            answer.append(j)
+    return answer
 
 # 공 던지기
+def solution(numbers, k):
+    answer = []
+    num = numbers*k
+    for i in range(len(num)):
+        if i%2==0:
+            answer.append(num[i])
+    return answer[k-1]
+
 # 7의 개수
+def solution(array):
+    answer = 0
+    s = ''
+    for i in array:
+        s += str(i)
+    return s.count('7')
+
 # 날짜 비교하기
 # 글자 지우기
+def solution(my_string, indices):
+    answer = ''
+    lis = list(my_string)
+    for i in range(0,len(lis)):
+        if i not in indices:
+            answer += lis[i]
+    return answer
+
 # 특수문자 출력하기
+print(r'!@#$%^&*(\'"<>?:;')
 
 
 
