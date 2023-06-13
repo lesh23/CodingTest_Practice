@@ -474,7 +474,7 @@ def solution(food):
 
 
 ### 6월 8일 ###
-# 가장 가까운 같은 글자
+# 가장 가까운 같은 글자    #어려움
 def solution(s):
     answer = []
     dic = dict()
@@ -582,9 +582,67 @@ def solution(k, m, score):
 
 
 ### 6월 13일 ###
-# 실패율
-# 카드 뭉치
+# 실패율                            #런타임 에러 70.4/100
+def solution(N,stages):
+    answer = []
+    result = []
+    for i in range(1,N+1):
+        answer.append([i,(stages.count(i)/len([x for x in stages if x>=i]))])
+    dic = dict(answer)
+    sorted_by_value = sorted(dic.items(),key=lambda x:x[1],reverse=True)
+    for j in sorted_by_value:
+        result.append(j[0])
+    return result 
+
+# 실패율                        
+def solution(N,stages):
+    dic = {}
+    for i in range(1,N+1):
+        cnt = stages.count(i)
+        cnt_ = len([x for x in stages if x>=i])
+        rate = cnt/cnt_ if cnt!=0 else 0
+        dic[i]=rate
+    return sorted(dic, key=dic.get, reverse=True)
+
+# 카드 뭉치                         #마지막 하나 통과 못함..왜?ㅠㅠ
+def solution(cards1, cards2, goal):
+    answer1 = []
+    answer2 = []
+    for i in goal:
+        if i in cards1:
+            answer1.append(cards1.index(i))
+        if i in cards2:
+            answer2.append(cards2.index(i))
+    if sorted(answer1) == answer1 and sorted(answer2) == answer2:
+        return "Yes"
+    return "No" 
+
+
 # [1차] 다트 게임
+def solution(dartResult):
+    answer = []
+    for i in range(len(dartResult)):
+        if dartResult[i].isdigit():
+            answer.append(int(dartResult[i]))
+        if dartResult[i] == '0' and dartResult[i-1]=='1':
+            answer.pop()
+            answer[-1] = 10
+        elif dartResult[i]=='S':
+            answer[-1] = answer[-1]**1
+        elif dartResult[i]=='D':
+            answer[-1] = answer[-1]**2
+        elif dartResult[i]=='T':
+            answer[-1] = answer[-1]**3
+        elif dartResult[i]=='*':
+            if len(answer) == 1:
+                answer[-1] = answer[-1]*2
+            elif len(answer) >=2 :
+                answer[-1] = answer[-1]*2
+                answer[-2] = answer[-2]*2
+        elif dartResult[i]=='#':
+            answer[-1] = answer[-1]*(-1)
+        
+    return sum(answer)
 
 
 

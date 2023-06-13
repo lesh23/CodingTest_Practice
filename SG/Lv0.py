@@ -1209,6 +1209,12 @@ def solution(n):
     return answer
 
 # 숨어있는 숫자의 덧셈 (2)
+def solution(my_string):
+    answer = 0
+    for i in my_string:
+        if i.isalpha():
+            my_string = my_string.replace(i,' ')
+    return sum(list(map(int,my_string.split())))
 
 # 한 번만 등장한 문자
 def solution(s):
@@ -1354,6 +1360,7 @@ def solution(array):
     return s.count('7')
 
 # 날짜 비교하기
+
 # 글자 지우기
 def solution(my_string, indices):
     answer = ''
