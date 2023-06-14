@@ -1379,16 +1379,105 @@ print(r'!@#$%^&*(\'"<>?:;')
 
 ### 6월 14일 ###
 # 영어가 싫어요
+def solution(numbers):
+    words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+    for i in range(len(words)):
+        numbers = numbers.replace(words[i], str(i))
+    return int(numbers)
+
 # 세 개의 구분자
+def solution(myStr):
+    answer = []
+    abc = ['a','b','c']
+    for i in myStr:
+        if i in abc:
+            myStr = myStr.replace(i,' ')
+    if myStr.split() == [] :
+        answer = ["EMPTY"]
+    else:
+        answer = myStr.split()
+    return  answer
+
 # 잘라서 배열로 저장하기
+def solution(my_str, n):
+    answer = []
+    if len(my_str)%n==0:
+        for i in range(0,int(len(my_str)/n)):
+            answer.append(my_str[i*n:i*n+n])
+    else:
+        for j in range(0,int(len(my_str)/n)+1):
+            answer.append(my_str[j*n:j*n+n])
+    return answer
+
+# 잘라서 배열로 저장하기 ver2
+def solution(my_str, n):
+    return [my_str[i: i + n] for i in range(0, len(my_str), n)]
+
 # 이차원 배열 대각선 순회하기
+def solution(board, k):
+    answer = 0
+    for i in range(len(board)):
+        for j in range(len(board[0])):
+            if i+j <=k:
+                answer += board[i][j]
+    return answer
+
 # 문자열 계산하기
+def solution(my_string):
+    s = my_string.split(' ')
+    answer = [float(s[0])]
+    for i in range(1,len(s)):
+        if s[i] == '+':
+            answer.append(float(s[i+1]))
+        elif s[i] == '-':
+            answer.append(-float(s[i+1]))
+    return sum(answer)
 
 # 문자열 묶기
-# 조건에 맞게 수열 변환하기 2
+def solution(strArr):
+    dic = {}
+    for s in strArr:
+        if len(s) in dic:
+            dic[len(s)] += 1
+        else:
+            dic[len(s)] = 1
+    return max(dic.values())
+
+# 조건에 맞게 수열 변환하기 2  # 이게 뭐지 
+
+
 # 문자열이 몇 번 등장하는지 세기
+def solution(myString, pat):
+    answer = []
+    cnt = 0
+    for i in range(0,len(myString)):
+        answer.append(myString[i:i+len(pat)])
+    for j in answer:
+        if j==pat:
+            cnt +=1
+    return cnt 
+
 # 빈 배열에 추가, 삭제하기
+def solution(arr, flag):
+    answer = []
+    for i in range(len(arr)):
+        if flag[i] ==True:
+            answer +=[arr[i]]*(arr[i])*2
+        else:
+            answer = answer[:-(arr[i])]
+    return answer
+
 # 구슬을 나누는 경우의 수
+def solution(balls, share):
+    b = list(range(balls-share+1,balls+1))
+    s = list(range(1,share+1))
+    re1 = 1
+    re2 = 1
+    for i in b:
+        re1 *=i
+    for j in s:
+        re2 *=j
+    return re1/re2
 
 
 
@@ -1436,7 +1525,7 @@ print(r'!@#$%^&*(\'"<>?:;')
 # 저주의 숫자 3
 # 특이한 정렬
 
-#문자열 여러 번 뒤집기
+# 문자열 여러 번 뒤집기
 # 문자열 밀기
 # 정사각형으로 만들기
 # 왼쪽 오른쪽
