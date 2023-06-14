@@ -682,13 +682,58 @@ def solution(number, limit, power):
     return sum(answer)
 
 # 로또의 최고 순위와 최저 순위
+def solution(lottos, win_nums):
+    answer = []
+    zero = 0
+    win = 0
+    for i in lottos:
+        if i==0:
+            zero +=1
+        elif i in win_nums:
+            win +=1
+    l = list(range(win,zero+win+1))
+    for i in l:
+        answer.append(7-i)
+    for j in range(len(answer)):
+        if answer[j]>=7:
+            answer[j] = 6
+    return [min(answer),max(answer)]
 
+# 로또의 최고 순위와 최저 순위 ver2
+def solution(lottos, win_nums):
+    answer = []
+    zero = 0
+    win = 0
+    for i in lottos:
+        if i==0:
+            zero +=1
+        elif i in win_nums:
+            win +=1
+    rank = {0:6, 1:6, 2:5, 3:4, 4:3, 5:2, 6:1}
+    return [rank[win+zero],rank[win]]
 
 
 ### 6월 15일 ###
 # 숫자 짝꿍
 # 체육복
-# 옹알이 (2)
+# 옹알이 (2)                        # 별로인듯 
+def solution(babbling):
+    answer = []
+    cnt = 0
+    for i in range(len(babbling)):
+        babbling[i] = babbling[i].replace("aya","1")
+        babbling[i] = babbling[i].replace("ye","2")
+        babbling[i] = babbling[i].replace("woo","3")
+        babbling[i] = babbling[i].replace("ma","4")
+    for j in range(len(babbling)):
+        babbling[j] = babbling[j].replace("11","a")
+        babbling[j] = babbling[j].replace("22","a")
+        babbling[j] = babbling[j].replace("33","a")
+        babbling[j] = babbling[j].replace("44","a")
+    for k in babbling:
+        if k.isdigit():
+            cnt +=1
+    return cnt
 
 
 
