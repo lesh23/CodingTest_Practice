@@ -1485,16 +1485,86 @@ def solution(balls, share):
 
 ### 6월 15일 ###
 # 삼각형의 완성조건 (2)
+def solution(sides):
+    return len(list(range(max(sides)-min(sides)+1,max(sides)+min(sides))))
+
 # 수열과 구간 쿼리 4
+
 # 리스트 자르기
+def solution(n, slicer, num_list):
+    answer = []
+    if n==1: 
+        answer = num_list[0:slicer[1]+1]
+    elif n==2:
+        answer = num_list[slicer[0]:]
+    elif n==3:
+        answer = num_list[slicer[0]:slicer[1]+1]
+    elif n==4:
+        answer = num_list[slicer[0]:slicer[1]+1:slicer[2]]
+    return answer
+
 # 외계어 사전
+def solution(spell, dic):
+    answer = []
+    for i in dic:
+        if list(set(i)) == list(set(spell)):
+            answer.append(i)
+    if answer == []:
+        return 2
+    else:
+        return 1
+    
 # qr code
+def solution(q, r, code):
+    answer = ''
+    l = list(code)
+    for k in range(len(l)):
+        if k%q==r:
+            answer += l[k]
+    return answer
 
 # a와 b 출력하기
+a, b = map(int, input().strip().split(' '))
+print("a = "+str(a))
+print("b = "+str(b))
+
 # 조건 문자열
-#2의 영역
+def solution(ineq, eq, n, m):
+    answer = 0
+    if ineq == "<" and eq == "=":
+        answer = int(n) <= int(m)
+    elif ineq == ">" and eq == "=":
+        answer = int(n) >= int(m)
+    elif ineq == "<" and eq == "!":
+        answer = int(n) < int(m)
+    elif ineq == ">" and eq == "!":
+        answer = int(n) > int(m)
+        
+    if answer == True:
+        return 1
+    else:
+        return 0
+    
+# 2의 영역
+def solution(arr):
+    answer = []
+    for i in range(len(arr)):
+        if arr[i]==2:
+            answer.append(i)
+    if answer == []:
+        return [-1]
+    else:
+        return arr[min(answer):max(answer)+1]
 # 배열의 길이를 2의 거듭제곱으로 만들기
-#커피 심부름
+# 커피 심부름
+def solution(order):
+    answer = 0
+    price ={"americano":4500, "latte":5000, "anything":4500}
+    for i in order:
+        for k in price.keys():
+            if k in i:
+                answer += price.get(k)  
+    return answer
 
 
 
@@ -1502,15 +1572,37 @@ def solution(balls, share):
 
 ### 6월 16일 ###
 # 문자 개수 세기
+def solution(my_string):
+    return [my_string.count(chr(i)) for i in range(65,91)] + [my_string.count(chr(j)) for j in range(97,123)]
+
 # 수열과 구간 쿼리 2
 # 캐릭터의 좌표
 # 직사각형 넓이 구하기
+def solution(dots):
+    w = []
+    h = []
+    for i in dots:
+        w.append(i[0])
+        h.append(i[1])
+    return (max(w)-min(w))*(max(h)-min(h))
+
 # 종이 자르기
 
 
 # 문자열 겹쳐쓰기
+def solution(my_string, overwrite_string, s):
+    return my_string[0:s] + overwrite_string + my_string[s+len(overwrite_string):]
 # 배열 만들기 4
 # 로그인 성공?
+def solution(id_pw, db):
+    for i in db:
+        if id_pw[0] == i[0]:
+            if id_pw[1] == i[1]:
+                return 'login'
+            else : 
+                return 'wrong pw'
+    return 'fail'
+
 # 치킨 쿠폰
 # 두 수의 합
 
