@@ -1556,6 +1556,13 @@ def solution(arr):
     else:
         return arr[min(answer):max(answer)+1]
 # 배열의 길이를 2의 거듭제곱으로 만들기
+def solution(arr):
+    for i in range(0,10):
+        if 2**i < len(arr) <2**(i+1):
+            return arr + [0]*(2**(i+1)-len(arr))
+        elif len(arr) == 2**i:
+            return arr
+        
 # 커피 심부름
 def solution(order):
     answer = 0
@@ -1618,8 +1625,34 @@ def solution(id_pw, db):
 # 특이한 정렬
 
 # 문자열 여러 번 뒤집기
+def solution(my_string, queries):
+    answer = ''
+    s = list(my_string)
+    for i in queries:
+        s[i[0]:i[1]+1] = s[i[0]:i[1]+1][::-1]
+    return ''.join(s)
+
 # 문자열 밀기
+def solution(A, B):
+    answer = []
+    while len(answer) != len(A):
+        A = A[1:len(A)] + A[0]
+        answer.append(A)
+    answer = answer[::-1]
+    if B in answer:
+        return answer.index(B)
+    return -1
+
 # 정사각형으로 만들기
+def solution(arr):
+    answer = [[]] 
+    for i in range(len(arr)): 
+        if len(arr) > len(arr[i]): 
+            arr[i] += [0]*(len(arr)-len(arr[i]))
+        elif len(arr) < len(arr[0]):
+            arr += [[0]*len(arr[0])]*(len(arr[0])-len(arr))
+    return arr
+
 # 왼쪽 오른쪽
 # 그림 확대
 
