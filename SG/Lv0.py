@@ -1290,7 +1290,7 @@ def solution(num_list):
 
 
 
-### 6월 13일 ###
+### 6월 14일 ###
 # 수열과 구간 쿼리 1
 def solution(arr, queries):
     for i in queries:
@@ -1377,7 +1377,7 @@ print(r'!@#$%^&*(\'"<>?:;')
 
 
 
-### 6월 14일 ###
+### 6월 15일 ###
 # 영어가 싫어요
 def solution(numbers):
     words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
@@ -1483,7 +1483,7 @@ def solution(balls, share):
 
 
 
-### 6월 15일 ###
+### 6월 16일 ###
 # 삼각형의 완성조건 (2)
 def solution(sides):
     return len(list(range(max(sides)-min(sides)+1,max(sides)+min(sides))))
@@ -1577,7 +1577,7 @@ def solution(order):
 
 
 
-### 6월 16일 ###
+### 6월 19일 ###
 # 문자 개수 세기
 def solution(my_string):
     return [my_string.count(chr(i)) for i in range(65,91)] + [my_string.count(chr(j)) for j in range(97,123)]
@@ -1617,7 +1617,7 @@ def solution(id_pw, db):
 
 
 
-### 6월 19일 ###
+### 6월 21일 ###
 # 등수 매기기
 # 유한소수 판별하기
 # 대소문자 바꿔서 출력하기
@@ -1660,7 +1660,7 @@ def solution(arr):
 
 
 
-### 6월 20일 ###
+### 6월 22일 ###
 # 무작위로 K개의 수 뽑기
 # 다항식 더하기
 # 배열 만들기 6
@@ -1677,7 +1677,7 @@ def solution(arr):
 
 
 
-### 6월 21일 ###
+### 6월 23일 ###
 # 다음에 올 숫자
 # 연속된 수의 합
 # 안전지대
