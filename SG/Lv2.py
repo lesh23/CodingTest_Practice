@@ -215,3 +215,53 @@ def solution(arr1, arr2):
     return answer
 
 # n^2 배열 자르기
+
+
+# 의상 
+def solution(clothes):
+    answer = 1
+    dic = {}
+    for i in clothes:
+        if i[1] in dic:
+            dic[i[1]] += 1
+        else:
+            dic[i[1]] = 1
+    for i in dic.keys():
+        answer *= dic[i] +1
+    return answer-1
+
+# 튜플
+
+
+# 기능 개발
+import math
+def solution(progresses, speeds):
+    days = [math.ceil((100-progresses[i])/speeds[i]) for i in range(len(progresses))]
+    answer = []
+    
+    temp = days[0]
+    cnt = 0
+    
+    for day in days:
+        if day <= temp:
+            cnt+=1
+        else:
+            answer.append(cnt)
+            cnt = 1
+            temp = day            
+    answer.append(cnt)
+    
+    return answer
+
+# 할인 행사 
+from collections import Counter
+def solution(want, number, discount):
+    answer = 0
+    dic = {}
+    for i in range(len(want)):
+        dic[want[i]] = number[i]
+
+    for i in range(len(discount)-9):
+        if dic == Counter(discount[i:i+10]): 
+            answer += 1
+    return answer
