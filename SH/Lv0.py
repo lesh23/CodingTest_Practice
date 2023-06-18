@@ -912,7 +912,30 @@ def solution(my_string):
 
 ### 6/8
 # 합성수 찾기
+def solution(n):
+    answer = 0
+
+    if n == 1 or n == 2:
+        return answer
+
+    if n>=3 :
+
+        for i in range(3,n+1):
+
+            for j in range(2,i):
+                if i % j == 0 :
+                    answer +=1
+                    break
+        
+    return answer
+
 # 가까운 1 찾기
+def solution(arr, idx):
+    for i in range(idx,len(arr)):
+        if arr[i] == 1:
+            return i
+    return -1
+
 # 주사위 게임 2
 def solution(a, b, c):
     if len(set([a,b,c])) == 3:
@@ -923,18 +946,64 @@ def solution(a, b, c):
         return (a+b+c)*(a**2+b**2+c**2)
     
 # 특별한 이차원 배열 2
+def solution(arr):
+    for i in range(len(arr)):
+        for j in range(len(arr)):
+            if arr[i][j] != arr[j][i]:
+                return 0
+    return 1
+
 # 순서 바꾸기
 def solution(num_list, n):
     return num_list[n:] + num_list[:n]
 
-
 # 9로 나눈 나머지
+def solution(number):
+    return sum(map(int, str(number))) % 9
+
 # 중복된 문자 제거
+def solution(my_string):
+    answer = [my_string[0]]
+    for i in range(1,len(my_string)):
+        if my_string[i] not in answer :
+            answer.append(my_string[i])
+    return ''.join(answer)
+
+    # 다른사람 풀이
+    # def solution(my_string):
+    #     answer = ''
+    #     for i in my_string:
+    #         if i not in answer:
+    #             answer+=i
+    #     return answer
+
 # 모스부호 (1)
+def solution(letter):
+    answer = ''
+    morse = { 
+    '.-':'a','-...':'b','-.-.':'c','-..':'d','.':'e','..-.':'f',
+    '--.':'g','....':'h','..':'i','.---':'j','-.-':'k','.-..':'l',
+    '--':'m','-.':'n','---':'o','.--.':'p','--.-':'q','.-.':'r',
+    '...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x',
+    '-.--':'y','--..':'z'}
+    for i in letter.split(' '):
+        for j in morse.keys():
+            if i==j:
+                answer+=morse[j]
+    return answer
+
 # x 사이의 개수
+def solution(myString):
+    answer = []
+    for i in myString.split('x'):
+        answer.append(len(i))
+    return answer
+
 # 배열 만들기 3
 
 
+
+### 6/9
 # 팩토리얼
 # A로 B 만들기
 # 2차원으로 만들기
@@ -949,7 +1018,15 @@ def solution(num_list, n):
 # 문자열 반복해서 출력하기
 
 
+
+### 6/12
 # 특별한 이차원 배열 1
+def solution(n):
+    answer = [[0 for i in range(n)] for j in range(n)]
+    for i in range(n):
+        answer[i][i] = 1
+    return answer
+
 # 숨어있는 숫자의 덧셈 (2)
 # 한 번만 등장한 문자
 # 수 조작하기 2
@@ -963,6 +1040,8 @@ def solution(num_list, n):
 # 1로 만들기
 
 
+
+### 6/14
 # 수열과 구간 쿼리 1
 # 세로 읽기
 # 컨트롤 제트
@@ -977,6 +1056,8 @@ def solution(num_list, n):
 # 특수문자 출력하기
 
 
+
+### 6/15
 # 영어가 싫어요
 # 세 개의 구분자
 # 잘라서 배열로 저장하기
@@ -991,6 +1072,8 @@ def solution(num_list, n):
 # 구슬을 나누는 경우의 수
 
 
+
+### 6/16
 # 삼각형의 완성조건 (2)
 # 수열과 구간 쿼리 4
 # 리스트 자르기
@@ -1005,6 +1088,8 @@ def solution(num_list, n):
 # 커피 심부름
 
 
+
+### 6/19
 # 문자 개수 세기
 # 수열과 구간 쿼리 2
 # 캐릭터의 좌표
