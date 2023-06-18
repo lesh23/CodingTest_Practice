@@ -14,9 +14,9 @@ def point(arr):
 
     for item in rem:
         key, value = item
-        for point in result:
-            if point[0] == key:
-                point[1] += 100.0 * (0.1) ** (value-1)
+        for p in result:
+            if p[0] == key:
+                p[1] += 100.0 * (0.1) ** (value-1)
                 break
         else:
             result.append([key, 0])
