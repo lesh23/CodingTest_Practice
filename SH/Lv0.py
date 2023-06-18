@@ -1000,6 +1000,8 @@ def solution(myString):
     return answer
 
 # 배열 만들기 3
+def solution(arr, intervals):
+    return arr[intervals[0][0]:intervals[0][1]+1] + arr[intervals[1][0]:intervals[1][1]+1]
 
 
 
@@ -1012,6 +1014,9 @@ def solution(myString):
 
 
 # 두 수의 연산값 비교하기
+def solution(a, b):
+    return max(int(str(a)+str(b)), 2*a*b)
+
 # k의 개수
 # 진료순서 정하기
 # 문자열 잘라서 정렬하기
