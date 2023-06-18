@@ -566,7 +566,12 @@ def solution(nums):
     return answer
 
 # 소수 찾기 #시간 초과
-
+def solution(n):
+    answer = []
+    for i in range(2,n+1):
+        if len([j for j in range(1,int(i**(1/2)+1)) if i%j == 0]) == 1:
+            answer.append(i)
+    return len(answer)
 
 # 과일 장수
 def solution(k, m, score):
@@ -739,6 +744,14 @@ def solution(babbling):
 
 ### 6월 19일 ###
 # 완주하지 못한 선수
+def solution(participant, completion):
+    participant.sort()
+    completion.sort()
+    for i in range(len(completion)):
+        if participant[i] !=completion[i]:
+            return participant[i]
+    return participant[-1]
+
 # 문자열 나누기
 # 크레인 인형뽑기 게임
 

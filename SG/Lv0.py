@@ -1555,6 +1555,7 @@ def solution(arr):
         return [-1]
     else:
         return arr[min(answer):max(answer)+1]
+    
 # 배열의 길이를 2의 거듭제곱으로 만들기
 def solution(arr):
     for i in range(0,10):
@@ -1583,7 +1584,30 @@ def solution(my_string):
     return [my_string.count(chr(i)) for i in range(65,91)] + [my_string.count(chr(j)) for j in range(97,123)]
 
 # 수열과 구간 쿼리 2
-# 캐릭터의 좌표
+# 캐릭터의 좌표                     합계: 90.9 / 100.0
+def solution(keyinput, board):
+    [x,y] = [0,0]
+    for i in keyinput:
+        if i == "left" :
+            x -= 1
+        elif i == "right":
+            x += 1
+        elif i == "up":
+            y += 1
+        elif i== "down":
+            y -= 1
+    if abs(x) >int(board[0]/2):
+        if x>=0:
+            x = int(board[0]/2)
+        if x<0:
+            x = -int(board[0]/2)
+    if abs(y) >int(board[1]/2):
+        if y>=0:
+            y = int(board[1]/2)
+        if y<0:
+            y = -int(board[1]/2)
+    return [x,y]
+
 # 직사각형 넓이 구하기
 def solution(dots):
     w = []
@@ -1594,12 +1618,31 @@ def solution(dots):
     return (max(w)-min(w))*(max(h)-min(h))
 
 # 종이 자르기
-
+def solution(M, N):
+    answer = 0
+    answer = M*N -1
+    return answer
 
 # 문자열 겹쳐쓰기
 def solution(my_string, overwrite_string, s):
     return my_string[0:s] + overwrite_string + my_string[s+len(overwrite_string):]
+
 # 배열 만들기 4
+def solution(arr):
+    stk = []
+    i = 0
+    while i < len(arr):
+        if len(stk) == 0:
+            stk.append(arr[i])
+            i += 1
+        else:
+            if stk[-1] < arr[i]:
+                stk.append(arr[i])
+                i += 1
+            else:
+                stk.pop()
+    return stk
+
 # 로그인 성공?
 def solution(id_pw, db):
     for i in db:
@@ -1611,7 +1654,17 @@ def solution(id_pw, db):
     return 'fail'
 
 # 치킨 쿠폰
+def solution(chicken):
+    answer = 0
+    while chicken >= 10:
+        eat = chicken//10 
+        answer += eat
+        chicken = chicken%10 + eat
+    return answer 
+
 # 두 수의 합
+def solution(a, b):
+    return str(int(a) + int(b))
 
 
 
