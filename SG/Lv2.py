@@ -231,7 +231,21 @@ def solution(clothes):
     return answer-1
 
 # 튜플
-
+def solution(s):
+    str = s[2:-2].split('},{')
+    str.sort(key=lambda x : len(x))
+    answer = []
+    result = []
+    for i in str:
+        i = list(map(int, i.split(",")))  
+        answer.append(i)
+          
+    for j in answer:
+        for k in j:
+            if k not in result:
+                result.append(k)
+    return result
+        
 
 # 기능 개발
 import math
@@ -261,7 +275,7 @@ def solution(want, number, discount):
     for i in range(len(want)):
         dic[want[i]] = number[i]
 
-    for i in range(len(discount)-9):
-        if dic == Counter(discount[i:i+10]): 
+    for j in range(len(discount)-9):
+        if dic == Counter(discount[j:j+10]): 
             answer += 1
     return answer
