@@ -1007,18 +1007,53 @@ def solution(arr, intervals):
 
 ### 6/9
 # 팩토리얼
+def solution(n):
+    a=1
+    for i in range(2,12):
+        a *= i
+        if a > n :
+            return i-1
+        
 # A로 B 만들기
-# 2차원으로 만들기
-# 등차수열의 특정한 항만 더하기
-# 가까운 수
+def solution(before, after):
+    if sorted(list(before)) == sorted(list(after)) :
+        return 1
+    return 0
 
+# 2차원으로 만들기
+def solution(num_list, n):
+    answer = []
+    for i in range(0,len(num_list),n) :
+        answer.append(num_list[i:i+n])
+    return answer
+
+# 등차수열의 특정한 항만 더하기
+def solution(a, d, included):
+    answer = 0
+    for i in range(len(included)):
+        if included[i] == True : 
+            answer += a + d*i
+    return answer
+
+# 가까운 수
+def solution(array, n):
+    array.sort()
+    l = [abs(n-i) for i in array]
+    return array[l.index(min(l))]
 
 # 두 수의 연산값 비교하기
 def solution(a, b):
     return max(int(str(a)+str(b)), 2*a*b)
 
 # k의 개수
+def solution(i, j, k):
+    s = ''
+    for p in range(i,j+1):
+        s += str(p)
+    return s.count(str(k))
+
 # 진료순서 정하기
+
 # 문자열 잘라서 정렬하기
 def solution(myString):
     myString = myString.split('x')
@@ -1041,10 +1076,30 @@ def solution(n):
 # 숨어있는 숫자의 덧셈 (2)
 # 한 번만 등장한 문자
 # 수 조작하기 2
+def solution(numLog):
+    answer = ''
+    for i in range(len(numLog)-1):
+        if numLog[i+1]-numLog[i] == 1 :
+            answer += 'w'
+        elif numLog[i+1]-numLog[i] == -1 :
+            answer += 's'
+        elif numLog[i+1]-numLog[i] == 10 :
+            answer += 'd'
+        else :
+            answer += 'a'
+    return answer
+
 # 간단한 논리 연산
 
 
 # 배열 만들기 5
+def solution(intStrs, k, s, l):
+    answer = []
+    for i in intStrs :
+        if int(i[s:s+l]) > k :
+            answer.append(int(i[s:s+l]))
+    return answer
+
 # 수열과 구간 쿼리 3
 # 문자열 뒤집기
 # 이진수 더하기
@@ -1100,7 +1155,7 @@ def solution(n):
 
 
 
-### 6/19
+### 
 # 문자 개수 세기
 # 수열과 구간 쿼리 2
 # 캐릭터의 좌표
