@@ -1020,6 +1020,12 @@ def solution(a, b):
 # k의 개수
 # 진료순서 정하기
 # 문자열 잘라서 정렬하기
+def solution(myString):
+    myString = myString.split('x')
+    while '' in myString :
+        myString.remove('')
+    return sorted(myString)
+
 # 문자열 반복해서 출력하기
 
 
