@@ -279,3 +279,5 @@ def solution(want, number, discount):
         if dic == Counter(discount[j:j+10]): 
             answer += 1
     return answer
+
+# 프로세스

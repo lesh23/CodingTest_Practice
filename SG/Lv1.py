@@ -740,7 +740,7 @@ def solution(babbling):
             cnt +=1
     return cnt
 
-
+#///////////
 
 ### 6월 19일 ###
 # 완주하지 못한 선수
