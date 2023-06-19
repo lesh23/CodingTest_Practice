@@ -454,6 +454,33 @@ def solution(elements):
 
 
 
+''' 카드 포인트 문제 '''
+members = [['a','-'],['b','a'],['c','b'],['d','b'],['e','-'],['f','d'], ['g','f']]
+p = 100
+
+# members를 dic으로 만들기 + answer을 일단 dic으로 만듬
+m = {}
+answer = {}
+
+for i in members:
+    m[i[0]] = i[1]
+    answer[i[0]] = 0
+
+# {'a': '-', 'b': 'a', 'c': 'b', 'd': 'b', 'e': '-', 'f': 'd'}
+# {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'f': 0}
+
+for i in m.keys():
+    cnt = 0
+    key = i
+    while m[key] != '-' :
+        answer[m[key]] += int(p * (0.1**cnt))
+        key = m[key]
+        cnt += 1
+
+l = sorted([[a,b] for a,b in zip(answer.keys(), answer.values())], key=lambda x: x[1],reverse = True)
+
+
+
 ### 6/7
 # 괄호 회전하기
 def solution(s):
@@ -496,21 +523,28 @@ def solution(s):
 
 
 
-### 5/24
+### 6/9
 # 행렬의 곱셈
 
 
 
-### 5/25
+### 6/12
 # n^2 배열 자르기
 
 
 
-### 5/26
+### 6/13
 # 의상
 
+### 6/14
 # 튜플
+
+
+### 6/15
 # 기능개발
+
+
+### 6/16
 # 프로세스
 
 # [1차] 뉴스 클러스터링
