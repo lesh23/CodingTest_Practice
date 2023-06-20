@@ -21,6 +21,7 @@ def point(arr):
         else:
             result.append([key, 0])
     return result
+ 
 
 # 리스트 컴프리헨션 [표현식 for 항목 in 시퀀스]
 numbers = [x for x in range(10)]
@@ -36,6 +37,7 @@ def solution(n):
 solution([1,2,2,3,2,4,2,4,1,2,2,3,4])
 {1: 2, 2: 6, 3: 2, 4: 3}
 
+
 # 딕셔너리 key 값 정렬 def solution(n):
 def solution(n):
     answer = {}
@@ -45,11 +47,19 @@ def solution(n):
 solution([1,2,2,3,2,4,2,4,1,2,2,3,4])
 [(1, 2), (2, 6), (3, 2), (4, 3)]
 
+
 # 딕셔너리 value 값 정렬 def solution(n):
 def solution(n):
     answer = {}
     for i in n:
         answer[i] = n.count(i)
-    return sorted(answer.items(), key= lambda item:item[1])
+    return sorted(answer.items(), key= lambda x:x[1])
 solution([1,2,2,3,2,4,2,4,1,2,2,3,4])
 [(1, 2), (3, 2), (4, 3), (2, 6)]
+
+
+# zip 사용해서 딕셔너리 만들기
+genres = ["classic", "pop", "classic", "classic", "pop"]
+plays = [500, 600, 150, 800, 2500]
+print(dict(zip(genres,plays)))
+# 결과 {'classic': 800, 'pop': 2500} => 값의 합이 나옴
