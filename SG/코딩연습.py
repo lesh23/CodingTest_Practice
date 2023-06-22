@@ -63,3 +63,19 @@ genres = ["classic", "pop", "classic", "classic", "pop"]
 plays = [500, 600, 150, 800, 2500]
 print(dict(zip(genres,plays)))
 # 결과 {'classic': 800, 'pop': 2500} => 값의 합이 나옴
+
+
+# 순열
+import itertools
+
+arr = ['A', 'B', 'C']
+nPr = itertools.permutations(arr, 2)
+print(list(nPr))
+
+
+# 조합
+import itertools
+
+arr = ['A', 'B', 'C']
+nCr = itertools.combinations(arr, 2)
+print(list(nCr))
