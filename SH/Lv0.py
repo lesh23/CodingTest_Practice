@@ -1118,6 +1118,11 @@ def solution(intStrs, k, s, l):
 # 공 던지기
 # 7의 개수
 # 날짜 비교하기
+def solution(date1, date2):
+    if int(str(date1[0])+str(date1[1])+str(date1[2])) < int(str(date2[0])+str(date2[1])+str(date2[2])):
+        return 1
+    return 0
+
 # 글자 지우기
 # 특수문자 출력하기
 
