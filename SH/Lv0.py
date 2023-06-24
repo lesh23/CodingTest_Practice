@@ -1053,6 +1053,11 @@ def solution(i, j, k):
     return s.count(str(k))
 
 # 진료순서 정하기
+def solution(emergency):
+    answer = []
+    for i in emergency:
+        answer.append(sorted(emergency, reverse=True).index(i)+1)
+    return answer
 
 # 문자열 잘라서 정렬하기
 def solution(myString):
@@ -1062,6 +1067,9 @@ def solution(myString):
     return sorted(myString)
 
 # 문자열 반복해서 출력하기
+a, b = input().strip().split(' ')
+b = int(b)
+print(a*b)
 
 
 
@@ -1074,7 +1082,22 @@ def solution(n):
     return answer
 
 # 숨어있는 숫자의 덧셈 (2)
+def solution(my_string):
+    for i in my_string:
+        if i.isalpha() == True:
+            my_string = my_string.replace(i,' ')
+    return sum(int(x) for x in my_string.split(' ') if len(x)>0)
+
+    # 다른 풀이 : 정규식 사용 생각해볼 것
+
 # 한 번만 등장한 문자
+def solution(s):
+    answer = ''
+    for i in set(s):
+        if s.count(i) == 1:
+            answer += i
+    return ''.join(sorted(answer))
+
 # 수 조작하기 2
 def solution(numLog):
     answer = ''
@@ -1090,7 +1113,19 @@ def solution(numLog):
     return answer
 
 # 간단한 논리 연산
+def solution(x1, x2, x3, x4):
+    if x1== False and x2== False and x3== False and x4== False:
+        return False
+    if x1== False and x2== False:
+        return False
+    if x3== False and x4== False:
+        return False
+    return True
 
+    # 다른사람 풀이
+    # return (x1 | x2) & (x3 | x4)
+    # sol = lambda x,y,z,w = (x or y) and (z or w)
+    # return (x1 or x2) and (x3 or x4)
 
 # 배열 만들기 5
 def solution(intStrs, k, s, l):
@@ -1101,14 +1136,48 @@ def solution(intStrs, k, s, l):
     return answer
 
 # 수열과 구간 쿼리 3
+def solution(arr, queries):
+    for i,j in queries:
+        arr[i], arr[j] = arr[j],arr[i]
+    return arr
+
 # 문자열 뒤집기
+def solution(my_string):
+    my_string = list(my_string)
+    return ''.join(my_string[::-1])
+
 # 이진수 더하기
+def solution(bin1, bin2):
+    return bin(int(bin1,2) + int(bin2,2))[2:]
+
 # 1로 만들기
+def solution(num_list):
+    l = [0]*31
+    l[1]=0
+    l[2]=1
+    
+    for i in range(3,31):
+        if i %2 ==0:
+            l[i] = 1+l[i//2]
+        else :
+            l[i] = 1+l[(i-1)//2]
+
+    answer = 0
+    for i in num_list :
+        answer += l[i]
+        
+    return answer
 
 
 
 ### 6/14
 # 수열과 구간 쿼리 1
+def solution(arr, queries):
+    for i in queries:
+        for j in range(i[0],i[1]+1):
+            arr[j] += 1
+    return arr
+
 # 세로 읽기
 # 컨트롤 제트
 # 특정 문자열로 끝나는 가장 긴 부분 문자열 찾기
@@ -1124,6 +1193,12 @@ def solution(date1, date2):
     return 0
 
 # 글자 지우기
+def solution(my_string, indices):
+    my_string = list(my_string)
+    for i in sorted(indices,reverse=True) :
+        my_string.pop(i)
+    return ''.join(my_string)
+
 # 특수문자 출력하기
 
 
