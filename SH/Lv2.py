@@ -525,8 +525,17 @@ def solution(s):
 
 ### 6/9
 # 행렬의 곱셈
+import numpy as np
+def solution(arr1, arr2):
+    arr1 = np.array(arr1)
+    arr2 = np.array(arr2)
+    answer = np.dot(arr1,arr2)
+    return answer.tolist()
 
+    # numpy 이용 없이 문제풀기
+    # zip
 
+    
 
 ### 6/12
 # n^2 배열 자르기
