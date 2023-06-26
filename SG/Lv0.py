@@ -1496,6 +1496,23 @@ def solution(sides):
     return len(list(range(max(sides)-min(sides)+1,max(sides)+min(sides))))
 
 # 수열과 구간 쿼리 4
+def solution(arr):
+    answer = []
+    cnt = 0
+    new = []
+    while True:
+        for i in range(0,len(arr)):
+            if arr[i]>=50 and arr[i]%2 == 0 :
+                arr[i] = arr[i]/2
+            elif arr[i] < 50 and arr[i]%2 ==1 :
+                arr[i] = arr[i]*2 + 1
+        arr = new   
+        if new != arr:
+            cnt += 1
+        else:
+            return cnt
+            
+    return new
 
 # 리스트 자르기
 def solution(n, slicer, num_list):
