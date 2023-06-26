@@ -358,16 +358,92 @@ def solution(arr1, arr2):
     return answer
 
 '''0525'''
-# n^2 배열 자르기
+# n^2 배열 자르기  time error
+def solution(n, left, right):
+    answer = []
+    ele=[]
+    for i in range(n):
+        ele.append([i+1]*(i+1))
+        if len(ele) < n:
+            t=i
+            x = n - len(ele)
+            while x>0:
+                t+=1
+                ele[i].append(t+1)
+                x-=1        
+        
+    for a in ele:
+        answer+=a
+        
+    answer = answer[left:right+1]
+
+    return answer
 
 '''0526'''
 # 의상
+def solution(clothes):
+    answer = 1
+    gear = {}
+    for _,g in clothes:
+        gear[g] = 0
+        
+    for c,g in clothes:
+        gear[g] += 1
+        
+    for v in gear.values():
+        answer*=(v+1)
+        print(v, answer)
+        
+    return answer-1
 
 '''0529'''
 # 튜플
+def solution(s):
+    answer = []
+    s = s.replace(',{','A')
+    s = s.replace('}','')
+    s = s.replace('{','')
+    s = s.split('A')
+    tmp=[]
+    for x in s:
+        t = []
+        for i in x.split(','):
+            t.append(int(i))
+        tmp.append(t)
+    tmp = sorted(tmp, key=len)
+    
+    for i in tmp:
+        for j in i:
+            if j not in answer:
+                answer.append(j)
+
+    return answer
 
 '''0530'''
-# 기능개발
+# 기능개발 실패
+def solution(progresses, speeds):
+    answer = []
+    count=[]
+    x=0
+    for i,p in enumerate(progresses):
+        cnt=0
+        while p<100:
+            p+=speeds[i]
+            cnt+=1
+        count.append(cnt)
+        if len(count)==1 and cnt==count[-1]:
+            x=1
+        else:
+            if cnt < count[i-1]:
+                x+=1
+            elif cnt == count[i-1]:
+                x+=1
+            elif cnt>count[i-1]:
+                answer.append(x)
+                x=1
+            if i == len(progresses)-1:
+                answer.append(x)
+    return answer
 
 '''0531'''
 # 프로세스x
