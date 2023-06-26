@@ -762,7 +762,7 @@ def solution(myString):
             answer+=s
     return answer
 
-'''
+
 #0603
 # 약수 구하기
 def solution(n):
@@ -951,4 +951,4 @@ def solution(arr, intervals):
 
 # 문자열을 정수로 변환하기
 def solution(n_str):
-    return int(n_str)'''
+    return int(n_str)
