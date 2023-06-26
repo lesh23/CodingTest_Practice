@@ -8,7 +8,7 @@ def point(arr):
     for k in range(0,len(arr)):
         for m,n in enumerate(arr[k]):
             answer.append([n,m])
-
+#[['a', '-'],['b', 'a', '-'],['c', 'b', 'a', '-'],['d', 'b', 'a', '-'],['e', '-'],['f', 'd', 'b', 'a', '-']]
     rem = [item for item in answer if item[0]!='-']
     result = []
 
@@ -21,6 +21,9 @@ def point(arr):
         else:
             result.append([key, 0])
     return result
+
+
+#[['a', '-'],['b', 'a', '-'],['c', 'b', 'a', '-'],['d', 'b', 'a', '-'],['e', '-'],['f', 'd', 'b', 'a', '-']]
  
 
 # 리스트 컴프리헨션 [표현식 for 항목 in 시퀀스]

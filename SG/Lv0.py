@@ -1360,6 +1360,13 @@ def solution(array):
     return s.count('7')
 
 # 날짜 비교하기
+def solution(date1, date2):
+    answer = []
+    if date1[0] <= date2[0]:
+        if date1[1] <= date2[1]:
+            if date1[2] < date2[2]:
+                return 1
+    return 0
 
 # 글자 지우기
 def solution(my_string, indices):
