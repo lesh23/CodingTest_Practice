@@ -1213,6 +1213,22 @@ def solution(my_string, indices):
 
 # 문자열 묶기
 # 조건에 맞게 수열 변환하기 2
+def solution(arr):
+    cnt = 0
+
+    while True :
+        arr1 = arr[:]
+        for i in range(len(arr)) :
+            if arr[i] >= 50 and arr[i]%2 == 0:
+                arr[i] = arr[i]//2
+            if arr[i] < 50 and arr[i]%2 != 0 :
+                arr[i] = arr[i]*2 +1
+
+        cnt += 1
+
+        if arr1 == arr:
+            return cnt-1
+        
 # 문자열이 몇 번 등장하는지 세기
 # 빈 배열에 추가, 삭제하기
 # 구슬을 나누는 경우의 수
