@@ -563,6 +563,22 @@ def solution(arr1, arr2):
 
 ### 6/12
 # n^2 배열 자르기
+def solution(n, left, right):
+    answer = []
+    if left == right:
+        return []
+    
+    for i in range(left//n+1,right//n+2):
+        for _ in range(1,i):
+            if len(answer) >= right-left+1+left%n:
+                break
+            answer.append(i)
+        for j in range(i,n+1):
+            if len(answer) >= right-left+1+left%n:
+                break
+            answer.append(j)
+            
+    return answer[left%n:left%n+right+left+1]
 
 
 
