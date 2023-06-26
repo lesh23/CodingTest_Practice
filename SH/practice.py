@@ -25,18 +25,64 @@ b # ['a', 'cat', 'apple', 'banana', 'watermelon']
 
 
 ### bisect : 정렬된 배열에서 이진탐색
-import bisect
+# import bisect
 a = [1,2,2,3,4,5,8]
 
 
 
-# Numpy
 
+
+''' Chap 4. Numpy 기본 '''
 import numpy as np
 
-arr = np.arange(1000)
-arr
+l = [1,2,3,4,5,6]
+a = np.array(l)
+a = np.arange(15)
+a
+a.dtype
+b = a.astype(np.float32)
+b
 
+# 논리 연산자
+# &(and), |(or)
+
+# 팬시 색인
+arr = np.empty((8,4))
+
+for i in range(8):
+    arr[i] = i
+
+arr[[4,3,0,6]]
+# array([[4., 4., 4., 4.],
+#        [3., 3., 3., 3.],
+#        [0., 0., 0., 0.],
+#        [6., 6., 6., 6.]])
+
+# 유니버셜함수
+arr1 = np.random.rand(8)
+arr2 = np.random.rand(8)
+
+np.sqrt(arr2) # 제곱근
+np.exp(arr2) # e
+np.maxinum(arr1, arr2) # arr1, arr2 중 가장 큰 값 반환 / fmax : NAN값 무
+
+arr = np.random.randn(7) *5
+remainder, whole_part = np.modf(arr) # 정수부분과 소수부분 반환
+
+# 배열 연산으로 조건절 표현하기(163p)
+xarr = np.array([1.1,1.2,1.3,1.4,1.5])
+yarr = np.arraY([5,4,3,2,1])
+cond = np.array([True, False, False, True, True])
+
+# result1과 result가 같음
+result1 = [(x if c else y) for x,y,c in zip(xarr, yarr, cond)]
+result2 = np.where(cond, xarr, yarr)
+# np.where의 경우 두번째, 세 번재 인자는 배열이 아니어도 됨
+
+# p169. 집합 관련 함수
+arr = np.array([1,1,2,6,2,4,8,6,1,4,5])
+np.unique(arr)
+sorted(set(arr))
 
 
 
