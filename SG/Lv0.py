@@ -1454,17 +1454,20 @@ def solution(strArr):
 def solution(arr):    
     cnt = 0    
     while True:
+        new = []
         for i in range(0,len(arr)):
-            new = []
             if arr[i]>=50 and arr[i]%2 == 0 :
-                arr[i] = arr[i]/2
+                new.append(arr[i]/2)
             elif arr[i] < 50 and arr[i]%2 ==1 :
-                arr[i] = arr[i]*2 + 1
-        cnt+=1
+                new.append(arr[i]*2 + 1)
+            else:
+                new.append(arr[i])
+        cnt+=1     
         if arr == new:
             break
-        arr=new
-    return cnt
+        else:
+            arr = new
+    return cnt-1
 
 # 문자열이 몇 번 등장하는지 세기
 def solution(myString, pat):
