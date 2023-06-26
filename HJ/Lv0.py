@@ -993,3 +993,24 @@ def solution(num_list):
                 num =(num-1)/2
                 answer+=1
     return answer
+
+# 조건에 맞게 수열 변환하기 2
+def solution(arr):
+    answer = 0
+    while True:
+        new_arr=[]
+        for a in arr:
+            if a >= 50 and a%2==0:
+                a=a/2
+                new_arr.append(a)
+            elif a<50 and a%2!=0:
+                a=(a*2)+1
+                new_arr.append(a)
+            else:
+                new_arr.append(a)
+        answer+=1
+        if arr == new_arr:
+            break
+        arr=new_arr
+        
+    return answer-1
