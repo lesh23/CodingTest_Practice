@@ -951,4 +951,12 @@ def solution(arr, intervals):
 
 # 문자열을 정수로 변환하기
 def solution(n_str):
-    return int(n_str)
+    return int(n_str)\
+    
+# 날짜 비교하기
+def solution(date1, date2):
+    d1=int(str(date1[0])+str(date1[1])+str(date1[2]))
+    d2=int(str(date2[0])+str(date2[1])+str(date2[2]))
+    if d1<d2:
+        return 1
+    else: return 0
