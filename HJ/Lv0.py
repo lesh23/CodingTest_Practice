@@ -812,7 +812,7 @@ def solution(todo_list, finished):
     answer=[todo_list[i] for i, f in enumerate(finished) if f==False]
     return answer
 
-# 간단한 식 계산하기
+# 간단한 식 계산하기 eval()쓰자
 def solution(binomial):
     a = int(binomial.split()[0])
     b = int(binomial.split()[2])
@@ -960,3 +960,23 @@ def solution(date1, date2):
     if d1<d2:
         return 1
     else: return 0
+
+# 숨어있는 숫자의 덧셈(2)
+def solution(my_string):
+    answer=0
+    new_string=''
+    
+    for s in my_string:
+        if s.isalpha() == True:
+            new_string+='x'
+        else:
+            new_string+=s
+
+    new_string=new_string.split('x')
+    
+    for n in new_string:
+        if n =='':
+            continue
+        else:
+            answer += int(n)
+    return answer
