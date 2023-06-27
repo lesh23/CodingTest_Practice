@@ -1170,7 +1170,7 @@ def solution(num_list):
 
 
 
-### 6/14
+### 6/27
 # 수열과 구간 쿼리 1
 def solution(arr, queries):
     for i in queries:
@@ -1179,11 +1179,62 @@ def solution(arr, queries):
     return arr
 
 # 세로 읽기
+def solution(my_string, m, c):
+    l=[]
+    answer = ''
+    for i in range(0,len(my_string),m):
+        l.append(list(my_string[i:i+m]))
+
+    for i in range(len(l)):
+        answer += l[i][c-1]
+    return answer
+
+    # # 스파이더에서는 돌아가는데 프로그래머스에서는 안돌아감
+    # import numpy as np
+    # def solution(my_string, m, c):
+    #     l=[]
+    #     answer = ''
+    #     for i in range(0,len(my_string),m):
+    #         l.append(list(my_string[i:i+m]))
+    #     a = np.array(l)
+    #     for i in range(len(a)):
+    #         answer += a[i,c-1]
+    #     return answer
+
 # 컨트롤 제트
+def solution(s):
+    s = s.split(' ')
+    answer = 0
+    for i in range(len(s)):
+        if s[i] == 'Z' :
+            answer -= int(s[i-1])
+        else :
+            answer += int(s[i])
+    return answer
+
 # 특정 문자열로 끝나는 가장 긴 부분 문자열 찾기
+def solution(myString, pat):
+    if myString[-len(pat):] == pat :
+        return myString
+    
+    for i in range(1,len(myString)+1):
+        if myString[:-i][-len(pat):] == pat:
+            return myString[:-i]
+
 # 소인수분해
+def solution(n):
+    answer = []
+    while n != 1 :
+        for i in range(2,n+1):
+            if n % i == 0:
+                n = n//i
+                answer.append(i)
+                break
+    return sorted(list(set(answer)))
 
 
+
+### 6/28
 # 공 던지기
 # 7의 개수
 # 날짜 비교하기
@@ -1203,14 +1254,23 @@ def solution(my_string, indices):
 
 
 
-### 6/15
+### 6/29
 # 영어가 싫어요
 # 세 개의 구분자
 # 잘라서 배열로 저장하기
 # 이차원 배열 대각선 순회하기
+def solution(board, k):
+    answer = 0
+    for i in range(min(len(board),k+1)):
+        for j in range(min(len(board[i]),k-i+1)):
+            answer += board[i][j]
+    return answer
+
 # 문자열 계산하기
 
 
+
+### 6/30
 # 문자열 묶기
 # 조건에 맞게 수열 변환하기 2
 def solution(arr):
@@ -1230,17 +1290,35 @@ def solution(arr):
             return cnt-1
         
 # 문자열이 몇 번 등장하는지 세기
+def solution(myString, pat):
+    answer = 0
+    for i in range(0,len(myString)-len(pat)+1):
+        if myString[i:i+len(pat)] == pat:
+            answer += 1
+    return answer
+
 # 빈 배열에 추가, 삭제하기
+def solution(arr, flag):
+    answer = []
+    for i in range(len(flag)):
+        if flag[i] == True :
+            answer += [arr[i]] * arr[i]*2
+        else :
+            answer = answer[:-arr[i]]
+    return answer
+
 # 구슬을 나누는 경우의 수
 
 
 
-### 6/16
+### 7/3
 # 삼각형의 완성조건 (2)
 # 수열과 구간 쿼리 4
 # 리스트 자르기
 # 외계어 사전
 # qr code
+
+
 
 
 # a와 b 출력하기
