@@ -442,8 +442,9 @@ def solution(array, commands):
     return answer
 
 
+######
 
-### 6월 7일 ###
+### 7월 4일 스터디 ###
 # 두 개 뽑아서 더하기
 def solution(numbers):
     answer = []
@@ -491,6 +492,9 @@ def solution(a, b):
     day = [31,29,31,30,31,30,31,31,30,31,30,31]
     days = ['THU','FRI','SAT','SUN','MON','TUE','WED']
     return days[(sum(day[0:a-1])+b)%7]
+
+
+#####
 
 # 추억 점수
 def solution(name, yearning, photo):

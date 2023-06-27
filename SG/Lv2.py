@@ -267,7 +267,15 @@ def solution(progresses, speeds):
     
     return answer
 
-# 할인 행사 
+ 
+
+
+# 프로세스
+
+
+# [1차] 뉴스 클러스터링
+
+# 할인행사 
 from collections import Counter
 def solution(want, number, discount):
     answer = 0
@@ -280,4 +288,7 @@ def solution(want, number, discount):
             answer += 1
     return answer
 
-# 프로세스
+# 배열 나누기
+
+
+# 고정지출

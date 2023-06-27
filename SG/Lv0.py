@@ -1288,9 +1288,9 @@ def solution(num_list):
 
 
 
+##### 7월 4일 스터디
 
-
-### 6월 14일 ###
+### 6월 27일 ###
 # 수열과 구간 쿼리 1
 def solution(arr, queries):
     for i in queries:
@@ -1342,6 +1342,9 @@ def solution(n):
             answer.append(j)
     return answer
 
+
+
+### 6월 28일 ###
 # 공 던지기
 def solution(numbers, k):
     answer = []
@@ -1382,9 +1385,7 @@ print(r'!@#$%^&*(\'"<>?:;')
 
 
 
-
-
-### 6월 15일 ###
+### 6월 29일 ###
 # 영어가 싫어요
 def solution(numbers):
     words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
@@ -1440,6 +1441,9 @@ def solution(my_string):
             answer.append(-float(s[i+1]))
     return sum(answer)
 
+
+
+### 6월 30일 ###
 # 문자열 묶기
 def solution(strArr):
     dic = {}
@@ -1504,9 +1508,7 @@ def solution(balls, share):
 
 
 
-
-
-### 6월 16일 ###
+### 7월 3일 ###
 # 삼각형의 완성조건 (2)
 def solution(sides):
     return len(list(range(max(sides)-min(sides)+1,max(sides)+min(sides))))
@@ -1559,6 +1561,9 @@ def solution(q, r, code):
         if k%q==r:
             answer += l[k]
     return answer
+
+
+#########
 
 # a와 b 출력하기
 a, b = map(int, input().strip().split(' '))
