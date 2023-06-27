@@ -274,7 +274,27 @@ def solution(progresses, speeds):
 
 
 # [1차] 뉴스 클러스터링
-
+def solution(str1, str2):
+    set1 = [str1.lower()[i]+str1.lower()[i+1] for i in range(0,len(str1)-1)]
+    set2 = [str2.lower()[i]+str2.lower()[i+1] for i in range(0,len(str2)-1)]
+    
+    new_set1 = [i for i in set1 if i.isalpha()]
+    new_set2 = [i for i in set2 if i.isalpha()]
+    
+    #교집합 만들기
+    intersection = []
+    temp = new_set2.copy() #얕은 복사
+    for i in new_set1:
+        if i in temp:
+            temp.remove(i)
+            intersection.append(i)
+            
+    if new_set1 == new_set2:
+        return 65536
+    else:
+        union = len(new_set1) + len(new_set2) - len(intersection)
+        return int((len(intersection)/union)*65536)
+    
 # 할인행사 
 from collections import Counter
 def solution(want, number, discount):
