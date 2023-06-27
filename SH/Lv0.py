@@ -1236,7 +1236,9 @@ def solution(n):
 
 ### 6/28
 # 공 던지기
+
 # 7의 개수
+
 # 날짜 비교하기
 def solution(date1, date2):
     if int(str(date1[0])+str(date1[1])+str(date1[2])) < int(str(date2[0])+str(date2[1])+str(date2[2])):
