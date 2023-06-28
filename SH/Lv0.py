@@ -1236,8 +1236,27 @@ def solution(n):
 
 ### 6/28
 # 공 던지기
+def solution(numbers, k):
+    if len(numbers)%2 == 0:
+        l = [numbers[x] for x in range(0,len(numbers),2)]
+        return l[int(k % (len(numbers)/2))-1]
+    else:
+        l = [numbers[x] for x in range(0,len(numbers),2)] + [numbers[x] for x in range(1,len(numbers),2)]
+        return l[int(k % len(numbers))-1]
+    
+    # 다른 사람 풀이
+    # def solution(numbers, k):
+    #     return numbers[2 * (k - 1) % len(numbers)]
 
 # 7의 개수
+def solution(array):
+    arr = ''
+    for i in array:
+        arr += str(i)
+    return arr.count('7')
+
+    # 다른 풀이
+    # 바로 str(array).count('7') 해도됨
 
 # 날짜 비교하기
 def solution(date1, date2):
@@ -1253,13 +1272,35 @@ def solution(my_string, indices):
     return ''.join(my_string)
 
 # 특수문자 출력하기
+print("!@#$%^&*(\\'\"<>?:;")
 
 
 
 ### 6/29
 # 영어가 싫어요
+def solution(numbers):
+    d = {'zero' : '0', 'one' : '1', 'two' : '2',
+         'three' : '3', 'four' : '4', 'five': '5',
+         'six' : '6', 'seven' :'7' , 'eight' : '8', 'nine' : '9'}
+    for i in d.keys():
+        numbers = numbers.replace(i,d[i])
+    return int(numbers)
+
 # 세 개의 구분자
+def solution(myStr):
+    l = [x for x in myStr.replace('a','-').replace('b','-').replace('c','-').split('-') if len(x) > 0]
+    if len(l) == 0:
+        return ['EMPTY']
+    else :
+        return l
+    
 # 잘라서 배열로 저장하기
+def solution(my_str, n):
+    answer = []
+    for i in range(0,len(my_str),n):
+        answer.append(my_str[i:i+n])
+    return answer
+
 # 이차원 배열 대각선 순회하기
 def solution(board, k):
     answer = 0
@@ -1269,11 +1310,20 @@ def solution(board, k):
     return answer
 
 # 문자열 계산하기
+def solution(my_string):
+    return eval(my_string)
 
 
 
 ### 6/30
 # 문자열 묶기
+def solution(strArr):
+    l = [len(i) for i in strArr]
+    answer = 0
+    for i in range(min(l),max(l)+1):
+        answer = max(answer, l.count(i))
+    return answer
+
 # 조건에 맞게 수열 변환하기 2
 def solution(arr):
     cnt = 0
@@ -1310,15 +1360,77 @@ def solution(arr, flag):
     return answer
 
 # 구슬을 나누는 경우의 수
+def solution(balls, share):
+    answer = 1
+    for i in range(balls-share+1, balls+1):
+        answer *= i
+    for i in range(1,share+1):
+        answer /= i
+    return int(answer)
+
+    # combinations 쓰면 시간초과 뜸
+    # from itertools import combinations
+    # def solution(balls, share):
+    #     return len(list(combinations([x for x in range(balls)], share)))
 
 
 
 ### 7/3
 # 삼각형의 완성조건 (2)
+def solution(sides):
+    answer = 0
+    sides = sorted(sides)
+    for i in range(1,1+sides[1]):
+        if i + sides[0]> sides[1]:
+            answer += 1      
+    for _ in range(sides[1]+1, sum(sides)):
+            answer += 1      
+    return answer
+
 # 수열과 구간 쿼리 4
+import math
+
+def solution(arr, queries):
+    for i in range(len(queries)):
+        if queries[i][2] == 0 :
+            pass
+        else :
+            for j in range(queries[i][2]*math.ceil(queries[i][0]/queries[i][2]),queries[i][1]+1,queries[i][2]):
+                arr[j] += 1
+    return arr
+
+    # 답 비교
+
 # 리스트 자르기
+def solution(n, slicer, num_list):
+    if n==1 :
+        return num_list[:slicer[1]+1]
+    elif n==2 :
+        return num_list[slicer[0]:]
+    elif n==3 :
+        return num_list[slicer[0]:slicer[1]+1]
+    else:
+        return [num_list[i] for i in range(slicer[0],slicer[1]+1,slicer[2])]
+    
 # 외계어 사전
+def solution(spell, dic):
+    answer = [0]*len(dic)
+    for i in spell:
+        for j in range(len(dic)):
+            if i in dic[j]:
+                answer[j] += 1
+    if answer.count(len(spell)) >= 1 :
+        return 1
+    else:
+        return 2
+
 # qr code
+def solution(q, r, code):
+    answer = ''
+    for i in range(len(code)):
+        if i %q ==r:
+            answer += code[i]
+    return answer
 
 
 
@@ -1327,12 +1439,39 @@ def solution(arr, flag):
 # 조건 문자열
 # 2의 영역
 # 배열의 길이를 2의 거듭제곱으로 만들기
+def solution(arr):
+    l = [2**x for x in range(11)]
+    for i in l :
+        if len(arr) <= i:
+            return arr + [0] * (i-len(arr))
+        
 # 커피 심부름
+def solution(order):
+    answer = 0
+    for i in order:
+        if 'americano' in i:
+            answer += 4500
+        elif 'latte' in i :
+            answer += 5000
+        else :
+            answer += 4500
+    return answer
 
 
 
 ### 
 # 문자 개수 세기
+def solution(my_string):
+    answer = [0]*52
+
+    for i in range(65,65+26):
+        answer[i-65] = my_string.count(chr(i))
+    
+    for i in range(97,97+26):
+        answer[i-97+26] = my_string.count(chr(i))
+        
+    return answer
+
 # 수열과 구간 쿼리 2
 # 캐릭터의 좌표
 # 직사각형 넓이 구하기
