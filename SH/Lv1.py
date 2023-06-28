@@ -437,7 +437,7 @@ def solution(array, commands):
 
 
 
-# 6월 7일
+### 6월 27일
 # 두 개 뽑아서 더하기
 from itertools import combinations
 
@@ -446,12 +446,43 @@ def solution(numbers):
     answer = set([sum(j) for j in arr])
     return sorted(answer)
 
-# 콜라 문제
-# 푸드 파이트 대회
 
-# 6월 8일
+
+### 6/28
+# 콜라 문제
+
+
+
+### 6/29
+# 푸드 파이트 대회
+def solution(food):
+    answer = ''
+    for i in range(1,len(food)):
+        if int(food[i]) / 2 >= 1:
+            answer += f'{i}' * int(food[i]//2)
+    return answer+'0'+answer[::-1]
+
+
+
+### 6/30
 # 가장 가까운 같은 글자
+def solution(s):
+    answer = []
+    for i in range(len(s)):
+        if s[i] not in s[:i]:
+            answer.append(-1)
+        else:
+            answer.append(s[:i][::-1].index(s[i])+1)
+    return answer
+
+
+
+### 7/3
 # 2016년
+
+
+
+
 # 추억 점수
 
 # 6월 9일
