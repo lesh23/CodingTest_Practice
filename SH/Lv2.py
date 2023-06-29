@@ -600,6 +600,29 @@ def solution(n, left, right):
 
 ### 6/28
 # [1차] 뉴스 클러스터링
+def solution(str1, str2):
+    a = []
+    b = []
+
+    for i in range(len(str1)-1):
+        if str1[i:i+2].isalpha() == True:
+            a.append(str1[i:i+2].lower())
+
+    for i in range(len(str2)-1):
+        if str2[i:i+2].isalpha() == True:
+            b.append(str2[i:i+2].lower())
+    
+    # 교집합&합집합 구하기
+    n = 0 # 교집합 계산
+    for i in a:
+        if i in b:
+            b.remove(i)
+            # 교집합 개수
+            n+=1
+
+    # 자카르 유사도 계산
+    return int((n / (len(a)+len(b))) * 65536) if len(a)+len(b) != 0 else 65536
+
 
 
 ### 6/29
