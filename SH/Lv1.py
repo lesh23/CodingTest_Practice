@@ -450,6 +450,12 @@ def solution(numbers):
 
 ### 6/28
 # 콜라 문제
+def solution(a, b, n):
+    answer = 0
+    while n >= a :
+        answer += (n//a)*b
+        n = (n//a)*b +n%a
+    return answer
 
 
 
@@ -479,20 +485,28 @@ def solution(s):
 
 ### 7/3
 # 2016년
+import datetime
+def solution(a, b):
+    q = datetime.date(2016,a,b).weekday()
+    c = {0:'MON', 1:'TUE', 2:'WED', 3:'THU',4 : 'FRI', 5:'SAT', 6:'SUN'}
+    return c[q]
 
+    # 함수 안쓰고 푸는 방법 확인
 
 
 
 # 추억 점수
 
-# 6월 9일
 # 폰켓몬
+
 # 모의고사
+
 # 명예의 전당 (1)
 
-### 6/12
 # 소수 만들기
+
 # 소수 찾기
+
 # 과일 장수
 
 

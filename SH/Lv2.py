@@ -601,8 +601,23 @@ def solution(n, left, right):
 ### 6/28
 # [1차] 뉴스 클러스터링
 
+
 ### 6/29
 # 할인 행사
+def solution(want, number, discount):
+    answer = 0
+    n = 0
+    for i in range(len(discount)-9):
+        for j in range(len(want)):
+            if discount[i:i+10].count(want[j]) != number[j]:
+                break
+            else :
+                n+=1
+        if n == len(want) :        
+            answer += 1
+        n=0
+    return answer
+
 
 
 ### 상지문제1
