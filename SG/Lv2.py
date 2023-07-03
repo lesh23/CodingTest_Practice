@@ -312,3 +312,34 @@ def solution(want, number, discount):
 
 
 # 고정지출
+def sol(k,arr):
+    answer = []
+    dic = {}
+    result = []
+    
+    #형태 바꾸기
+    for i in range(0,len(arr)):
+        arr[i] = list(map(int,arr[i].replace('.',' ').split()))
+    
+    #날짜 정렬 해가 바뀌는 것도 있으니까 
+    for m in arr:
+        answer.append([(m[0]-arr[0][0])*12+m[1],m[2],m[3]])
+        
+    month = list(range(answer[-1][0]-k+1,answer[-1][0]+1))
+       
+    
+    for k in answer:
+        if k[0] in month:
+            result.append(k)
+   
+    # 개수 세기
+    for item in result:
+        day = item[1]
+        money = item[2]
+        if (day,money) in dic:
+            dic[(day,money)] += 1
+        else:
+            dic[(day,money)] = 1
+                      
+    data = [key for key, value in dic.items() if value >= 3]     
+    return data
