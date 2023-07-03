@@ -273,6 +273,7 @@ def solution(progresses, speeds):
 # 프로세스
 
 
+
 # [1차] 뉴스 클러스터링
 def solution(str1, str2):
     set1 = [str1.lower()[i]+str1.lower()[i+1] for i in range(0,len(str1)-1)]
@@ -295,6 +296,8 @@ def solution(str1, str2):
         union = len(new_set1) + len(new_set2) - len(intersection)
         return int((len(intersection)/union)*65536)
     
+
+
 # 할인행사 
 from collections import Counter
 def solution(want, number, discount):
@@ -308,7 +311,26 @@ def solution(want, number, discount):
             answer += 1
     return answer
 
-# 배열 나누기
+
+
+# 배열 나누기               # 아닌거 같은데 답은 나옴...
+def solution(arr):
+    cnt = 0
+    
+    for i in range(len(arr)):
+        for k in range(0,len(arr)):
+            if sum(arr[k:]) == sum(arr[:k]):
+                if arr[k:]!=[] and arr[:k]!=[]:
+                    print(arr[k:],arr[:k])
+                    cnt += 1
+                
+            else:
+                for j in range(i+1, len(arr)):
+                    if arr[i] != arr[j]:
+                        arr[i],arr[j]=arr[j],arr[i]
+                
+    return cnt
+
 
 
 # 고정지출
