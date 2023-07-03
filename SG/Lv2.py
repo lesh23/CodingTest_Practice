@@ -271,7 +271,20 @@ def solution(progresses, speeds):
 
 
 # 프로세스
-
+from collections import deque
+def solution(priorities, location):
+    answer = 0
+    que = deque([(m,n) for n,m in enumerate(priorities)])
+    
+    while len(que):
+        item = que.popleft()
+        if que and max(que)[0] > item[0]:
+            que.append(item)
+        else:
+            answer += 1
+            if item[1] == location:
+                break
+    return answer
 
 
 # [1차] 뉴스 클러스터링
