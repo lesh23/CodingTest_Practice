@@ -405,7 +405,7 @@ def sol1(lottery):
     for key, value in lottery:
         if key not in dic:
             dic[key] = []
-        dic[key].append(value) #이미 딕셔너리 형태이기때문에 바꿀 필요가 없네...
+        dic[key].append(value) # 당첨 여부 리스트로 만들기
        
     for k in dic.values():
         if 1 in k:
