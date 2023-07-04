@@ -378,3 +378,39 @@ def sol(k,arr):
                       
     data = [key for key, value in dic.items() if value >= 3]     
     return data
+
+
+
+# 기숙사 배정 
+def solution(arr):
+    answer = []
+    result = []
+    for i in range(len(arr[0])):
+        answer.append([arr[0][i],(arr[1][i][0]**2)+(arr[1][i][1]**2),int(arr[2][i])])       #리스트 합치기
+        
+    names = [i[0] for i in sorted(answer,key = lambda x:(-x[2],-x[1],x[0]))]                #정렬하고 이름만 나열
+    
+    for name in arr[0]:
+        result.append(names.index(name)+1)      # 인덱스 출력
+        
+    return result
+
+
+
+# 로또 
+def sol1(lottery):
+    dic = {}
+    answer = []
+    
+    for key, value in lottery:
+        if key not in dic:
+            dic[key] = []
+        dic[key].append(value) #이미 딕셔너리 형태이기때문에 바꿀 필요가 없네...
+       
+    for k in dic.values():
+        if 1 in k:
+            answer.append(k.index(1)+1)
+        else:
+            answer.append(0)
+    
+    return int(sum(answer)/3)
