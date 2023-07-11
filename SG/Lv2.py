@@ -344,6 +344,29 @@ def solution(arr):
                 
     return cnt
 
+#  배열 나누기 
+def sol2(arr):
+    cnt = 0
+
+    for k in range(len(arr)):
+        if sum(arr[k:]) == sum(arr[:k]):
+            if arr[k:]!=[] and arr[:k]!=[]:
+                print(arr[k:],arr[:k])
+                cnt += 1
+
+
+    for i in range(len(arr)):
+        for j in range(i+1, len(arr)):
+            if arr[i] != arr[j]:
+                arr[i],arr[j]=arr[j],arr[i]
+                for k in range(len(arr)):
+                    if sum(arr[k:]) == sum(arr[:k]):
+                        if arr[k:]!=[] and arr[:k]!=[]:
+                            print(arr[k:],arr[:k])
+                            cnt += 1
+            arr[i],arr[j]=arr[j],arr[i]
+    return cnt 
+
 
 
 # 고정지출
