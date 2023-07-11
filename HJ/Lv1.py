@@ -375,6 +375,25 @@ def solution(s):
 # 콜라 문제
 # 푸드 파이트 대회
 
+# 가장 가까운 같은 글자
+def solution(s):
+    answer = []
+    stack=[]
+    for i, z in enumerate(s):
+        # print(i,z)
+        if z not in stack:
+            # print('-1')
+            stack.append(z)
+            answer.append(-1)
+        else:
+            # print(z, stack[::-1], stack[::-1].index(z))
+            # print(stack[::-1].index(z)+1)
+            answer.append(stack[::-1].index(z)+1)
+            stack.append(z)
+        # print(stack)
+                  
+    return answer
+
 
 
 
