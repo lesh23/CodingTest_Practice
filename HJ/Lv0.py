@@ -1158,6 +1158,13 @@ def solution(my_str, n):
 
 # 삼각형의 완성조건 (2)
 # 수열과 구간 쿼리 4
+def solution(arr, queries):
+    for i, _ in enumerate(arr):
+        for q in queries:
+            if i>=q[0] and i<=q[1] and i%q[2]==0:
+                arr[i]+=1
+    return arr
+
 # 리스트 자르기
 # 외계어 사전
 # qr code
