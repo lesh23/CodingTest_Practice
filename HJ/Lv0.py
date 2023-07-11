@@ -1014,3 +1014,150 @@ def solution(arr):
         arr=new_arr
         
     return answer-1
+
+# 수열과 구간 쿼리 1
+def solution(arr, queries):
+    for i, j in queries:
+        for n in range(i,j+1):
+            arr[n]+=1
+    return arr
+
+# 세로 읽기
+def solution(my_string, m, c):
+    answer = ''
+    for i,s in enumerate(my_string):
+        if i%m == c-1:
+            answer+=s   
+    return answer
+
+# 컨트롤 제트
+def solution(s):
+    arr =[]
+    for a in s.split(' '):
+        if a=='Z':
+            arr.pop()
+        else:
+            arr.append(int(a))
+    return sum(arr)
+
+# 특정 문자열로 끝나는 가장 긴 부분 문자열 찾기
+def solution(myString, pat):
+    answer = ''
+    splt = myString.split(pat)
+    for i, x in enumerate(splt):
+        if i!=len(splt)-1:
+            answer+=x
+            answer+=pat
+    return answer
+
+# 소인수분해
+def solution(n):
+    answer = []
+    i=2
+    while i<=n:
+        if n%i==0:
+            if i not in answer:
+                answer.append(i)
+            n//=i
+        else:
+            i+=1
+    
+    return (answer)
+
+
+
+# 공 던지기
+def solution(numbers, k):
+    if len(numbers) % 2 == 0:
+        evens = []
+        for x in range(0,len(numbers),2):
+            evens.append(numbers[x])
+        return evens[(k%len(evens)) - 1]
+    elif len(numbers) % 2 != 0:
+        odds = []
+        for i in range(2):
+            for x in range(i,len(numbers),2):
+                odds.append(numbers[x])
+        return odds[(k%len(odds)) - 1]
+
+# 7의 개수
+def solution(array):
+    answer = 0
+    tmp=''
+    for num in array:
+        tmp+=str(num)
+        
+    return tmp.count('7')
+
+# 날짜 비교하기
+def solution(date1, date2):
+    answer = 0
+    d1=int(str(date1[0])+str(date1[1])+str(date1[2]))
+    d2=int(str(date2[0])+str(date2[1])+str(date2[2]))
+    if d1<d2:
+        return 1
+    else: return 0
+    # print(d1)
+    # return answer
+
+# 글자 지우기
+def solution(my_string, indices):
+    answer = ''
+    for i,x in enumerate(my_string):
+        if i not in indices:
+            answer+=x    
+    return answer
+
+# 특수문자 출력하기
+print('!@#$%^&*(\\\'\"<>?:;')
+
+
+# 영어가 싫어요
+def solution(numbers):
+    dic = {'ze':'0', 'on':'1', 'tw':'2', 'th':'3', 'fo':'4', 'fi':'5', 'si':'6', 'se':'7', 'ei':'8', 'ni':'9'}
+    tmp=''
+    for i, _ in enumerate(numbers):
+        if i != len(numbers)-1:
+            if numbers[i]+numbers[i+1] in dic:
+                tmp+=dic[numbers[i]+numbers[i+1]]
+    answer = int(tmp)
+    return answer
+
+# 세 개의 구분자
+def solution(myStr):
+    answer = []
+    for x in myStr.replace('a','`').replace('b','`').replace('c','`').split('`'):
+        if x!='':
+            answer.append(x)
+    if answer == []:
+        return ["EMPTY"]
+    else: return answer
+
+# 잘라서 배열로 저장하기
+def solution(my_str, n):
+    answer = []
+    ind=[]
+    for i in range(0, len(my_str), n):
+        ind.append(i)
+    for i, x in enumerate(ind):
+        if i<len(ind)-1:
+            answer.append(my_str[ind[i]:ind[i+1]])
+    answer.append(my_str[ind[-1]:])
+    return answer
+
+# 이차원 배열 대각선 순회하기
+# 문자열 계산하기
+
+
+# 문자열 묶기
+# 조건에 맞게 수열 변환하기 2
+# 문자열이 몇 번 등장하는지 세기
+# 빈 배열에 추가, 삭제하기
+# 구슬을 나누는 경우의 수
+
+
+# 삼각형의 완성조건 (2)
+# 수열과 구간 쿼리 4
+# 리스트 자르기
+# 외계어 사전
+# qr code
