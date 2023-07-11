@@ -1514,20 +1514,13 @@ def solution(sides):
     return len(list(range(max(sides)-min(sides)+1,max(sides)+min(sides))))
 
 # 수열과 구간 쿼리 4
-def solution(arr):    
-    cnt = 0    
-    while True:
-        for i in range(0,len(arr)):
-            new = []
-            if arr[i]>=50 and arr[i]%2 == 0 :
-                arr[i] = arr[i]/2
-            elif arr[i] < 50 and arr[i]%2 ==1 :
-                arr[i] = arr[i]*2 + 1
-        cnt+=1
-        if arr == new:
-            break
-        arr=new
-    return cnt
+def solution(arr, queries):
+    answer = []
+    for i in range(len(queries)):
+        for j in range(queries[i][0],queries[i][1]+1):
+            if j % queries[i][2]==0:
+                arr[j]+=1
+    return arr
 
 # 리스트 자르기
 def solution(n, slicer, num_list):
