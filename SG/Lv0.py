@@ -1705,12 +1705,50 @@ def solution(a, b):
 
 
 
-### 6월 21일 ###
+
 # 등수 매기기
+def solution(score):
+    avg = [i[0]+ i[1] for i in score]
+    rank = sorted(avg,reverse = True)
+    return [rank.index(j[0] + j[1])+1 for j in score]
+
 # 유한소수 판별하기
+def solution(a, b):
+    answer = 0
+    def gcd(m,n):
+        l = []
+        for i in range(1,min(m,n)+1):
+            if m%i==0 and n%i==0:
+                l.append(i)
+        return max(l)
+    
+    [x,y] = [int(a/gcd(a,b)),int(b/gcd(a,b))]
+    
+    while y > 1:
+        if y%2 == 0:
+            y = y/2
+        elif y%5==0:
+            y = y/5
+        else:
+            return 2
+    return y
+
 # 대소문자 바꿔서 출력하기
+str = input()
+r = ""
+for i in str:
+    if i.islower():
+        r += i.upper()
+    else:
+        r += i.lower()
+print(r)
+
 # 저주의 숫자 3
 # 특이한 정렬
+def solution(numlist, n):
+    answer = [[i,abs(n-i)] for i in numlist[::-1]]
+    sort = sorted(answer,key = lambda x: (x[1],-x[0]))
+    return [i[0] for i in sort]
 
 # 문자열 여러 번 뒤집기
 def solution(my_string, queries):
