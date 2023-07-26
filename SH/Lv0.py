@@ -1507,13 +1507,47 @@ def solution(my_string):
     return answer
 
 # 수열과 구간 쿼리 2
+def solution(arr, queries):
+    answer = []
+    for s,e,k in queries :
+        i = 0
+        while i <= len(arr[s:e+1]) :
+            if sorted(arr[s:e+1], reverse=True)[i] > k:
+                i += 1
+            else :
+                if i == 0 :
+                    answer.append(-1)
+                else :
+                    answer.append(sorted(arr[s:e+1], reverse=True)[i-1])
+                break
+    return answer
+
+    ### 이거 왜 런타임에러? 왜 안돌아가는지 모르겠네
+
 # 캐릭터의 좌표
 # 직사각형 넓이 구하기
 # 종이 자르기
 
 
 # 문자열 겹쳐쓰기
+def solution(my_string, overwrite_string, s):
+    return my_string[:s] + overwrite_string[:] + my_string[s+len(overwrite_string):]
+
 # 배열 만들기 4
+def solution(arr):
+    stk = []
+    i = 0
+    while i < len(arr):
+        if stk == []:
+            stk.append(arr[i])
+            i += 1
+        elif stk != [] and stk[-1] < arr[i]:
+            stk.append(arr[i])
+            i+=1
+        elif stk != [] and stk[-1] >= arr[i] :
+            stk.pop()
+    return stk
+
 # 로그인 성공?
 # 치킨 쿠폰
 # 두 수의 합
@@ -1528,11 +1562,50 @@ def solution(a, b):
 
 
 # 문자열 여러 번 뒤집기
+def solution(my_string, queries):
+    for s,e in queries:
+        my_string = my_string[:s] + my_string[s:e+1][::-1] + my_string[e+1:]
+    return my_string
+
 # 문자열 밀기
 # 정사각형으로 만들기
-# 왼쪽 오른쪽
-# 그림 확대
+def solution(arr):
+    if len(arr) == len(arr[0]) :
+        pass
+    elif len(arr) > len(arr[0]) :
+        for i in range(len(arr)) :
+            arr[i] = arr[i] + [0]*(len(arr) - len(arr[i]))
+    elif len(arr) < len(arr[0]) :
+        for _ in range(len(arr[0]) - len(arr)):
+            arr.append([0]*len(arr[0]))
+    return arr
 
+# 왼쪽 오른쪽
+def solution(str_list):
+    if 'l' not in str_list and 'r' not in str_list:
+        return []
+    else :
+        if 'l' not in str_list :
+            return str_list[str_list.index('r')+1:]
+        elif 'r' not in str_list:
+            return str_list[:str_list.index('l')]
+        elif str_list.index('l') < str_list.index('r'):
+            return str_list[:str_list.index('l')]
+        else :
+            return str_list[str_list.index('r')+1:]
+        
+# 그림 확대
+def solution(picture, k):
+    answer = []
+    for pic in picture:
+        a = ''
+        for i in range(len(pic)):
+            a += pic[i]*k
+        for _ in range(k):
+            answer.append(a)
+    return answer
+
+    # 답비교
 
 # 무작위로 K개의 수 뽑기
 # 다항식 더하기
@@ -1559,3 +1632,25 @@ def solution(a, b):
 # 배열 조각하기
 # 정수를 나선형으로 배치하기
 # 옹알이 (1)
+from itertools import permutations
+
+data = ['aya','ye','woo','ma']
+a=[]
+
+
+def solution(babbling):
+    for i in range(1,len(data)+1):
+        p = list(permutations(data,i))
+        
+        for j in range(len(p)):
+            a.append(''.join(p[j]))
+    
+    answer= 0
+    
+    for i in range(len(babbling)):
+        for j in range(len(a)):
+            if babbling[i] == a[j]:
+                answer += 1
+                
+    
+    return answer
