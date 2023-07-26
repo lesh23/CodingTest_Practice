@@ -1436,8 +1436,43 @@ def solution(q, r, code):
 
 
 # a와 b 출력하기
+a, b = map(int, input().strip().split(' '))
+print('a =',a,'\nb =',b)
+
 # 조건 문자열
+def solution(ineq, eq, n, m):
+    if ineq == ">":
+        if eq == "=":
+            if n == m or n > m :
+                return 1
+            else:
+                return 0
+        elif eq == '!':
+            if n > m :
+                return 1
+            else:
+                return 0
+    elif ineq == "<" :
+        if eq == "=":
+            if n == m or n < m :
+                return 1
+            else:
+                return 0
+        elif eq == '!':
+            if n < m :
+                return 1
+            else:
+                return 0
+
 # 2의 영역
+def solution(arr):
+    if arr[-1] == 2:
+        return arr[arr.index(2):]
+    elif 2 in arr :
+        return arr[arr.index(2):-arr[::-1].index(2)]
+    elif 2 not in arr:
+        return [-1]
+    
 # 배열의 길이를 2의 거듭제곱으로 만들기
 def solution(arr):
     l = [2**x for x in range(11)]
@@ -1459,7 +1494,6 @@ def solution(order):
 
 
 
-### 
 # 문자 개수 세기
 def solution(my_string):
     answer = [0]*52
@@ -1483,7 +1517,8 @@ def solution(my_string):
 # 로그인 성공?
 # 치킨 쿠폰
 # 두 수의 합
-
+def solution(a, b):
+    return str(int(a)+int(b))
 
 # 등수 매기기
 # 유한소수 판별하기
