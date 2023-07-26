@@ -1754,6 +1754,15 @@ print(r)
 
 
 # 저주의 숫자 3
+def solution(n):
+    list_num = [i for i in range(1,200)]
+    result = []
+    
+    for i in list_num:
+        if i%3 !=0 and i%10 != 3 and i//10 != 3 and i//10 != 13:
+            result.append(i)
+    
+    return result[n-1]
 
 
 # 특이한 정렬
@@ -1824,6 +1833,16 @@ def solution(picture, k):
 
 
 # 무작위로 K개의 수 뽑기
+def solution(arr, k): 
+    result = []
+    for i in arr:
+        if i not in result:
+            result.append(i) 
+    
+    if len(result) >= k:
+        return result[:k] 
+    else:
+        return result + [-1]*(k-len(result))
 
 
 # 다항식 더하기
@@ -1873,9 +1892,24 @@ def solution(array):
 
 
 # 문자열 출력하기
+str = input()
+print(str)
 
 
 # OX퀴즈
+def solution(quiz):
+    answer = []
+    result = []
+    for i in quiz:
+        answer.append(i.split('='))
+        
+    for k in answer:
+        if eval(k[0]) == int(k[1]):
+            result.append("O")
+        else:
+            result.append("X")
+    
+    return result
 
 
 # 코드 처리하기
