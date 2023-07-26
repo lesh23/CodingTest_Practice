@@ -1779,14 +1779,23 @@ def solution(arr):
             arr += [[0]*len(arr[0])]*(len(arr[0])-len(arr))
     return arr
 
-# 왼쪽 오른쪽
+# 왼쪽 오른쪽                               #90점, 1,20번 통과못함
+def solution(str_list):
+    answer = []
+    if "l" in str_list and "r" in str_list:
+        if str_list.index("l") > str_list.index("r"):
+            return str_list[str_list.index("r")+1:]
+        elif str_list.index("l") < str_list.index("r"):
+            return str_list[:str_list.index("l")]
+    else:
+        return []
+
+
+
 # 그림 확대
 
 
 
-
-
-### 6월 22일 ###
 # 무작위로 K개의 수 뽑기
 # 다항식 더하기
 # 배열 만들기 6
