@@ -1525,9 +1525,31 @@ def solution(arr, queries):
     ### 이거 왜 런타임에러? 왜 안돌아가는지 모르겠네
 
 # 캐릭터의 좌표
-# 직사각형 넓이 구하기
-# 종이 자르기
+def solution(keyinput, board):
+    answer = [0,0]
+    key = ['up', 'down','left','right']
+    dx = [0,0,-1,1]
+    dy = [1,-1,0,0]
+    for k in keyinput:
+        i = key.index(k)
+        if abs(answer[0] + dx[i]) <= (board[0]-1)/2 and abs(answer[1] + dy[i]) <= (board[1]-1)/2 :
+            answer = [answer[0] + dx[i], answer[1] + dy[i]]
+        else :
+            pass
+    return answer
 
+# 직사각형 넓이 구하기
+def solution(dots):
+    for i in range(1,4):
+        if dots[0][0] == dots[i][0]:
+            a = abs(dots[0][1]-dots[i][1])
+        else :
+            b = abs(dots[0][0]-dots[i][0])
+    return a*b
+
+# 종이 자르기
+def solution(M, N):
+    return (M-1) + (N-1)*M
 
 # 문자열 겹쳐쓰기
 def solution(my_string, overwrite_string, s):
@@ -1549,14 +1571,52 @@ def solution(arr):
     return stk
 
 # 로그인 성공?
+def solution(id_pw, db):
+    for id, pw in db:
+        if id == id_pw[0]:
+            if pw == id_pw[1]:
+                return 'login'
+            else :
+                return 'wrong pw'
+    return 'fail'
+
 # 치킨 쿠폰
+def solution(chicken):
+    answer = 0
+    while chicken // 10 !=0:
+        answer += chicken // 10
+        chicken = chicken//10 + chicken%10
+    return answer
+
 # 두 수의 합
 def solution(a, b):
     return str(int(a)+int(b))
 
 # 등수 매기기
+def solution(score):
+    answer = []
+    avg = []
+    for i,j in score :
+        avg.append((i+j)/2)
+    for i in range(len(avg)):
+        answer.append(sorted(avg, reverse = True).index(avg[i])+1)
+    return answer
+
+    # 순위 함수 : pandas의 rank함수
+
 # 유한소수 판별하기
+
 # 대소문자 바꿔서 출력하기
+str = list(input())
+for i in range(len(str)):
+    if str[i].isupper() == True:
+        str[i] = str[i].lower()
+    else:
+        str[i] = str[i].upper()
+print(''.join(str))
+
+    # swapcase 기억하기
+
 # 저주의 숫자 3
 # 특이한 정렬
 
@@ -1610,6 +1670,24 @@ def solution(picture, k):
 # 무작위로 K개의 수 뽑기
 # 다항식 더하기
 # 배열 만들기 6
+def solution(arr):
+    answer = []
+    i = 0
+    while i < len(arr):
+        if answer == []:
+            answer.append(arr[i])
+            i += 1
+        elif answer != [] and answer[-1] ==arr[i]:
+            answer.pop()
+            i+=1
+        elif answer != [] and answer[-1] != arr[i] :
+            answer.append(arr[i])
+            i+=1
+    if answer != []:
+        return answer
+    else:
+        return [-1]
+
 # 전국 대회 선발 고사
 # 최빈값 구하기
 
