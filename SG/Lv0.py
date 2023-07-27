@@ -1916,6 +1916,13 @@ def solution(quiz):
 
 
 # 분수의 덧셈
+import math
+def solution(numer1, denom1, numer2, denom2):
+    numer = denom1*numer2 + denom2*numer1
+    denom = denom1 * denom2
+    gcd = math.gcd(denom,numer)
+    
+    return [numer/gcd,denom/gcd]
 
 
 # 다음에 올 숫자
@@ -1928,7 +1935,13 @@ def solution(common):
     
 
 # 연속된 수의 합
-
+def solution(num, total):
+    answer = []
+    
+    for i in range(total//num+1 - num,total//num+1 + num):
+        if (num*(i+i+num-1))/2 == total:
+            return list(range(i,i+num))
+    
 
 # 안전지대
 
