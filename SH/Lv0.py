@@ -1696,7 +1696,38 @@ def solution(picture, k):
     # 답비교
 
 # 무작위로 K개의 수 뽑기
+def solution(arr, k):
+    answer = [arr[0]]
+    for i in range(1,len(arr)):
+        if len(answer) < k and arr[i] not in answer:
+            answer.append(arr[i])
+        elif len(answer) == k:
+            return answer
+    return answer + [-1]*(k-len(answer))
+
 # 다항식 더하기
+def solution(polynomial):
+    a = 0
+    b = 0
+    for i in polynomial.split(' + '):
+        if i.isdigit() == False:
+            if len(i[:-1]) == 0:
+                a += 1
+            else:
+                a += int(i[:-1])
+        else :
+            b += int(i)
+    # 결과물 출력 코드
+    if a == 0:
+        return str(b)
+    elif a == 1 and b == 0:
+        return 'x'
+    elif a == 1 and b != 0 :
+        return 'x + ' + str(b)
+    elif b == 0:
+        return str(a) + 'x'
+    return str(a) + 'x + '+ str(b)
+
 # 배열 만들기 6
 def solution(arr):
     answer = []
@@ -1717,12 +1748,57 @@ def solution(arr):
         return [-1]
 
 # 전국 대회 선발 고사
-# 최빈값 구하기
+def solution(rank, attendance):
+    answer = 0
+    for i in range(len(rank)):
+        if attendance[i]== False:
+            rank[i] = len(rank)+1
+    for i in range(4,-1,-2):
+        answer += (10**i) * rank.index(min(rank))
+        rank[rank.index(min(rank))] = len(rank) +1
+    return answer
 
+# 최빈값 구하기
+def solution(array):
+    a = []
+    # array의 중복을 제거(set으로) -> 각 원소의 갯수 count
+    for i in set(array) :
+        a.append(array.count(i))
+    # 최빈값 중복 여부 확인
+    if a.count(max(a)) > 1 :
+        return -1
+    else:
+        return list(set(array))[a.index(max(a))]
 
 # 배열 만들기 2
+def solution(l, r):
+    answer = []
+    # 각 자리수가 5의 배수인지 판별
+    for i in range(l,r+1):
+        answer.append(i)
+        for j in range(len(str(i))):
+            if int(str(i)[j]) % 5 != 0:
+                answer.pop()
+                break
+    if len(answer)==0:
+        return [-1]
+    return answer
+
 # 문자열 출력하기
+str = input()
+print(str)
+
 # OX퀴즈
+def solution(quiz):
+    answer = []
+    for i in quiz:
+        i = i.replace('=','==')
+        if eval(i) == True:
+            answer.append('O')
+        else:
+            answer.append('X')
+    return answer
+
 # 코드 처리하기
 # 분수의 덧셈
 
