@@ -1618,8 +1618,29 @@ print(''.join(str))
     # swapcase 기억하기
 
 # 저주의 숫자 3
-# 특이한 정렬
+def solution(n):
+    answer = 0
+    for i in range(1,n+1):
+        answer += 1
+        if answer % 3 == 0 or '3' in str(answer) :
+            while answer % 3 == 0 or '3' in str(answer) :
+                answer += 1
+    return answer
 
+# 특이한 정렬
+def solution(numlist, n):
+    answer = []
+    numlist = sorted(numlist, reverse=True)
+    l = []
+    # 거리계산
+    for i in numlist:
+        l.append(abs(i-n))
+    # 결과찾기
+    while len(l) != 0:
+        answer.append(numlist[l.index(min(l))])
+        numlist.pop(l.index(min(l)))
+        l.remove(min(l))
+    return answer
 
 # 문자열 여러 번 뒤집기
 def solution(my_string, queries):
@@ -1628,6 +1649,13 @@ def solution(my_string, queries):
     return my_string
 
 # 문자열 밀기
+def solution(A, B):
+    for i in range(len(A)):
+        if A == B :
+            return i
+        A = A[-1] + A[:-1]
+    return -1
+
 # 정사각형으로 만들기
 def solution(arr):
     if len(arr) == len(arr[0]) :
