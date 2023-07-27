@@ -1953,7 +1953,18 @@ def solution(num, total):
 
 
 # 평행
-
+def solution(dots):
+    if m(dots[0],dots[1]) == m(dots[2],dots[3]):
+        return 1
+    elif m(dots[0],dots[2]) == m(dots[1],dots[3]):
+        return 1
+    elif m(dots[0],dots[3]) == m(dots[1],dots[2]):
+        return 1
+    return 0
+    
+def m(dot1,dot2):
+    return (dot2[1] - dot1[1] ) / (dot2[0] - dot1[0])
+    
 
 # 배열 조각하기
 
