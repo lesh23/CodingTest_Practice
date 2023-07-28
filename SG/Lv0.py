@@ -2014,6 +2014,26 @@ def solution(num, total):
     
 
 # 안전지대
+def solution(board):
+    answer = []
+    result = []
+    
+    l = []
+    for i in range(len(board)):
+        for j in range(len(board)):
+            if board[i][j] == 1:
+                answer.append([i,j])
+                
+    for k in answer:
+        for n in range(-1,2):
+            for m in range(-1,2):
+                result.append([k[0]+n,k[1]+m])
+    
+    for r in result:
+        if r not in l and r[0] >= 0 and r[1] >= 0 and r[0] < len(board) and r[1] < len(board):
+            l.append(r)
+              
+    return (len(board)**2)-len(l)
 
 
 # 겹치는 선분의 길이
