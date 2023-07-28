@@ -1864,6 +1864,32 @@ def solution(arr, k):
 
 
 # 다항식 더하기
+def solution(polynomial):
+    answer = polynomial.split(" + ")
+    
+    result = []
+    num = []
+     
+    for i in answer:
+        if i.isdigit() == False:
+            if len(i) == 1:
+                result.append(1)
+            if len(i) != 1:
+                result.append(int(i[:-1]))
+        else:
+            num.append(int(i))     
+            
+    (a,b) = (sum(result),sum(num))
+    
+    if a == 0:
+        return str(b)
+    elif a == 1 and b == 0:
+        return 'x'
+    elif a == 1 and b != 0 :
+        return 'x + ' + str(b)
+    elif b == 0:
+        return str(a) + 'x'
+    return str(a) + 'x + '+ str(b)
 
 
 # 배열 만들기 6
