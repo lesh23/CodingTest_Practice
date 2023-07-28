@@ -1947,7 +1947,19 @@ def solution(array):
 
 
 # 배열 만들기 2
-
+def solution(l, r):
+    answer = []
+    num = list(range(l,r+1))
+    
+    for n in num:
+        if list(set(str(n))) == ["0"] or list(set(str(n))) == ["5"] or list(set(str(n))) == ["0","5"] or list(set(str(n))) == ["5","0"]:
+            answer.append(n)
+    
+    if answer == []:
+        return [-1]
+            
+    return answer
+        
 
 # 문자열 출력하기
 str = input()
