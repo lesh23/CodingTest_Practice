@@ -1817,7 +1817,7 @@ def solution(arr):
     return arr
 
 
-# 왼쪽 오른쪽                               #90점, 1,20번 통과못함
+# 왼쪽 오른쪽                               
 def solution(str_list):
     answer = []
     if "l" in str_list and "r" in str_list:
@@ -1825,7 +1825,12 @@ def solution(str_list):
             return str_list[str_list.index("r")+1:]
         elif str_list.index("l") < str_list.index("r"):
             return str_list[:str_list.index("l")]
-    else:
+        
+    elif "l" in str_list and "r" not in str_list: 
+        return str_list[:str_list.index("l")]
+    elif "l" not in str_list and "r" in str_list: 
+        return str_list[str_list.index("r")+1:]
+    elif 'l' not in str_list and 'r' not in str_list:
         return []
 
 
