@@ -1636,6 +1636,7 @@ def solution(arr, queries):
 
 
 # 캐릭터의 좌표                     
+def solution(keyinput, board):
     [x,y] = [0,0]
     for i in keyinput:
         if i == "left" :
