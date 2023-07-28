@@ -1510,19 +1510,17 @@ def solution(my_string):
 def solution(arr, queries):
     answer = []
     for s,e,k in queries :
-        i = 0
-        while i <= len(arr[s:e+1]) :
-            if sorted(arr[s:e+1], reverse=True)[i] > k:
-                i += 1
-            else :
+        for i in range(len(arr[s:e+1])) :
+            if sorted(arr[s:e+1], reverse=True)[-1] > k:
+                answer.append(sorted(arr[s:e+1], reverse=True)[-1])
+                break
+            if sorted(arr[s:e+1], reverse=True)[i] <= k:
                 if i == 0 :
                     answer.append(-1)
                 else :
                     answer.append(sorted(arr[s:e+1], reverse=True)[i-1])
                 break
     return answer
-
-    ### 이거 왜 런타임에러? 왜 안돌아가는지 모르겠네
 
 # 캐릭터의 좌표
 def solution(keyinput, board):

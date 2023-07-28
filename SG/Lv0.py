@@ -1621,6 +1621,18 @@ def solution(my_string):
 
 
 # 수열과 구간 쿼리 2
+def solution(arr, queries):
+    answer = []
+    for s,e,k in queries:
+        for i in sorted(arr[s:e+1]):
+            if i > k:
+                answer.append(i)
+                break
+            elif max(arr[s:e+1]) <= k:
+                answer.append(-1)
+                break
+                          
+    return answer
 
 
 # 캐릭터의 좌표                     합계: 90.9 / 100.0
