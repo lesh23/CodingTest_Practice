@@ -1361,3 +1361,36 @@ def solution(l, r):
     if len(answer)==0:
         return[-1]
     return answer
+
+
+# 다항식 더하기
+def solution(polynomial):
+    poly = polynomial.split(' + ')
+    cnt=0
+    num=[]
+    digit=[]
+    for p in poly:
+        if 'x' in p and len(p)==1:
+            # print(p)
+            cnt+=1
+        elif 'x' in p and len(p)==2:
+            # print(p)
+            num.append(int(p[0]))
+        elif 'x' in p and len(p)==3:
+            num.append(int(p[0]+p[1]))
+        elif p.isdigit()==True:
+            digit.append(int(p))
+    
+    coeff = sum(num)+cnt
+    
+    # nx 만 잇는 경우
+    if len(digit)==0:
+        answer = str(coeff) + 'x'
+        
+    # nx + m 인 경우:
+    elif len(digit)!=0 and coeff>0: answer = str(coeff) + 'x + ' + str(sum(digit))
+    
+    # x가 없는 경우
+    elif coeff==0: answer = str(sum(digit))
+    
+    return answer
