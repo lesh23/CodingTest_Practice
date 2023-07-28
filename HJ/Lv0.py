@@ -1330,5 +1330,20 @@ def solution(str_list):
             return str_list[:str_list.index(s)]
 
         elif s =='r':
-            return str_list[str_list.index(s):]
+            return str_list[str_list.index(s)+1:]
     return []
+
+# 배열 만들기 6
+def solution(arr):
+    answer = []
+    stk=[]
+    for i, a in enumerate(arr):
+        if len(stk) == 0:
+            stk.append(arr[i])
+        elif stk[-1]==arr[i]:
+            stk.pop()
+        elif stk[-1]!=arr[i]:
+            stk.append(arr[i])
+    if len(stk)==0:
+        return [-1]
+    return stk
