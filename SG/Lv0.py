@@ -1893,6 +1893,20 @@ def solution(polynomial):
 
 
 # 배열 만들기 6
+def solution(arr):
+    stk = []
+    for i in arr:
+        if stk == []:
+            stk.append(i)
+        else:
+            if stk[-1] == i:
+                stk.pop()
+            elif stk[-1] != i:
+                stk.append(i)
+    if stk == []:
+        return [-1]
+    
+    return stk
 
 
 # 전국 대회 선발 고사
