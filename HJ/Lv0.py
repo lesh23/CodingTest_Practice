@@ -1427,3 +1427,39 @@ def solution(lines):
                 stack.append(line)
     answer=len(stack)
     return answer
+
+# 안전지대
+def solution(board):
+    newBoard = [[0]*(len(board)+2) for x in range(len(board)+2)]
+
+    # for b in board:
+    #     print(b)
+        
+    for i in range(len(board)):
+        for j in range(len(board)):
+            # newBoard[i+1][j+1] = board[i][j]
+            if board[i][j] == 1:
+                pass
+                newBoard[i][j]=3
+                newBoard[i][j+1]=3
+                newBoard[i][j+2]=3
+                
+                newBoard[i+1][j]=3
+                newBoard[i+1][j+1]=3
+                newBoard[i+1][j+2]=3
+                
+                newBoard[i+2][j]=3
+                newBoard[i+2][j+1]=3
+                newBoard[i+2][j+2]=3
+    
+    # for n in newBoard:
+    #     print(n)
+
+    answer=0
+    prep = newBoard[1:-1]
+    for p in prep:
+        answer+=(p[1:-1].count(0))
+        
+    
+    
+    return answer
