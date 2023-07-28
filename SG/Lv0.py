@@ -1635,28 +1635,28 @@ def solution(arr, queries):
     return answer
 
 
-# 캐릭터의 좌표                     합계: 90.9 / 100.0
-def solution(keyinput, board):
+# 캐릭터의 좌표                     
     [x,y] = [0,0]
     for i in keyinput:
         if i == "left" :
-            x -= 1
+            x -= 1   
         elif i == "right":
-            x += 1
+            x += 1   
         elif i == "up":
             y += 1
         elif i== "down":
             y -= 1
-    if abs(x) >int(board[0]/2):
-        if x>=0:
-            x = int(board[0]/2)
-        if x<0:
-            x = -int(board[0]/2)
-    if abs(y) >int(board[1]/2):
-        if y>=0:
-            y = int(board[1]/2)
-        if y<0:
-            y = -int(board[1]/2)
+    
+        if abs(x) >int(board[0]/2):
+            if x>=0:
+                x = int(board[0]/2)
+            if x<0:
+                x = -int(board[0]/2)
+        if abs(y) >int(board[1]/2):
+            if y>=0:
+                y = int(board[1]/2)
+            if y<0:
+                y = -int(board[1]/2)
     return [x,y]
 
 
