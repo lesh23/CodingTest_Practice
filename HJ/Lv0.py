@@ -1394,3 +1394,36 @@ def solution(polynomial):
     elif coeff==0: answer = str(sum(digit))
     
     return answer
+
+# 겹치는 선분의 길이
+def solution(lines):
+    answer = 0
+    line1 = [[x,x+1] for x in range(lines[0][0], lines[0][1])]
+    line2 = [[x,x+1] for x in range(lines[1][0], lines[1][1])]
+    line3 = [[x,x+1] for x in range(lines[2][0], lines[2][1])]
+    stack=[]
+    for line in line1:
+        if line in line2:
+            if line not in stack:
+                stack.append(line)
+        elif line in line3:
+            if line not in stack:
+                stack.append(line)
+            
+    for line in line2:
+        if line in line3:
+            if line not in stack:
+                stack.append(line)
+        elif line in line1:
+            if line not in stack:
+                stack.append(line)
+            
+    for line in line3:
+        if line in line1:
+            if line not in stack:
+                stack.append(line)
+        elif line in line2:
+            if line not in stack:
+                stack.append(line)
+    answer=len(stack)
+    return answer
