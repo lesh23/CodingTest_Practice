@@ -1298,3 +1298,27 @@ def solution(keyinput, board):
             if answer[1]>-maxy:
                 answer[1]-=1
     return answer
+
+# 유한소수 판별하기
+from fractions import Fraction
+from decimal import *
+
+def solution(a, b):
+    x = str(Fraction(a,b)).split('/')
+    b = fac(int(x[1]))
+    
+    for k in b:
+        if k not in [2,5]:
+            return 2
+        else: return 1
+
+def fac(x):
+    tmp=[]
+    i = 2
+    while i <= x:
+        if x % i == 0:
+            tmp.append(i)
+            x = x / i
+        else:
+            i += 1
+    return tmp
