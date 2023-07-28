@@ -1890,6 +1890,28 @@ def solution(num, total):
     return answer
 
 # 안전지대
+def solution(board):
+    answer = 0
+    di = [-1,-1,-1,0,0,1,1,1]
+    dj = [-1,0,1,-1,1,-1,0,1]
+    danger = []
+    # 위험지역 찾기
+    for i in range(len(board)):
+        for j in range(len(board)) :
+            if board[i][j] == 1:
+                danger.append([i,j])
+    # 위험지역 근처 1로 바꾸기
+    for p in range(len(di)):
+        for x,y in danger:
+            x += di[p]
+            y += dj[p]
+            if x in range(len(board)) and y in range(len(board)) :
+                board[x][y] = 1
+    # 답 찾기 : 0의 개수 세기
+    for i in board:
+        answer += i.count(0)
+    return answer
+
 # 겹치는 선분의 길이
 # 주사위 게임 3
 
