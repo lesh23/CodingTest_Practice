@@ -1619,6 +1619,7 @@ def solution(a, b):
     j = 0
     while j < len(p):
         if a % p[j] == 0:
+            a = a//p[j]
             p.pop(j)
             j = 0
         else:
