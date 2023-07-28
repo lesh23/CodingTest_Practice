@@ -1436,8 +1436,43 @@ def solution(q, r, code):
 
 
 # a와 b 출력하기
+a, b = map(int, input().strip().split(' '))
+print('a =',a,'\nb =',b)
+
 # 조건 문자열
+def solution(ineq, eq, n, m):
+    if ineq == ">":
+        if eq == "=":
+            if n == m or n > m :
+                return 1
+            else:
+                return 0
+        elif eq == '!':
+            if n > m :
+                return 1
+            else:
+                return 0
+    elif ineq == "<" :
+        if eq == "=":
+            if n == m or n < m :
+                return 1
+            else:
+                return 0
+        elif eq == '!':
+            if n < m :
+                return 1
+            else:
+                return 0
+
 # 2의 영역
+def solution(arr):
+    if arr[-1] == 2:
+        return arr[arr.index(2):]
+    elif 2 in arr :
+        return arr[arr.index(2):-arr[::-1].index(2)]
+    elif 2 not in arr:
+        return [-1]
+    
 # 배열의 길이를 2의 거듭제곱으로 만들기
 def solution(arr):
     l = [2**x for x in range(11)]
@@ -1459,7 +1494,6 @@ def solution(order):
 
 
 
-### 
 # 문자 개수 세기
 def solution(my_string):
     answer = [0]*52
@@ -1473,42 +1507,298 @@ def solution(my_string):
     return answer
 
 # 수열과 구간 쿼리 2
-# 캐릭터의 좌표
-# 직사각형 넓이 구하기
-# 종이 자르기
+def solution(arr, queries):
+    answer = []
+    for s,e,k in queries :
+        i = 0
+        while i <= len(arr[s:e+1]) :
+            if sorted(arr[s:e+1], reverse=True)[i] > k:
+                i += 1
+            else :
+                if i == 0 :
+                    answer.append(-1)
+                else :
+                    answer.append(sorted(arr[s:e+1], reverse=True)[i-1])
+                break
+    return answer
 
+    ### 이거 왜 런타임에러? 왜 안돌아가는지 모르겠네
+
+# 캐릭터의 좌표
+def solution(keyinput, board):
+    answer = [0,0]
+    key = ['up', 'down','left','right']
+    dx = [0,0,-1,1]
+    dy = [1,-1,0,0]
+    for k in keyinput:
+        i = key.index(k)
+        if abs(answer[0] + dx[i]) <= (board[0]-1)/2 and abs(answer[1] + dy[i]) <= (board[1]-1)/2 :
+            answer = [answer[0] + dx[i], answer[1] + dy[i]]
+        else :
+            pass
+    return answer
+
+# 직사각형 넓이 구하기
+def solution(dots):
+    for i in range(1,4):
+        if dots[0][0] == dots[i][0]:
+            a = abs(dots[0][1]-dots[i][1])
+        else :
+            b = abs(dots[0][0]-dots[i][0])
+    return a*b
+
+# 종이 자르기
+def solution(M, N):
+    return (M-1) + (N-1)*M
 
 # 문자열 겹쳐쓰기
-# 배열 만들기 4
-# 로그인 성공?
-# 치킨 쿠폰
-# 두 수의 합
+def solution(my_string, overwrite_string, s):
+    return my_string[:s] + overwrite_string[:] + my_string[s+len(overwrite_string):]
 
+# 배열 만들기 4
+def solution(arr):
+    stk = []
+    i = 0
+    while i < len(arr):
+        if stk == []:
+            stk.append(arr[i])
+            i += 1
+        elif stk != [] and stk[-1] < arr[i]:
+            stk.append(arr[i])
+            i+=1
+        elif stk != [] and stk[-1] >= arr[i] :
+            stk.pop()
+    return stk
+
+# 로그인 성공?
+def solution(id_pw, db):
+    for id, pw in db:
+        if id == id_pw[0]:
+            if pw == id_pw[1]:
+                return 'login'
+            else :
+                return 'wrong pw'
+    return 'fail'
+
+# 치킨 쿠폰
+def solution(chicken):
+    answer = 0
+    while chicken // 10 !=0:
+        answer += chicken // 10
+        chicken = chicken//10 + chicken%10
+    return answer
+
+# 두 수의 합
+def solution(a, b):
+    return str(int(a)+int(b))
 
 # 등수 매기기
-# 유한소수 판별하기
-# 대소문자 바꿔서 출력하기
-# 저주의 숫자 3
-# 특이한 정렬
+def solution(score):
+    answer = []
+    avg = []
+    for i,j in score :
+        avg.append((i+j)/2)
+    for i in range(len(avg)):
+        answer.append(sorted(avg, reverse = True).index(avg[i])+1)
+    return answer
 
+    # 순위 함수 : pandas의 rank함수
+
+# 유한소수 판별하기
+
+# 대소문자 바꿔서 출력하기
+str = list(input())
+for i in range(len(str)):
+    if str[i].isupper() == True:
+        str[i] = str[i].lower()
+    else:
+        str[i] = str[i].upper()
+print(''.join(str))
+
+    # swapcase 기억하기
+
+# 저주의 숫자 3
+def solution(n):
+    answer = 0
+    for i in range(1,n+1):
+        answer += 1
+        if answer % 3 == 0 or '3' in str(answer) :
+            while answer % 3 == 0 or '3' in str(answer) :
+                answer += 1
+    return answer
+
+# 특이한 정렬
+def solution(numlist, n):
+    answer = []
+    numlist = sorted(numlist, reverse=True)
+    l = []
+    # 거리계산
+    for i in numlist:
+        l.append(abs(i-n))
+    # 결과찾기
+    while len(l) != 0:
+        answer.append(numlist[l.index(min(l))])
+        numlist.pop(l.index(min(l)))
+        l.remove(min(l))
+    return answer
 
 # 문자열 여러 번 뒤집기
-# 문자열 밀기
-# 정사각형으로 만들기
-# 왼쪽 오른쪽
-# 그림 확대
+def solution(my_string, queries):
+    for s,e in queries:
+        my_string = my_string[:s] + my_string[s:e+1][::-1] + my_string[e+1:]
+    return my_string
 
+# 문자열 밀기
+def solution(A, B):
+    for i in range(len(A)):
+        if A == B :
+            return i
+        A = A[-1] + A[:-1]
+    return -1
+
+# 정사각형으로 만들기
+def solution(arr):
+    if len(arr) == len(arr[0]) :
+        pass
+    elif len(arr) > len(arr[0]) :
+        for i in range(len(arr)) :
+            arr[i] = arr[i] + [0]*(len(arr) - len(arr[i]))
+    elif len(arr) < len(arr[0]) :
+        for _ in range(len(arr[0]) - len(arr)):
+            arr.append([0]*len(arr[0]))
+    return arr
+
+# 왼쪽 오른쪽
+def solution(str_list):
+    if 'l' not in str_list and 'r' not in str_list:
+        return []
+    else :
+        if 'l' not in str_list :
+            return str_list[str_list.index('r')+1:]
+        elif 'r' not in str_list:
+            return str_list[:str_list.index('l')]
+        elif str_list.index('l') < str_list.index('r'):
+            return str_list[:str_list.index('l')]
+        else :
+            return str_list[str_list.index('r')+1:]
+        
+# 그림 확대
+def solution(picture, k):
+    answer = []
+    for pic in picture:
+        a = ''
+        for i in range(len(pic)):
+            a += pic[i]*k
+        for _ in range(k):
+            answer.append(a)
+    return answer
+
+    # 답비교
 
 # 무작위로 K개의 수 뽑기
-# 다항식 더하기
-# 배열 만들기 6
-# 전국 대회 선발 고사
-# 최빈값 구하기
+def solution(arr, k):
+    answer = [arr[0]]
+    for i in range(1,len(arr)):
+        if len(answer) < k and arr[i] not in answer:
+            answer.append(arr[i])
+        elif len(answer) == k:
+            return answer
+    return answer + [-1]*(k-len(answer))
 
+# 다항식 더하기
+def solution(polynomial):
+    a = 0
+    b = 0
+    for i in polynomial.split(' + '):
+        if i.isdigit() == False:
+            if len(i[:-1]) == 0:
+                a += 1
+            else:
+                a += int(i[:-1])
+        else :
+            b += int(i)
+    # 결과물 출력 코드
+    if a == 0:
+        return str(b)
+    elif a == 1 and b == 0:
+        return 'x'
+    elif a == 1 and b != 0 :
+        return 'x + ' + str(b)
+    elif b == 0:
+        return str(a) + 'x'
+    return str(a) + 'x + '+ str(b)
+
+# 배열 만들기 6
+def solution(arr):
+    answer = []
+    i = 0
+    while i < len(arr):
+        if answer == []:
+            answer.append(arr[i])
+            i += 1
+        elif answer != [] and answer[-1] ==arr[i]:
+            answer.pop()
+            i+=1
+        elif answer != [] and answer[-1] != arr[i] :
+            answer.append(arr[i])
+            i+=1
+    if answer != []:
+        return answer
+    else:
+        return [-1]
+
+# 전국 대회 선발 고사
+def solution(rank, attendance):
+    answer = 0
+    for i in range(len(rank)):
+        if attendance[i]== False:
+            rank[i] = len(rank)+1
+    for i in range(4,-1,-2):
+        answer += (10**i) * rank.index(min(rank))
+        rank[rank.index(min(rank))] = len(rank) +1
+    return answer
+
+# 최빈값 구하기
+def solution(array):
+    a = []
+    # array의 중복을 제거(set으로) -> 각 원소의 갯수 count
+    for i in set(array) :
+        a.append(array.count(i))
+    # 최빈값 중복 여부 확인
+    if a.count(max(a)) > 1 :
+        return -1
+    else:
+        return list(set(array))[a.index(max(a))]
 
 # 배열 만들기 2
+def solution(l, r):
+    answer = []
+    # 각 자리수가 5의 배수인지 판별
+    for i in range(l,r+1):
+        answer.append(i)
+        for j in range(len(str(i))):
+            if int(str(i)[j]) % 5 != 0:
+                answer.pop()
+                break
+    if len(answer)==0:
+        return [-1]
+    return answer
+
 # 문자열 출력하기
+str = input()
+print(str)
+
 # OX퀴즈
+def solution(quiz):
+    answer = []
+    for i in quiz:
+        i = i.replace('=','==')
+        if eval(i) == True:
+            answer.append('O')
+        else:
+            answer.append('X')
+    return answer
+
 # 코드 처리하기
 # 분수의 덧셈
 
@@ -1524,3 +1814,25 @@ def solution(my_string):
 # 배열 조각하기
 # 정수를 나선형으로 배치하기
 # 옹알이 (1)
+from itertools import permutations
+
+data = ['aya','ye','woo','ma']
+a=[]
+
+
+def solution(babbling):
+    for i in range(1,len(data)+1):
+        p = list(permutations(data,i))
+        
+        for j in range(len(p)):
+            a.append(''.join(p[j]))
+    
+    answer= 0
+    
+    for i in range(len(babbling)):
+        for j in range(len(a)):
+            if babbling[i] == a[j]:
+                answer += 1
+                
+    
+    return answer

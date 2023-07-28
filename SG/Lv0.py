@@ -1556,12 +1556,14 @@ def solution(q, r, code):
     return answer
 
 
+
 #########
 
 # a와 b 출력하기
 a, b = map(int, input().strip().split(' '))
 print("a = "+str(a))
 print("b = "+str(b))
+
 
 # 조건 문자열
 def solution(ineq, eq, n, m):
@@ -1579,7 +1581,8 @@ def solution(ineq, eq, n, m):
         return 1
     else:
         return 0
-    
+
+
 # 2의 영역
 def solution(arr):
     answer = []
@@ -1591,6 +1594,7 @@ def solution(arr):
     else:
         return arr[min(answer):max(answer)+1]
     
+
 # 배열의 길이를 2의 거듭제곱으로 만들기
 def solution(arr):
     for i in range(0,10):
@@ -1598,7 +1602,8 @@ def solution(arr):
             return arr + [0]*(2**(i+1)-len(arr))
         elif len(arr) == 2**i:
             return arr
-        
+     
+       
 # 커피 심부름
 def solution(order):
     answer = 0
@@ -1610,15 +1615,14 @@ def solution(order):
     return answer
 
 
-
-
-
-### 6월 19일 ###
 # 문자 개수 세기
 def solution(my_string):
     return [my_string.count(chr(i)) for i in range(65,91)] + [my_string.count(chr(j)) for j in range(97,123)]
 
+
 # 수열과 구간 쿼리 2
+
+
 # 캐릭터의 좌표                     합계: 90.9 / 100.0
 def solution(keyinput, board):
     [x,y] = [0,0]
@@ -1643,6 +1647,7 @@ def solution(keyinput, board):
             y = -int(board[1]/2)
     return [x,y]
 
+
 # 직사각형 넓이 구하기
 def solution(dots):
     w = []
@@ -1652,15 +1657,18 @@ def solution(dots):
         h.append(i[1])
     return (max(w)-min(w))*(max(h)-min(h))
 
+
 # 종이 자르기
 def solution(M, N):
     answer = 0
     answer = M*N -1
     return answer
 
+
 # 문자열 겹쳐쓰기
 def solution(my_string, overwrite_string, s):
     return my_string[0:s] + overwrite_string + my_string[s+len(overwrite_string):]
+
 
 # 배열 만들기 4
 def solution(arr):
@@ -1678,6 +1686,7 @@ def solution(arr):
                 stk.pop()
     return stk
 
+
 # 로그인 성공?
 def solution(id_pw, db):
     for i in db:
@@ -1688,6 +1697,7 @@ def solution(id_pw, db):
                 return 'wrong pw'
     return 'fail'
 
+
 # 치킨 쿠폰
 def solution(chicken):
     answer = 0
@@ -1697,20 +1707,70 @@ def solution(chicken):
         chicken = chicken%10 + eat
     return answer 
 
+
 # 두 수의 합
 def solution(a, b):
     return str(int(a) + int(b))
 
 
-
-
-
-### 6월 21일 ###
 # 등수 매기기
+def solution(score):
+    avg = [i[0]+ i[1] for i in score]
+    rank = sorted(avg,reverse = True)
+    return [rank.index(j[0] + j[1])+1 for j in score]
+
+
 # 유한소수 판별하기
+def solution(a, b):
+    answer = 0
+    def gcd(m,n):
+        l = []
+        for i in range(1,min(m,n)+1):
+            if m%i==0 and n%i==0:
+                l.append(i)
+        return max(l)
+    
+    [x,y] = [int(a/gcd(a,b)),int(b/gcd(a,b))]
+    
+    while y > 1:
+        if y%2 == 0:
+            y = y/2
+        elif y%5==0:
+            y = y/5
+        else:
+            return 2
+    return y
+
+
 # 대소문자 바꿔서 출력하기
+str = input()
+r = ""
+for i in str:
+    if i.islower():
+        r += i.upper()
+    else:
+        r += i.lower()
+print(r)
+
+
 # 저주의 숫자 3
+def solution(n):
+    list_num = [i for i in range(1,200)]
+    result = []
+    
+    for i in list_num:
+        if i%3 !=0 and i%10 != 3 and i//10 != 3 and i//10 != 13:
+            result.append(i)
+    
+    return result[n-1]
+
+
 # 특이한 정렬
+def solution(numlist, n):
+    answer = [[i,abs(n-i)] for i in numlist[::-1]]
+    sort = sorted(answer,key = lambda x: (x[1],-x[0]))
+    return [i[0] for i in sort]
+
 
 # 문자열 여러 번 뒤집기
 def solution(my_string, queries):
@@ -1719,6 +1779,7 @@ def solution(my_string, queries):
     for i in queries:
         s[i[0]:i[1]+1] = s[i[0]:i[1]+1][::-1]
     return ''.join(s)
+
 
 # 문자열 밀기
 def solution(A, B):
@@ -1731,6 +1792,7 @@ def solution(A, B):
         return answer.index(B)
     return -1
 
+
 # 정사각형으로 만들기
 def solution(arr):
     answer = [[]] 
@@ -1741,38 +1803,184 @@ def solution(arr):
             arr += [[0]*len(arr[0])]*(len(arr[0])-len(arr))
     return arr
 
-# 왼쪽 오른쪽
+
+# 왼쪽 오른쪽                               #90점, 1,20번 통과못함
+def solution(str_list):
+    answer = []
+    if "l" in str_list and "r" in str_list:
+        if str_list.index("l") > str_list.index("r"):
+            return str_list[str_list.index("r")+1:]
+        elif str_list.index("l") < str_list.index("r"):
+            return str_list[:str_list.index("l")]
+    else:
+        return []
+
+
 # 그림 확대
+def solution(picture, k):
+    answer = []
+    result = []
+    for i in picture:
+        a = ''
+        for j in range(len(i)):
+            if i[j] == '.':
+                a += '.'*k
+            elif i[j] == 'x' :
+                a += 'x'*k
+        answer.append([a]*k)
+    
+    return sum(answer, [])
 
 
-
-
-
-### 6월 22일 ###
 # 무작위로 K개의 수 뽑기
+def solution(arr, k): 
+    result = []
+    for i in arr:
+        if i not in result:
+            result.append(i) 
+    
+    if len(result) >= k:
+        return result[:k] 
+    else:
+        return result + [-1]*(k-len(result))
+
+
 # 다항식 더하기
+
+
 # 배열 만들기 6
+
+
 # 전국 대회 선발 고사
+def solution(rank, attendance):
+    answer = []
+    result = 0
+    for i in range(len(attendance)):
+        if attendance[i] == True:
+            answer.append([i,rank[i]])
+            
+    sorted_answer = sorted(answer,key = lambda x: x[1])
+    
+    for k in range(0,3):
+        result += 100**(2-k)*sorted_answer[k][0]
+        
+    return result
+
+
 # 최빈값 구하기
+def solution(array):
+    answer = 0
+    dic = {}
+    
+    for i in array:
+        if i in dic.keys():
+            dic[i] += 1
+        else:
+            dic[i] = 1
+            
+    values = sorted(list(dic.values()),reverse=True)
+    
+    if len(values) >= 2:
+        if values[0] == values[1]:
+            return -1
+    
+        
+    return max(dic, key = dic.get)
+
 
 # 배열 만들기 2
+
+
 # 문자열 출력하기
+str = input()
+print(str)
+
+
 # OX퀴즈
+def solution(quiz):
+    answer = []
+    result = []
+    for i in quiz:
+        answer.append(i.split('='))
+        
+    for k in answer:
+        if eval(k[0]) == int(k[1]):
+            result.append("O")
+        else:
+            result.append("X")
+    
+    return result
+
+
 # 코드 처리하기
+
+
 # 분수의 덧셈
+import math
+def solution(numer1, denom1, numer2, denom2):
+    numer = denom1*numer2 + denom2*numer1
+    denom = denom1 * denom2
+    gcd = math.gcd(denom,numer)
+    
+    return [numer/gcd,denom/gcd]
 
 
-
-
-
-### 6월 23일 ###
 # 다음에 올 숫자
+def solution(common):
+    answer = 0
+    if common[-1] - common[-2] == common[-2] - common[-3]:
+        return common[-1]+common[-1] - common[-2]
+    elif common[-1] / common[-2] == common[-2] / common[-3]:
+        return common[-1] * (common[-1] / common[-2])
+    
+
 # 연속된 수의 합
+def solution(num, total):
+    answer = []
+    
+    for i in range(total//num+1 - num,total//num+1 + num):
+        if (num*(i+i+num-1))/2 == total:
+            return list(range(i,i+num))
+    
+
 # 안전지대
+
+
 # 겹치는 선분의 길이
+
+
 # 주사위 게임 3
 
+
 # 평행
+def solution(dots):
+    if m(dots[0],dots[1]) == m(dots[2],dots[3]):
+        return 1
+    elif m(dots[0],dots[2]) == m(dots[1],dots[3]):
+        return 1
+    elif m(dots[0],dots[3]) == m(dots[1],dots[2]):
+        return 1
+    return 0
+    
+def m(dot1,dot2):
+    return (dot2[1] - dot1[1] ) / (dot2[0] - dot1[0])
+    
+
 # 배열 조각하기
+
+
 # 정수를 나선형으로 배치하기
+
+
 # 옹알이 (1)
+def solution(babbling):
+    answer = 0
+    for i in range(len(babbling)):
+        babbling[i] = babbling[i].replace("aya","1")
+        babbling[i] = babbling[i].replace("ye","2")
+        babbling[i] = babbling[i].replace("woo","3")
+        babbling[i] = babbling[i].replace("ma","4")
+    for k in babbling:
+        if k.isdigit():
+            answer +=1
+    return answer
