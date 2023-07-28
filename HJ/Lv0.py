@@ -1322,3 +1322,13 @@ def fac(x):
         else:
             i += 1
     return tmp
+
+# 오른쪽 왼쪽
+def solution(str_list):
+    for s in str_list:
+        if s =='l':
+            return str_list[:str_list.index(s)]
+
+        elif s =='r':
+            return str_list[str_list.index(s):]
+    return []
