@@ -2017,6 +2017,27 @@ def solution(num, total):
 
 
 # 겹치는 선분의 길이
+def solution(lines):
+    left = []
+    right = []
+    for i in lines:
+        left.append(i[0])
+        right.append(i[1])
+    
+    (a,b) = (min(left),max(right))
+    
+    count = {}
+    
+    for k in range(a,b+1):
+        count[k] = 0
+        
+    for n in lines:
+        for j in range(n[0]+1,n[1]+1):
+            count[j] += 1
+            
+    values_list = [value for value in count.values() if value >= 2]
+    
+    return len(values_list)
 
 
 # 주사위 게임 3
