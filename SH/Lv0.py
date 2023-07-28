@@ -1824,10 +1824,34 @@ def solution(quiz):
     return answer
 
 # 코드 처리하기
+def solution(code):
+    answer = ''
+    mode = 0
+    for i in range(len(code)):
+        if code[i] == '1':
+            mode += 1
+            continue
+        # mode = 0인 경우
+        if mode %2 == 0 and i%2 == 0:
+            answer += code[i]
+        # mode = 1인 경우  
+        elif mode % 2 != 0 and i%2 ==1 :
+            answer += code[i]
+    if len(answer)== 0:
+        return "EMPTY"
+    else:
+        return answer
+    
 # 분수의 덧셈
 
 
 # 다음에 올 숫자
+def solution(common):
+    if (common[2]-common[1]) == (common[1] - common[0]) :
+        return common[0]+len(common)*(common[1] - common[0])
+    else :
+        return common[0]*((common[1]//common[0])**len(common))
+
 # 연속된 수의 합
 # 안전지대
 # 겹치는 선분의 길이
