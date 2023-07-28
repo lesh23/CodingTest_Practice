@@ -1912,6 +1912,7 @@ def solution(board):
         answer += i.count(0)
     return answer
 
+
 # 겹치는 선분의 길이
 def solution(lines):
     answer = []
