@@ -1843,7 +1843,37 @@ def solution(code):
         return answer
     
 # 분수의 덧셈
+def solution(numer1, denom1, numer2, denom2):
+    answer = []
+    i = 2
+    # 분모 계산 & 분모 약수 구하기
+    a = denom1*denom2
+    p = []
+    while i <= a :
+        if a % i == 0:
+            a = a//i
+            p.append(i)
+            i = 2
+        else :
+            i+=1
+    # 분자 구하기
+    b = numer1 * denom2 + numer2 * denom1
+    # 약분
+    j = 0
+    while j < len(p):
+        if b % p[j] == 0:
+            b = b//p[j]
+            p.pop(j)
+            j = 0
+        else:
+            j += 1
+    # 약분된 분모 구하기
+    no = 1
+    for i in p:
+        no *= i
+    return [b, no]
 
+    # fractions / math(gcd) 방법도 있음
 
 # 다음에 올 숫자
 def solution(common):
@@ -1853,6 +1883,12 @@ def solution(common):
         return common[0]*((common[1]//common[0])**len(common))
 
 # 연속된 수의 합
+def solution(num, total):
+    answer = []
+    for i in range(num):
+        answer.append((total - ((num-1)*num)/2) / num +i)
+    return answer
+
 # 안전지대
 # 겹치는 선분의 길이
 # 주사위 게임 3
@@ -1860,6 +1896,16 @@ def solution(common):
 
 # 평행
 # 배열 조각하기
+def solution(arr, query):
+    for i in range(len(query)):
+        # 짝수 인덱스
+        if i % 2 == 0:
+            arr = arr[:query[i]+1]
+        # 홀수 인덱스
+        else :
+            arr = arr[query[i]:]
+    return arr
+
 # 정수를 나선형으로 배치하기
 # 옹알이 (1)
 from itertools import permutations
