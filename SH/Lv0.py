@@ -1913,6 +1913,42 @@ def solution(board):
     return answer
 
 # 겹치는 선분의 길이
+def solution(lines):
+    answer = []
+    lines = sorted(lines)
+    l = []
+    # 겹치는 구간 찾기
+    for i in range(len(lines)-1):
+        for j in range(i+1, len(lines)):
+            if lines[j][0] in range(lines[i][0],lines[i][1]+1):
+                l.append([lines[j][0],min(lines[i][1], lines[j][1])])
+
+    # 겹치는 구간의 길이
+    if len(l) == 0:
+        return 0
+    elif len(l) == 1:
+        return l[0][1] - l[0][0]
+    elif len(l) == 2:
+        if l[1][0] not in range(l[0][0],l[0][1]+1) and l[1][1] not in range(l[0][0],l[0][1]+1) :
+            return sum(j-i for i,j in l)
+        else :
+            return max(l[0][1],l[1][1]) - min(l[0][0],l[1][0])
+    else:
+        if l[1][0] not in range(l[0][0],l[0][1]+1) and l[1][1] not in range(l[0][0],l[0][1]+1) :
+            answer.append(l[0])
+            answer.append(l[1])
+        else :
+            answer.append([min(l[0][0],l[1][0]),max(l[0][1],l[1][1])])
+
+        if l[2][0] not in range(answer[-1][0],answer[-1][1]+1) and l[2][1] not in range(answer[-1][0],answer[-1][1]+1) :
+            answer.append(l[2])
+        else :
+            answer.append([min(answer[-1][0],l[2][0]),max(answer[-1][1],l[2][1])])
+            answer.pop(-2)
+
+            return sum(j-i for i,j in answer)
+
+
 # 주사위 게임 3
 
 
