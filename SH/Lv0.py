@@ -1883,6 +1883,12 @@ def solution(common):
         return common[0]*((common[1]//common[0])**len(common))
 
 # 연속된 수의 합
+def solution(num, total):
+    answer = []
+    for i in range(num):
+        answer.append((total - ((num-1)*num)/2) / num +i)
+    return answer
+
 # 안전지대
 # 겹치는 선분의 길이
 # 주사위 게임 3
@@ -1890,6 +1896,16 @@ def solution(common):
 
 # 평행
 # 배열 조각하기
+def solution(arr, query):
+    for i in range(len(query)):
+        # 짝수 인덱스
+        if i % 2 == 0:
+            arr = arr[:query[i]+1]
+        # 홀수 인덱스
+        else :
+            arr = arr[query[i]:]
+    return arr
+
 # 정수를 나선형으로 배치하기
 # 옹알이 (1)
 from itertools import permutations
