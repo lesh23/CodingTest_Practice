@@ -1146,13 +1146,91 @@ def solution(my_str, n):
     return answer
 
 # 이차원 배열 대각선 순회하기
+def solution(board, k):
+    answer = 0
+    for i,b in enumerate(board):
+        for j, x in enumerate(b):
+            if i+j<=k:
+                answer+=x
+    return answer
+
 # 문자열 계산하기
+def solution(my_string):
+    split = my_string.split()
+    answer = int(split[0])
+    for i, s in enumerate(split):
+        if i<len(split)-1 and i!=0:
+            if s == '+':
+                answer+=int(split[i+1])
+            elif s== '-':
+                answer-=int(split[i+1])
+            else:
+                continue
+    return answer
 
 
-# 문자열 묶기
+# 문자열 묶기   ##웨안돼!
+def solution(strArr):
+    l = [len(x) for x in strArr]
+    dic={}
+    for i in l:
+        if i not in dic:
+            dic[i]=l.count(i)
+    answer = max([k for k, v in dic.items() if v==max(dic.values())])
+    print([k for k, v in dic.items()],[v for k, v in dic.items()])
+    print([k for k, v in dic.items() if v==max(dic.values())])
+    print(max([k for k, v in dic.items() if v==max(dic.values())]))
+    return answer
+
 # 조건에 맞게 수열 변환하기 2
+def solution(arr):
+    answer = 0
+    while True:
+        new_arr=[]
+        for a in arr:
+            if a >= 50 and a%2==0:
+                a=a/2
+                new_arr.append(a)
+            elif a<50 and a%2!=0:
+                a=(a*2)+1
+                new_arr.append(a)
+            else:
+                new_arr.append(a)
+        answer+=1
+        if arr == new_arr:
+            break
+        arr=new_arr
+        
+    return answer-1
+
 # 문자열이 몇 번 등장하는지 세기
+def solution(myString, pat):
+    answer = 0
+    l = len(pat)
+    for i,s in enumerate(myString):
+        if i<=len(myString)-l:
+            if s==pat[0]:
+                if myString[i:i+l]==pat:
+                    answer+=1
+    return answer
+
 # 빈 배열에 추가, 삭제하기
+def solution(arr, flag):
+    answer = []
+    for i,f in enumerate(flag):
+        if f == True:
+            for j in range(arr[i]*2):
+                answer.append(arr[i])
+        else:
+            for i in range(arr[i]):
+                if answer==[]:
+                    pass
+                else:
+                    answer.pop()
+                
+            
+    return answer
+
 # 구슬을 나누는 경우의 수
 
 
@@ -1165,6 +1243,38 @@ def solution(arr, queries):
                 arr[i]+=1
     return arr
 
-# 리스트 자르기
+# 리스트 자르기 ##시ㄹ패!!!
+def solution(n, slicer, num_list):
+    answer=[]
+    if n==1:
+        answer = num_list[:slicer[1]+1]
+    elif n==2:
+        answer = num_list[slicer[1]:]
+    elif n==3:
+        answer = num_list[slicer[0]:slicer[1]+1]
+    elif n==4:
+        tmp = num_list[slicer[0]:slicer[1]+1]
+        for i, x in enumerate(tmp):
+            if i%slicer[2]==0:
+                answer.append(x)
+        
+    return answer
+
 # 외계어 사전
 # qr code
+
+# 수열과 구간 쿼리 2
+def solution(arr, queries):
+    ans=[]
+    for s, e, k in queries:
+        m=[]
+        for i in range(s,e+1):
+            if arr[i] > k:
+                m.append(arr[i])
+            else:
+                pass
+        if len(m)!=0:
+            ans.append(min(m))
+        else:
+            ans.append(-1)
+    return ans
