@@ -1347,3 +1347,17 @@ def solution(arr):
     if len(stk)==0:
         return [-1]
     return stk
+
+# 배열 만들기 2
+def solution(l, r):
+    answer = []
+    
+    for num in [x for x in range(l,r+1)]:
+        answer.append(num)
+        for s in str(num):
+            if int(s)%5!=0:
+                answer.pop()
+                break
+    if len(answer)==0:
+        return[-1]
+    return answer
