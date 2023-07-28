@@ -1843,7 +1843,37 @@ def solution(code):
         return answer
     
 # 분수의 덧셈
+def solution(numer1, denom1, numer2, denom2):
+    answer = []
+    i = 2
+    # 분모 계산 & 분모 약수 구하기
+    a = denom1*denom2
+    p = []
+    while i <= a :
+        if a % i == 0:
+            a = a//i
+            p.append(i)
+            i = 2
+        else :
+            i+=1
+    # 분자 구하기
+    b = numer1 * denom2 + numer2 * denom1
+    # 약분
+    j = 0
+    while j < len(p):
+        if b % p[j] == 0:
+            b = b//p[j]
+            p.pop(j)
+            j = 0
+        else:
+            j += 1
+    # 약분된 분모 구하기
+    no = 1
+    for i in p:
+        no *= i
+    return [b, no]
 
+    # fractions / math(gcd) 방법도 있음
 
 # 다음에 올 숫자
 def solution(common):
