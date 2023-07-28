@@ -1603,7 +1603,32 @@ def solution(score):
     # 순위 함수 : pandas의 rank함수
 
 # 유한소수 판별하기
-
+def solution(a, b):
+    p = []
+    # b의 약수 구하기(2,5를 제외한)
+    i=2
+    while i <= b :
+        if b % i == 0:
+            b = b//i
+            if i != 2 and i != 5 :
+                p.append(i)
+            i = 2
+        else :
+            i+=1
+    # 약분가능한지 확인
+    j = 0
+    while j < len(p):
+        if a % p[j] == 0:
+            p.pop(j)
+            j = 0
+        else:
+            j += 1
+        
+    if len(p)== 0:
+        return 1
+    else:
+        return 2
+    
 # 대소문자 바꿔서 출력하기
 str = list(input())
 for i in range(len(str)):
