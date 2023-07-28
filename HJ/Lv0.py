@@ -1278,3 +1278,23 @@ def solution(arr, queries):
         else:
             ans.append(-1)
     return ans
+
+# 캐릭터의 좌표
+def solution(keyinput, board):
+    answer = [0,0]
+    maxx = board[0]//2
+    maxy = board[1]//2
+    for k in keyinput:
+        if k == 'left':
+            if answer[0]>-maxx:
+                answer[0] -=1
+        elif k == 'right':
+            if answer[0]<maxx:
+                answer[0]+=1
+        elif k == 'up':
+            if answer[1]<maxy:
+                answer[1]+=1
+        elif k == 'down':
+            if answer[1]>-maxy:
+                answer[1]-=1
+    return answer
