@@ -1951,7 +1951,34 @@ def solution(lines):
 
 
 # 주사위 게임 3
+def solution(a, b, c, d):
+    # 네 주사위 숫자 모두 같음
+    if len(set([a,b,c,d])) == 1:
+        return 1111*b
+    # 네 주사위 숫자 모두 다름
+    if len(set([a,b,c,d])) == 4:
+        return min([a,b,c,d])
+    # (2,2) or (3,1)
+    if len(set([a,b,c,d])) == 2:
+        # (2,2)
+        if [a,b,c,d].count(list(set([a,b,c,d]))[0]) == 2:
+            return (list(set([a,b,c,d]))[0] +list(set([a,b,c,d]))[1]) * abs(list(set([a,b,c,d]))[0]-list(set([a,b,c,d]))[1])
+        # (3,1)
+        else:
+            if [a,b,c,d].count(list(set([a,b,c,d]))[0]) == 3:
+                return (10*list(set([a,b,c,d]))[0] + list(set([a,b,c,d]))[1])**2
+            else :
+                return (10*list(set([a,b,c,d]))[1] + list(set([a,b,c,d]))[0])**2
+    # (2,1,1)
+    if len(set([a,b,c,d])) == 3:
+        if [a,b,c,d].count(list(set([a,b,c,d]))[0]) == 2:
+            return list(set([a,b,c,d]))[1] * list(set([a,b,c,d]))[2]
+        elif [a,b,c,d].count(list(set([a,b,c,d]))[1]) == 2:
+            return list(set([a,b,c,d]))[0] * list(set([a,b,c,d]))[2]
+        else:
+            return list(set([a,b,c,d]))[1] * list(set([a,b,c,d]))[0]
 
+    # 주사위 게임 답 비교
 
 # 평행
 # 배열 조각하기
