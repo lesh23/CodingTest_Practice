@@ -494,6 +494,9 @@ def solution(a, b):
     return days[(sum(day[0:a-1])+b)%7]
 
 
+
+
+
 #####
 
 # 추억 점수
@@ -511,8 +514,6 @@ def solution(name, yearning, photo):
     return answer
 
 
-
-### 6월 9일 ###
 # 폰켓몬
 def solution(nums):
     N=len(nums)
@@ -522,6 +523,7 @@ def solution(nums):
     else : 
         answer=N/2
     return answer
+
 
 # 모의고사
 def solution(answers):
@@ -542,6 +544,7 @@ def solution(answers):
             answer.append(j+1)
     return answer
 
+
 # 명예의 전당 (1)
 def solution(k, score):
     answer = []
@@ -557,8 +560,6 @@ def solution(k, score):
     return answer
 
 
-
-### 6월 12일 ###
 # 소수 만들기
 def solution(nums):
     answer = 0
@@ -569,6 +570,7 @@ def solution(nums):
             answer +=1
     return answer
 
+
 # 소수 찾기 #시간 초과
 def solution(n):
     answer = []
@@ -576,6 +578,7 @@ def solution(n):
         if len([j for j in range(1,int(i**(1/2)+1)) if i%j == 0]) == 1:
             answer.append(i)
     return len(answer)
+
 
 # 과일 장수
 def solution(k, m, score):
@@ -589,8 +592,6 @@ def solution(k, m, score):
     return answer
 
 
-
-### 6월 13일 ###
 # 실패율                            #런타임 에러 70.4/100
 def solution(N,stages):
     answer = []
@@ -603,6 +604,7 @@ def solution(N,stages):
         result.append(j[0])
     return result 
 
+
 # 실패율                        
 def solution(N,stages):
     dic = {}
@@ -612,6 +614,7 @@ def solution(N,stages):
         rate = cnt/cnt_ if cnt!=0 else 0
         dic[i]=rate
     return sorted(dic, key=dic.get, reverse=True)
+
 
 # 카드 뭉치                         #마지막 하나 통과 못함..왜?ㅠㅠ
 def solution(cards1, cards2, goal):
@@ -654,9 +657,9 @@ def solution(dartResult):
     return sum(answer)
 
 
-
-### 6월 15일 ###
 # 덧칠하기
+
+
 # 기사단원의 무기                   # 시간초과
 def solution(number, limit, power):
     answer = []
@@ -690,6 +693,7 @@ def solution(number, limit, power):
             answer.append(cnt)
     return sum(answer)
 
+
 # 로또의 최고 순위와 최저 순위
 def solution(lottos, win_nums):
     answer = []
@@ -708,6 +712,7 @@ def solution(lottos, win_nums):
             answer[j] = 6
     return [min(answer),max(answer)]
 
+
 # 로또의 최고 순위와 최저 순위 ver2
 def solution(lottos, win_nums):
     answer = []
@@ -722,8 +727,9 @@ def solution(lottos, win_nums):
     return [rank[win+zero],rank[win]]
 
 
-### 6월 16일 ###
-# 숫자 짝꿍
+#숫자 짝꿍
+
+
 # 체육복
 def solution(n, lost, reserve):
     n_lost = set(lost) - set(reserve)
@@ -741,6 +747,7 @@ def solution(n, lost, reserve):
             n -= 1
 
     return n 
+
 
 # 옹알이 (2)                        # 별로인듯 
 def solution(babbling):
@@ -761,9 +768,7 @@ def solution(babbling):
             cnt +=1
     return cnt
 
-#///////////
 
-### 6월 19일 ###
 # 완주하지 못한 선수
 def solution(participant, completion):
     participant.sort()
@@ -773,33 +778,74 @@ def solution(participant, completion):
             return participant[i]
     return participant[-1]
 
+
 # 문자열 나누기
+def solution(s):
+    count1 = 0
+    count2 = 0
+    answer = 0
+    k = 0
+    for i in range(len(s)) :
+         if s[i] == s[k] :
+            count1 += 1
+         else:
+            count2 += 1
+
+         if count1 == count2 :
+            count1 = 0
+            count2 = 0
+            k = i + 1
+            answer += 1
+    if count1 != count2:
+        answer +=1
+
+    return answer
+
+
 # 크레인 인형뽑기 게임
 
 
-
-### 6월 21일 ###
 # 키패드 누르기
+
+
 # 신규 아이디 추천
+
+
 # 둘만의 암호
 
 
-
-### 6월 22일 ### 
 # 대충 만든 자판
+
+
 # 햄버거 만들기
+def solution(ingredient):
+    cnt = 0
+    idx = 0
+    while idx < len(ingredient) -3 :
+        if ingredient[idx] == 1:
+            if ingredient[idx:idx+4] == [1,2,3,1]:
+                del ingredient[idx:idx+4]
+                idx -= 3
+                cnt += 1
+                continue
+        idx += 1  
+    return cnt
+
+
 # 성격 유형 검사하기
 
 
-
-### 6월 23일 ###
 # 달리기 경주
+
+
 # 개인정보 수집 유효기간
+
+
 # 바탕화면 정리
 
 
-
-### 6월 24일 ###
 # 신고 결과 받기
+
+
 # 공원 산책
 
