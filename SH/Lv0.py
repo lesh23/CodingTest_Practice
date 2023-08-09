@@ -1981,6 +1981,36 @@ def solution(a, b, c, d):
     # 주사위 게임 답 비교
 
 # 평행
+def solution(dots):
+    a = []
+    b = []
+    
+    # 일치하는 경우 제외 : unhashable type: 'list' 문제 해결을 위해 아래와 같이 함
+    if len(list(set([tuple(i) for i in dots]))) <= 3:
+        return 1
+    
+    # 두 점 선택
+    for i in range(len(dots)) :
+        a.append(dots[i])
+        for j in range(i+1,len(dots)):
+            a.append(dots[j])
+            
+            # 그 두 점 외의 두 점
+            for p in dots:
+                if p not in a:
+                    b.append(p)
+            
+            # 기울기 비교
+            if (a[1][1]-a[0][1])*(b[1][0]-b[0][0]) == (b[1][1]-b[0][1])*(a[1][0]-a[0][0]):
+                return 1
+            else : 
+                a.pop()
+                b = []
+        a=[]
+        b=[]
+
+    return 0
+    
 # 배열 조각하기
 def solution(arr, query):
     for i in range(len(query)):
