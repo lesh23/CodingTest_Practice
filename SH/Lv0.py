@@ -2023,6 +2023,7 @@ def solution(arr, query):
     return arr
 
 # 정수를 나선형으로 배치하기
+
 # 옹알이 (1)
 from itertools import permutations
 
