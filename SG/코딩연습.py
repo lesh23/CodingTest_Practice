@@ -1,5 +1,5 @@
 # 포인트 
-def point(arr):
+def point(m,arr):
     for i in range(0,len(arr)-1):
         for j in range(i+1,len(arr)):
             if arr[i][0]== arr[j][1]:
@@ -16,11 +16,11 @@ def point(arr):
         key, value = item
         for p in result:
             if p[0] == key:
-                p[1] += 100.0 * (0.1) ** (value-1)
+                p[1] += m * (0.1) ** (value-1)
                 break
         else:
             result.append([key, 0])
-    return result
+    return sorted(result , key = lambda item:item[1])
 
 
 #[['a', '-'],['b', 'a', '-'],['c', 'b', 'a', '-'],['d', 'b', 'a', '-'],['e', '-'],['f', 'd', 'b', 'a', '-']]
