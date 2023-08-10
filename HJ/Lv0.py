@@ -1463,3 +1463,91 @@ def solution(board):
     
     
     return answer
+
+# 코드 처리하기
+def solution(code):
+    answer = ''
+    mode = 0
+    for i, c in enumerate(code):
+        if mode == 0:
+            if i%2==0 and c!='1':
+                answer+=c
+            elif c=='1':
+                mode = 1
+        elif mode == 1:
+            if i%2!=0 and c!='1':
+                answer += c
+            elif c=='1':
+                mode=0
+    if len(answer)==0: return 'EMPTY'
+    else: return answer
+
+# 주사위 게임 3
+def solution(a, b, c, d):
+    countA = [a,b,c,d].count(a)
+    countB = [a,b,c,d].count(b)
+    countC = [a,b,c,d].count(c)
+    countD = [a,b,c,d].count(d)
+    print(sum([countA,countB,countC,countD]))
+    if a==b==c==d and countA==4:
+        return 1111*a
+    elif a!=b!=c!=d and countA==1:
+        return min(a,b,c,d)
+    elif countA==countB==countC==countD and countA==2:
+        if a!=b:
+            return (a+b)*abs(a-b)
+        elif a!=c:
+            return (a+c)*abs(a-c)
+    elif countA==3 or countB==3 or countC==3 or countD==3:
+        low = min([a,b,c,d])
+        high = max([a,b,c,d])
+        if [a,b,c,d].count(low)==1:
+            return ((10*high)+low)**2
+        elif [a,b,c,d].count(high)==1:
+            return ((10*low)+high)**2
+    elif sum([countA, countB, countC, countD])==6:
+        if countA==1:
+            if countB==1:
+                return a*b
+            elif countC==1:
+                return a*c
+            elif countD==1:
+                return a*d
+        elif countB==1:
+            if countC==1:
+                return b*c
+            elif countD==1:
+                return b*d
+        elif countC==1:
+            if countD==1:
+                return c*d
+            
+# 평행
+def solution(dots):
+    slopes=[[slope(dots[0][0],dots[0][1],dots[1][0],dots[1][1]),
+             slope(dots[2][0],dots[2][1],dots[3][0],dots[3][1])],
+            [slope(dots[0][0],dots[0][1],dots[2][0],dots[2][1]),
+            slope(dots[1][0],dots[1][1],dots[3][0],dots[3][1])],
+            [slope(dots[0][0],dots[0][1],dots[3][0],dots[3][1]),
+            slope(dots[1][0],dots[1][1],dots[2][0],dots[2][1])]]
+
+    for s in slopes:
+        if s[0]==s[1]:
+            return 1
+    return 0
+
+def slope(x1, y1, x2, y2):
+    if (x2 - x1 != 0):
+        return (y2-y1)/(x2-x1)
+    
+# 배열 조각하기
+def solution(arr, query):
+    for i, q in enumerate(query):
+        if i%2==0:
+            arr=arr[:query[i]+1]
+        elif i%2!=0:
+            arr=arr[query[i]:]
+    
+    return arr
+
+# 정수를 나선형으로 배치하기
