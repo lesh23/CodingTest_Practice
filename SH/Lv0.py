@@ -1951,9 +1951,66 @@ def solution(lines):
 
 
 # 주사위 게임 3
+def solution(a, b, c, d):
+    # 네 주사위 숫자 모두 같음
+    if len(set([a,b,c,d])) == 1:
+        return 1111*b
+    # 네 주사위 숫자 모두 다름
+    if len(set([a,b,c,d])) == 4:
+        return min([a,b,c,d])
+    # (2,2) or (3,1)
+    if len(set([a,b,c,d])) == 2:
+        # (2,2)
+        if [a,b,c,d].count(list(set([a,b,c,d]))[0]) == 2:
+            return (list(set([a,b,c,d]))[0] +list(set([a,b,c,d]))[1]) * abs(list(set([a,b,c,d]))[0]-list(set([a,b,c,d]))[1])
+        # (3,1)
+        else:
+            if [a,b,c,d].count(list(set([a,b,c,d]))[0]) == 3:
+                return (10*list(set([a,b,c,d]))[0] + list(set([a,b,c,d]))[1])**2
+            else :
+                return (10*list(set([a,b,c,d]))[1] + list(set([a,b,c,d]))[0])**2
+    # (2,1,1)
+    if len(set([a,b,c,d])) == 3:
+        if [a,b,c,d].count(list(set([a,b,c,d]))[0]) == 2:
+            return list(set([a,b,c,d]))[1] * list(set([a,b,c,d]))[2]
+        elif [a,b,c,d].count(list(set([a,b,c,d]))[1]) == 2:
+            return list(set([a,b,c,d]))[0] * list(set([a,b,c,d]))[2]
+        else:
+            return list(set([a,b,c,d]))[1] * list(set([a,b,c,d]))[0]
 
+    # 주사위 게임 답 비교
 
 # 평행
+def solution(dots):
+    a = []
+    b = []
+    
+    # 일치하는 경우 제외 : unhashable type: 'list' 문제 해결을 위해 아래와 같이 함
+    if len(list(set([tuple(i) for i in dots]))) <= 3:
+        return 1
+    
+    # 두 점 선택
+    for i in range(len(dots)) :
+        a.append(dots[i])
+        for j in range(i+1,len(dots)):
+            a.append(dots[j])
+            
+            # 그 두 점 외의 두 점
+            for p in dots:
+                if p not in a:
+                    b.append(p)
+            
+            # 기울기 비교
+            if (a[1][1]-a[0][1])*(b[1][0]-b[0][0]) == (b[1][1]-b[0][1])*(a[1][0]-a[0][0]):
+                return 1
+            else : 
+                a.pop()
+                b = []
+        a=[]
+        b=[]
+
+    return 0
+    
 # 배열 조각하기
 def solution(arr, query):
     for i in range(len(query)):

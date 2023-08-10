@@ -1983,6 +1983,26 @@ def solution(quiz):
 
 
 # 코드 처리하기
+def solution(code):
+    mode = 0
+    answer=''
+    for i in range(len(code)):
+        if code[i] == '1':
+            if mode == 0:
+                mode = 1
+                continue
+            else:
+                mode =0
+                continue      
+        if mode == 0 and i % 2 == 0:
+            answer += code[i]
+        elif mode == 1 and i % 2 !=0:
+            answer += code[i]
+            
+    if answer == '':
+        return "EMPTY"
+    
+    return answer
 
 
 # 분수의 덧셈
@@ -2061,6 +2081,25 @@ def solution(lines):
 
 
 # 주사위 게임 3
+def solution(a, b, c, d):
+    nums = [a, b, c, d]
+    counts = [nums.count(i) for i in nums]
+    
+    if max(counts) == 4:
+        return a*1111
+    
+    elif max(counts) == 3:
+        return (10*nums[counts.index(3)]+nums[counts.index(1)])**2
+    
+    elif max(counts) == 2:
+        if min(counts) == 2:
+            [p,q] = list(set(nums))
+            return (p+q) * abs(p-q)
+        if min(counts) == 1:
+            [p,q] = [x for x in nums if nums.count(x) == 1]
+            return p*q
+    else:
+        return min(nums) 
 
 
 # 평행
@@ -2078,6 +2117,13 @@ def m(dot1,dot2):
     
 
 # 배열 조각하기
+def solution(arr, query): 
+    for i in range(len(query)):
+        if i%2 == 0:
+            arr = arr[:query[i]+1]
+        elif i%2 == 1:
+            arr = arr[query[i]:]    
+    return arr
 
 
 # 정수를 나선형으로 배치하기
