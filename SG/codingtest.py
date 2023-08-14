@@ -76,28 +76,33 @@ def sol(k,arr):
 
 
 # 포인트 
-def point(m,arr):
+def solution(p,arr):
     for i in range(0,len(arr)-1):
         for j in range(i+1,len(arr)):
             if arr[i][0]== arr[j][1]:
                 arr[j]= [arr[j][0]]+arr[i]
+#[['a', '-'],['b', 'a', '-'],['c', 'b', 'a', '-'],['d', 'b', 'a', '-'],['e', '-'],['f', 'd', 'b', 'a', '-']]
+
     answer = []
     for k in range(0,len(arr)):
         for m,n in enumerate(arr[k]):
             answer.append([n,m])
-#[['a', '-'],['b', 'a', '-'],['c', 'b', 'a', '-'],['d', 'b', 'a', '-'],['e', '-'],['f', 'd', 'b', 'a', '-']]
-    rem = [item for item in answer if item[0]!='-']
-    result = []
 
+
+    rem = [item for item in answer if item[0]!='-']
+#[['a', 0], ['b', 0], ['a', 1], ['c', 0], ['b', 1], ['a', 2], ['d', 0], ['b', 1], ['a', 2], ['e', 0], ['f', 0], ['d', 1], ['b', 2], ['a', 3]]
+
+    result = []
     for item in rem:
         key, value = item
-        for p in result:
-            if p[0] == key:
-                p[1] += int(m * (0.1) ** (value-1))
+        for point in result:
+            if point[0] == key:
+                point[1] += int(p * ((0.1) ** (value-1)))
                 break
         else:
             result.append([key, 0])
-    return sorted(result , key = lambda x:x[1])
+
+    return sorted(result , key = lambda x:x[1],reverse = True)
 
 
 # 기숙사 배정 
@@ -132,3 +137,6 @@ def sol1(lottery):
             answer.append(0)
     
     return int(sum(answer)/3)
+
+
+# 다리 건설
