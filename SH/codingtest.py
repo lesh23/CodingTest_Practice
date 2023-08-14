@@ -3,6 +3,8 @@
 a = [1,2,1,2]
 a = [-1,-2,2,1]
 a = [4,2,4,-3,-1]
+
+a=[4,3,-2,-1]
 from itertools import combinations
 
 # index로 이루어진 리스트 만들어서, 길이가 n인 list에서 두 개의 숫자를 골라 배열을 바꾸는 경우의 수(nC2) 구하기
@@ -29,6 +31,7 @@ for k in range(1,len(a)):
         answer += 1
         #print(a, a[:k],a[k:])
 
+print(answer)
 
 
 ### 문제2
@@ -63,3 +66,29 @@ l = sorted([[a,b] for a,b in zip(answer.keys(), answer.values())], key=lambda x:
 
 
 
+### 문제4
+lotto = [[0,1],[1, 0], [1, 0], [1, 1], [1, 1], [2, 1],[2,0], [3, 0], [3, 0], [4, 0], [5,1],[7,0],[7,0],[7,1],[100, 1]]
+
+d = {}
+answer = []
+
+# dict으로 만들기 -> 먼저 list만들기
+for i in set([x for x,y in lotto]) :
+    d[i] = []
+    
+# 사람별 로또 당첨여부 dict으로 추가    
+for x,y in lotto:
+    d[x].append(y)
+
+# d에서 당첨여부 판별
+for i in d.keys():
+    if 1 in d[i]:
+        answer.append(d[i].index(1)+1)
+    else:
+        answer.append(0)
+
+print('평균 당첨 횟수 : ', int(sum(answer)/len(answer)))
+
+
+
+### 문제5
