@@ -2127,6 +2127,27 @@ def solution(arr, query):
 
 
 # 정수를 나선형으로 배치하기
+def solution(n):
+    matrix = [[0]*n for _ in range(n)]
+    dx = [0,1,0,-1]
+    dy = [1,0,-1,0]
+    
+    d = 0
+    x,y = 0,0
+    
+    for i in range(1,n**2+1):
+        matrix[x][y] = i
+        nx = x + dx[d]
+        ny = y + dy[d]
+        
+        if not (0<=nx<n and 0<=ny<n) or matrix[nx][ny] != 0 :
+            d = (d + 1) % 4
+            nx = x + dx[d]
+            ny = y + dy[d]
+        
+        x,y = nx,ny
+    
+    return matrix
 
 
 # 옹알이 (1)
@@ -2141,3 +2162,4 @@ def solution(babbling):
         if k.isdigit():
             answer +=1
     return answer
+    

@@ -1,29 +1,5 @@
-# 포인트 
-def point(m,arr):
-    for i in range(0,len(arr)-1):
-        for j in range(i+1,len(arr)):
-            if arr[i][0]== arr[j][1]:
-                arr[j]= [arr[j][0]]+arr[i]
-    answer = []
-    for k in range(0,len(arr)):
-        for m,n in enumerate(arr[k]):
-            answer.append([n,m])
-#[['a', '-'],['b', 'a', '-'],['c', 'b', 'a', '-'],['d', 'b', 'a', '-'],['e', '-'],['f', 'd', 'b', 'a', '-']]
-    rem = [item for item in answer if item[0]!='-']
-    result = []
-
-    for item in rem:
-        key, value = item
-        for p in result:
-            if p[0] == key:
-                p[1] += m * (0.1) ** (value-1)
-                break
-        else:
-            result.append([key, 0])
-    return sorted(result , key = lambda item:item[1])
 
 
-#[['a', '-'],['b', 'a', '-'],['c', 'b', 'a', '-'],['d', 'b', 'a', '-'],['e', '-'],['f', 'd', 'b', 'a', '-']]
  
 
 # 리스트 컴프리헨션 [표현식 for 항목 in 시퀀스]
