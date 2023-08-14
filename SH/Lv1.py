@@ -506,11 +506,40 @@ def solution(name, yearning, photo):
         answer.append(s)            
     return answer
 
-    
+
 
 # 폰켓몬
+def solution(nums):
+    if len(list(set(nums))) <= len(nums)/2:
+        return len(list(set(nums)))
+    else:
+        return len(nums)/2
+    
+
 
 # 모의고사
+def solution(answers):
+    a = [1,2,3,4,5] # 5
+    b = [2,1,2,3,2,4,2,5] # 8
+    c = [3,3,1,1,2,2,4,4,5,5] # 10
+    total= [0,0,0]
+
+    for i in range(len(answers)) :
+        if a[i%5] == answers[i]:
+            total[0] += 1
+        if b[i%8] == answers[i]:
+            total[1] += 1
+        if c[i%10] == answers[i]:
+            total[2] += 1
+
+    if total.count(max(total)) == 1 :
+        return [total.index(max(total)) +1]
+    elif total.count(max(total)) == 2 :
+        return [total.index(max(total)) +1, 3-total[::-1].index(max(total))]
+    else:
+        return [1,2,3]
+    
+    
 
 # 명예의 전당 (1)
 
