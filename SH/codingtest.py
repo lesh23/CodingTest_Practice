@@ -92,3 +92,21 @@ print('평균 당첨 횟수 : ', int(sum(answer)/len(answer)))
 
 
 ### 문제5
+l = [["sg","sh","hj","Judy","Lucy"],[[3,-1],[2,1],[1,5],[1,3],[2,2]],[3.67,4.16,4.2,3.4,3.2]]
+
+a = []
+answer = []
+
+for i in l[0]:
+    a.append([i,int(l[2][l[0].index(i)]) , l[1][l[0].index(i)][0]**2 + l[1][l[0].index(i)][1]**2])
+
+a = sorted(a, key = lambda x : (-x[1], -x[2], x[0]))
+
+for i in l[0]:
+    for x,y in enumerate(a):
+        if i == y[0] :
+            answer.append(x+1)
+
+print(answer)
+
+
