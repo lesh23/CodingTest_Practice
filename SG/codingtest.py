@@ -121,7 +121,7 @@ def sol1(lottery):
         else:
             answer.append(0)
     
-    return int(sum(answer)/3)
+    return int(sum(answer)/len(answer))
 
 
 # 문제5 기숙사 배정 
