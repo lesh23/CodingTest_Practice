@@ -402,3 +402,61 @@ def solution(s):
 members = [['a','-'],['b','a'],['c','b'],['d','b'],['e','-'],['f','d']]
 answer = [['b',200],['a',125],['c',100],['f',0]]
 dic = {'ze': [0,],'on': [1,],'tw': [2,],'th': [3,],'fo': [4,],'fi': [5,],'si': [6,],'se': [7,],'ei': [8,],'ni': [9,]}
+
+# 추억 점수
+def solution(name, yearning, photo):
+    answer = []
+    for ph in photo:
+        tmp=0
+        for p in ph:
+            if p in name:
+                tmp+=yearning[name.index(p)]
+        answer.append(tmp)
+    return answer
+
+# 폰켓몬
+def solution(nums):
+    answer = 0
+    stack=[]
+    for n in nums:
+        if n not in stack:
+            stack.append(n)
+    if len(stack)>(len(nums)/2):
+        answer = len(nums)/2
+    else: answer = len(stack)
+    
+    return answer
+
+# 모의고사
+from math import ceil
+def solution(answers):
+    res=[]
+    
+    pat=[[1,2,3,4,5],[2,1,2,3,2,4,2,5],[3,3,1,1,2,2,4,4,5,5]]
+    
+    diff=[]
+    for p in pat:
+        diff.append(len(answers)-len(p))
+
+
+    for i,d in enumerate(diff):
+        if d>0:
+            pat[i]=pat[i]*(ceil(d/len(pat[i]))+1)
+    
+    for p in pat:
+        cnt=0
+        for i, answer in enumerate(answers):
+            if p[i]==answer:
+                cnt+=1
+        res.append(cnt)
+    ans=[]
+    if res[0]==res[1]==res[2]:
+        return [1,2,3]
+    if max(res[0], res[1], res[2]) == res[0]:
+        ans.append(1)
+    if max(res[0], res[1], res[2]) == res[1]:
+        ans.append(2)
+    if max(res[0], res[1], res[2]) == res[2]:
+        ans.append(3)
+    return ans
+
