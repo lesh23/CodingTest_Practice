@@ -111,6 +111,9 @@ answer = []
 for i in l[0]:
     a.append([i,int(l[2][l[0].index(i)]) , l[1][l[0].index(i)][0]**2 + l[1][l[0].index(i)][1]**2])
 
+# [이름, 학점, 거리]
+# a = [['sg', 3, 10], ['sh', 4, 5], ['hj', 4, 26], ['Judy', 3, 10], ['Lucy', 3, 8]]
+
 a = sorted(a, key = lambda x : (-x[1], -x[2], x[0]))
 
 for i in l[0]:
