@@ -1,4 +1,4 @@
-# 배열 나누기               # 아닌거 같은데 답은 나옴...
+# 문제1 배열 나누기               # 아닌거 같은데 답은 나옴...
 def solution(arr):
     cnt = 0
     
@@ -17,7 +17,7 @@ def solution(arr):
     return cnt
 
 
-#  배열 나누기 
+# 문제1 배열 나누기 다시
 def sol2(arr):
     cnt = 0
 
@@ -41,7 +41,7 @@ def sol2(arr):
     return cnt 
 
 
-# 고정지출
+# 문제2 고정지출
 def sol(k,arr):
     answer = []
     dic = {}
@@ -75,7 +75,7 @@ def sol(k,arr):
     return data
 
 
-# 포인트 
+# 문제3 포인트 
 def solution(p,arr):
     for i in range(0,len(arr)-1):
         for j in range(i+1,len(arr)):
@@ -105,22 +105,7 @@ def solution(p,arr):
     return sorted(result , key = lambda x:x[1],reverse = True)
 
 
-# 기숙사 배정 
-def solution(arr):
-    answer = []
-    result = []
-    for i in range(len(arr[0])):
-        answer.append([arr[0][i],(arr[1][i][0]**2)+(arr[1][i][1]**2),int(arr[2][i])])       #리스트 합치기
-        
-    names = [i[0] for i in sorted(answer,key = lambda x:(-x[2],-x[1],x[0]))]                #정렬하고 이름만 나열
-    
-    for name in arr[0]:
-        result.append(names.index(name)+1)      # 인덱스 출력
-        
-    return result
-
-
-# 로또 
+# 문제4 로또 
 def sol1(lottery):
     dic = {}
     answer = []
@@ -139,4 +124,19 @@ def sol1(lottery):
     return int(sum(answer)/3)
 
 
-# 다리 건설
+# 문제5 기숙사 배정 
+def solution(arr):
+    answer = []
+    result = []
+    for i in range(len(arr[0])):
+        answer.append([arr[0][i],(arr[1][i][0]**2)+(arr[1][i][1]**2),int(arr[2][i])])       #리스트 합치기
+        
+    names = [i[0] for i in sorted(answer,key = lambda x:(-x[2],-x[1],x[0]))]                #정렬하고 이름만 나열
+    
+    for name in arr[0]:
+        result.append(names.index(name)+1)      # 인덱스 출력
+        
+    return result
+
+
+# 문제6 다리 건설
