@@ -80,12 +80,23 @@ for i in set([x for x,y in lotto]) :
 for x,y in lotto:
     d[x].append(y)
 
+# {0: [1],
+#  1: [0, 0, 1, 1],
+#  2: [1, 0],
+#  3: [0, 0],
+#  4: [0],
+#  5: [1],
+#  100: [1],
+#  7: [0, 0, 1]}
+
 # d에서 당첨여부 판별
 for i in d.keys():
     if 1 in d[i]:
         answer.append(d[i].index(1)+1)
     else:
         answer.append(0)
+
+#[1, 3, 1, 0, 0, 1, 1, 3]
 
 print('평균 당첨 횟수 : ', int(sum(answer)/len(answer)))
 
@@ -110,3 +121,5 @@ for i in l[0]:
 print(answer)
 
 
+
+### 문제6
