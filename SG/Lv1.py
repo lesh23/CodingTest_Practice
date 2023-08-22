@@ -579,6 +579,17 @@ def solution(n):
             answer.append(i)
     return len(answer)
 
+# 소수 찾기
+def solution(n):
+    answer = 0
+    for i in range(2, n+1):
+        for k in range(2, int(i**(0.5))+1) :
+            if i%k == 0:
+                answer -= 1
+                break
+        answer += 1
+    return answer
+
 
 # 과일 장수
 def solution(k, m, score):
