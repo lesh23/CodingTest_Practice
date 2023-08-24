@@ -542,16 +542,82 @@ def solution(answers):
     
 
 # 명예의 전당 (1)
+def solution(k, score):
+    answer = score[:k]
+    result = []
+    
+    
+    # 점수 list가 k보다 큰 경우
+    if len(score) >= k :
+        # k번째까지의 경우에서 최저점 가져오기
+        for i in range(1,k+1):
+            result.append(min(score[:i]))
+        # k+1번째부터 최저점 비교해서 값변경하고 result에 최저점 추가
+        for i in score[k:]:
+            if i > min(answer):
+                answer.remove(min(answer))
+                answer.append(i)
+                result.append(min(answer))
+            else:
+                result.append(min(answer))
+    # 점수 list가 k보다 작은 경우
+    else:
+        for i in range(1,len(score)+1):
+            result.append(min(score[:i]))
+    return result
+
+
 
 # 소수 만들기
+from itertools import combinations
+
+def solution(nums):
+    a = list(combinations(nums, 3))
+    cnt = 0
+
+    for i in a:
+        cnt += 1
+        for j in range(2,sum(i)):
+            if sum(i) % j == 0:
+                cnt -= 1
+                break
+    return cnt
+
+
 
 # 소수 찾기
 
 # 과일 장수
+def solution(k, m, score):
+    answer = 0
+    score = sorted(score, reverse=True)
+
+    for i in range(0,len(score)//m):
+        answer += min(score[m*i:m*(i+1)])*m
+        
+    return answer
 
 
-### 6/14
+
 # 실패율
+def solution(N, stages):
+    
+    a = []
+    for i in range(1,N+1):
+        a.append(stages.count(i))    
+    # a = [1, 3, 2, 1, 0, 1]
+    
+    d = {}
+    for i in range(len(a)):
+        if (len(stages) - sum(a[:i])) != 0:
+            d[i+1] = a[i]/(len(stages) - sum(a[:i]))
+        else :
+            d[i+1] = 0
+    
+    return sorted(d, key= lambda x: d[x], reverse=True)
+
+
+
 # 카드 뭉치
 # [1차] 다트 게임
 
