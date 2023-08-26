@@ -587,6 +587,7 @@ def solution(nums):
 
 # 소수 찾기
 
+
 # 과일 장수
 def solution(k, m, score):
     answer = 0
