@@ -586,6 +586,23 @@ def solution(nums):
 
 
 # 소수 찾기
+# 방법1 - 시간초과(56.3점)
+if n <= 10:
+    print(len([i for i in answer if i <= n]))
+
+else :
+    for i in range(11, n+1):
+        count = 0
+        for j in answer :
+            
+            if i%j == 0:
+                break
+            else:
+                count += 1
+        
+        if count == len(answer):
+            answer.append(i)
+
 
 
 # 과일 장수
