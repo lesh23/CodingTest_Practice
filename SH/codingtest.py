@@ -191,3 +191,34 @@ i # [6]
 
 answer = len(land)-1 + len(i)
 print(answer)
+
+
+
+### 문제 8
+l = ['abc de bd','abd ds bhe','abd d bb', 'zye lc']
+result = []
+
+for i in range(len(l)) :
+    l[i] = l[i].split()
+
+for i in l:
+    answer = ''
+    for j in range(len(i)):
+        if i[j] != '':
+            answer += i[j][0]
+            i[j] = i[j][1:]
+
+    if answer not in result :
+        result.append(answer)
+    else :
+        while answer in result:
+            for j in range(len(i)):
+                if i[j] != '' :
+                    answer += i[j][0]
+                    i[j] = i[j][1:]
+
+                if answer not in result:
+                    break
+        result.append(answer)
+
+print(result)
